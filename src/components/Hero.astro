@@ -1,0 +1,50 @@
+---
+---
+<section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-20 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('/images/fondo_local.jpg');">
+    
+    <!-- Overlay oscuro elegante con tinte cálido -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/85 via-[#111110]/70 to-[#111110]/95 z-0"></div>
+
+    <div class="z-10 max-w-3xl flex flex-col items-center" data-aos="fade-up" data-aos-duration="1200">
+
+        <!-- Badge glass -->
+        <div class="mb-6 px-5 py-2 rounded-full glass-panel flex items-center gap-2" data-aos="fade-down" data-aos-delay="300">
+
+            <span class="text-[#d4af37] text-xs font-semibold tracking-widest uppercase">Estética Paris</span>
+        </div>
+
+        <!-- Torre Eiffel -->
+        <div class="relative mb-10 flex justify-center items-center" data-aos="zoom-in" data-aos-delay="200">
+            <!-- Halo de luz adaptado a la nueva proporción -->
+            <div class="absolute inset-0 bg-[#f59e0b] blur-[70px] opacity-20 rounded-full scale-[1.1]"></div>
+            
+            <!-- El salto de tamaño: w-48 (Móvil), md:w-56 (Tablet), lg:w-64 (Escritorio) -->
+            <img 
+                src="/images/torre.png" 
+                alt="Logo Estética París" 
+                class="relative z-10 w-48 md:w-56 lg:w-64 object-contain drop-shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-transform duration-700 hover:scale-105"
+            >
+        </div>
+
+        <!-- Título -->
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight text-gradient">
+            Barbería y Estética
+        </h1>
+        
+        <!-- Subtítulo -->
+        <p class="text-lg md:text-xl mb-12 text-[#a8a29e] font-light max-w-xl leading-relaxed">
+            Líderes profesionales en la Belleza.
+        </p>
+
+        <!-- CTA -->
+        <a href="#reservas" class="glass-btn group">
+            Agendar Cita
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#111110] to-transparent z-10 pointer-events-none"></div>
+</section>

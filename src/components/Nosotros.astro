@@ -1,0 +1,77 @@
+<style>
+    .fondo-dinamico {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: crossfade 15s infinite;
+    }
+    .fondo-dinamico:nth-child(1) { animation-delay: 0s; }
+    .fondo-dinamico:nth-child(2) { animation-delay: 5s; }
+    .fondo-dinamico:nth-child(3) { animation-delay: 10s; }
+    @keyframes crossfade {
+        0%, 100% { opacity: 0; transform: scale(1); }
+        10%, 33% { opacity: 1; transform: scale(1.03); }
+        43% { opacity: 0; transform: scale(1.06); }
+    }
+</style>
+
+<section class="relative py-28 md:py-36 px-6 flex items-center justify-center overflow-hidden section-glow-top" id="nosotros">
+    
+    <!-- 1. FOTOS DE FONDO (Le quitamos el opacity-15 para que brillen) -->
+    <div class="absolute inset-0 z-0">
+        <img src="/images/ejemplos/morado.jpg" alt="Detalle 1" class="fondo-dinamico">
+        <img src="/images/ejemplos/cafe.jpg" alt="Detalle 2" class="fondo-dinamico">
+        <img src="/images/fondo_local.jpg" alt="Detalle 3" class="fondo-dinamico">
+    </div>
+
+    <!-- 2. OVERLAY (Lo bajamos de 80% a 50% y le pusimos un ligero gradiente para que los bordes se fundan mejor) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/70 via-[#111110]/40 to-[#111110]/70 z-5"></div>
+
+    <!-- 3. CONTENIDO PRINCIPAL -->
+    <div class="relative z-10 w-full max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+        
+        <div class="glass-panel p-10 md:p-16 flex flex-col items-center text-center">
+            
+            <!-- Icono -->
+            <div class="icon-circle mb-8 w-14 h-14">
+                <svg class="w-7 h-7 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
+                </svg>
+            </div>
+
+            <!-- Título -->
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient-accent tracking-wide">
+                Experiencia que se nota
+            </h2>
+            
+            <!-- Texto -->
+            <p class="text-[#a8a29e] leading-relaxed text-lg max-w-3xl font-light mb-14">
+                Con años de experiencia perfeccionando su oficio, nuestro maestro barbero garantiza un trabajo impecable. Aquí no hay cortes genéricos, solo profesionalismo, tradición y atención absoluta al detalle.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full">
+                <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <span class="text-3xl font-bold text-[#e8d48b]">10+</span>
+                    <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] mt-1 font-semibold">Años Exp.</span>
+                </div>
+                <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <span class="text-3xl font-bold text-[#e8d48b]">1k+</span>
+                    <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] mt-1 font-semibold">Clientes</span>
+                </div>
+                <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <span class="text-3xl font-bold text-[#e8d48b]">5.0</span>
+                    <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] mt-1 font-semibold">Estrellas</span>
+                </div>
+                <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <span class="text-3xl font-bold text-[#e8d48b]">100%</span>
+                    <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] mt-1 font-semibold">Satisfacción</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

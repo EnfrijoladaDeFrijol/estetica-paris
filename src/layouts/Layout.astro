@@ -1,0 +1,242 @@
+---
+import Navbar from '../components/Navbar.astro';
+---
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estética París — Cortes con Maestría</title>
+    <meta name="description" content="Estética París: barbería local con años de experiencia. Cortes clásicos, arreglo de barba y atención personalizada en la Ciudad de México.">
+
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style is:inline>
+        /* ═══════════════════════════════════════════
+           LIQUID GLASS — ELEGANT DARK
+           Carbón cálido + Dorado champagne + Toques color
+           ═══════════════════════════════════════════ */
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #111110;
+            background-image:
+                radial-gradient(ellipse 80% 60% at 10% 0%, rgba(180, 145, 38, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 90% 20%, rgba(120, 100, 180, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 50% 100%, rgba(180, 80, 80, 0.04) 0%, transparent 60%);
+            background-attachment: fixed;
+            color: #e8e6e3;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+        }
+
+        /* ── Glass Panel (Dark) ──────────────────── */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px) saturate(1.3);
+            -webkit-backdrop-filter: blur(24px) saturate(1.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.25rem;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(212, 175, 55, 0.25);
+            box-shadow:
+                0 16px 48px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(212, 175, 55, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .glass-panel-strong {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(30px) saturate(1.4);
+            -webkit-backdrop-filter: blur(30px) saturate(1.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.25rem;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel-strong:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* ── Glass Button ────────────────────────── */
+        .glass-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2.25rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.08));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 9999px;
+            color: #e8d48b;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .glass-btn:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(212, 175, 55, 0.15));
+            border-color: rgba(212, 175, 55, 0.6);
+            color: #f5e6a3;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* ── Glow Orbs ───────────────────────────── */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(130px);
+            pointer-events: none;
+            z-index: 0;
+            animation: orbFloat 30s ease-in-out infinite;
+        }
+
+        .glow-orb-1 {
+            width: 55vw; height: 55vw;
+            max-width: 700px; max-height: 700px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent 70%);
+            top: -25%; left: -15%;
+            animation-duration: 35s;
+        }
+
+        .glow-orb-2 {
+            width: 40vw; height: 40vw;
+            max-width: 500px; max-height: 500px;
+            background: radial-gradient(circle, rgba(120, 100, 180, 0.06), transparent 70%);
+            bottom: 5%; right: -10%;
+            animation-duration: 40s;
+            animation-delay: -12s;
+        }
+
+        .glow-orb-3 {
+            width: 45vw; height: 35vw;
+            max-width: 600px; max-height: 450px;
+            background: radial-gradient(circle, rgba(180, 80, 80, 0.05), transparent 70%);
+            top: 45%; left: 20%;
+            animation-duration: 32s;
+            animation-delay: -6s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(25px, -15px) scale(1.04); }
+            50% { transform: translate(-15px, 10px) scale(0.96); }
+            75% { transform: translate(10px, 20px) scale(1.02); }
+        }
+
+        /* ── Text gradients ──────────────────────── */
+        .text-gradient {
+            background: linear-gradient(135deg, #e8e6e3 0%, #d4af37 60%, #e8d48b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #d4af37 0%, #e8d48b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Section divider ─────────────────────── */
+        .section-glow-top { position: relative; }
+        .section-glow-top::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 15%; right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+        }
+
+        /* ── Scrollbar ───────────────────────────── */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #111110; }
+        ::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.25); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.45); }
+
+        /* ── Icon container ──────────────────────── */
+        .icon-circle {
+            width: 3rem; height: 3rem;
+            border-radius: 0.75rem;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            display: flex; align-items: center; justify-content: center;
+            color: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .icon-circle:hover, .group:hover .icon-circle {
+            background: rgba(212, 175, 55, 0.15);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Ambient glow orbs -->
+    <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+
+    <Navbar />
+
+    <main class="relative z-10">
+        <slot />
+    </main>
+
+    <!-- WhatsApp — Dark Glass -->
+    <a href="https://wa.me/522461415946" target="_blank" rel="noopener noreferrer" id="whatsapp-btn"
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full transition-all duration-300 hover:scale-105 group"
+       style="background: rgba(34, 197, 94, 0.1); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(34, 197, 94, 0.25); box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);">
+        <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.116 1.518 5.852L.057 23.64a.5.5 0 00.61.61l5.787-1.462A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.91 0-3.72-.51-5.31-1.47l-.38-.23-3.43.87.88-3.43-.23-.38A9.724 9.724 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/>
+        </svg>
+        <span class="text-emerald-300 font-medium text-sm group-hover:text-emerald-200 hidden sm:inline">WhatsApp</span>
+    </a>
+
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script is:inline>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic' });
+            } else {
+                document.querySelectorAll('[data-aos]').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
