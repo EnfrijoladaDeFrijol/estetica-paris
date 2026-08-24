@@ -20,20 +20,30 @@
 
 <section class="relative py-28 md:py-36 px-6 flex items-center justify-center overflow-hidden section-glow-top" id="nosotros">
     
-    <!-- 1. FOTOS DE FONDO (Le quitamos el opacity-15 para que brillen) -->
+    <!-- 1. FOTOS DE FONDO -->
     <div class="absolute inset-0 z-0">
         <img src="/images/ejemplos/morado.jpg" alt="Detalle 1" class="fondo-dinamico">
         <img src="/images/ejemplos/cafe.jpg" alt="Detalle 2" class="fondo-dinamico">
         <img src="/images/fondo_local.jpg" alt="Detalle 3" class="fondo-dinamico">
     </div>
 
-    <!-- 2. OVERLAY (Lo bajamos de 80% a 50% y le pusimos un ligero gradiente para que los bordes se fundan mejor) -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/70 via-[#111110]/40 to-[#111110]/70 z-5"></div>
+    <!-- 2. OVERLAY con transición para el toggle -->
+    <div id="nosotros-overlay" class="absolute inset-0 bg-gradient-to-b from-[#111110]/70 via-[#111110]/40 to-[#111110]/70 z-5 transition-opacity duration-700"></div>
 
     <!-- 3. CONTENIDO PRINCIPAL -->
     <div class="relative z-10 w-full max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
         
-        <div class="glass-panel p-10 md:p-16 flex flex-col items-center text-center">
+        <div id="nosotros-panel" class="glass-panel p-10 md:p-16 flex flex-col items-center text-center transition-all duration-700 relative">
+            
+            <!-- Ojito discreto esquina superior derecha -->
+            <button id="toggle-blur-btn" class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-20 opacity-40 hover:opacity-100"
+                    style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);"
+                    aria-label="Ver fotos" title="Ver fotos">
+                <svg id="blur-icon" class="w-4 h-4 text-[#a8a29e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+            </button>
             
             <!-- Icono -->
             <div class="icon-circle mb-8 w-14 h-14">
@@ -75,3 +85,36 @@
         </div>
     </div>
 </section>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('toggle-blur-btn');
+        const overlay = document.getElementById('nosotros-overlay');
+        const panel = document.getElementById('nosotros-panel');
+        const icon = document.getElementById('blur-icon');
+        let visible = false;
+
+        if (btn && overlay && panel) {
+            btn.addEventListener('click', () => {
+                visible = !visible;
+                if (visible) {
+                    overlay.style.opacity = '0.15';
+                    panel.style.background = 'rgba(17,17,16,0.3)';
+                    panel.style.backdropFilter = 'blur(4px)';
+                    panel.style.webkitBackdropFilter = 'blur(4px)';
+                    btn.title = 'Ocultar fotos';
+                    btn.style.opacity = '0.8';
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18"></path>';
+                } else {
+                    overlay.style.opacity = '1';
+                    panel.style.background = '';
+                    panel.style.backdropFilter = '';
+                    panel.style.webkitBackdropFilter = '';
+                    btn.title = 'Ver fotos';
+                    btn.style.opacity = '';
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>';
+                }
+            });
+        }
+    });
+</script>
