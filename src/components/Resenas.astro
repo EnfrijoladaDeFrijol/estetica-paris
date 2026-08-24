@@ -1,0 +1,252 @@
+---
+// ╔══════════════════════════════════════════════════════════╗
+// ║  RESEÑAS                                                 ║
+// ╚══════════════════════════════════════════════════════════╝
+//
+//  • nombre:   El nombre del cliente
+//  • estrellas: Número de estrellas (1 a 5)
+//  • texto:    El texto de la reseña (copia y pega de Google Maps)
+//  • fecha:    Cuándo la dejaron (ej: "Hace 2 meses")
+
+const resenas = [
+    {
+        nombre: "Jhasziel Aburto",
+        estrellas: 5,
+        texto: "El servicio 10/10. El corte muy profesional, 100% recomendado con Alexa, un trabajo bien hecho 👌\n\nEstilo solicitado: Solicité que me ayudara con un corte nuevo, y el resultado me gustó mucho.\n\nEstilista: Alexa, una estilista muy bien preparada, profesional y dedicada totalmente a su trabajo y el resultado está de más decirlo!!",
+        fecha: "Hace un año"
+    },
+    {
+        nombre: "Leonardo Olvera",
+        estrellas: 5,
+        texto: "Es una muy buena opción de estética, el trato del señor y de Ericka siempre es excelente.",
+        fecha: "Hace un año"
+    },
+    {
+        nombre: "Al Ca",
+        estrellas: 5,
+        texto: "Buen trabajo...",
+        fecha: "Hace 2 años"
+    },
+    {
+        nombre: "Uriel Cano",
+        estrellas: 4,
+        texto: "Un buen lugar con un trato muy agradable",
+        fecha: "Hace 2 años"
+    },
+    {
+        nombre: "JI TD",
+        estrellas: 4,
+        texto: "He frecuentado varias ocasiones y todo bien siempre con cita",
+        fecha: "Hace 3 años"
+    },
+    {
+        nombre: "Silvia Karina",
+        estrellas: 5,
+        texto: "Excelente atención del Sr. que atiende, además usa productos de muy buena calidad.",
+        fecha: "Hace 6 años"
+    },
+    {
+        nombre: "Néstor Emilio Tolentino Trejo",
+        estrellas: 5,
+        texto: "Lo cortan preciso y bonito que bueno que existan barberos de calidad en CDMX!",
+        fecha: "Hace 3 años"
+    },
+    {
+        nombre: "Chantal Avilés",
+        estrellas: 5,
+        texto: "Sin duda regresaria... Ha sido donde mejor me han cortado el cabello de salones por la zona",
+        fecha: "Hace 4 años"
+    },
+    {
+        nombre: "Nadia Mayoral",
+        estrellas: 5,
+        texto: "Muy buen servicio y atención..",
+        fecha: "Hace 6 años"
+    },
+    {
+        nombre: "JUSS CASHER (JUSS)",
+        estrellas: 5,
+        texto: "Excelente servicio La señora Jaqueline es muy eficiente",
+        fecha: "Hace 6 años"
+    },
+    {
+        nombre: "Erika Gómez",
+        estrellas: 4,
+        texto: "El señor muy amable, me dejó muy bonito el cabello, fue súper rápido y me sugirió productos adecuados para mi cabello\nLo malo es que no limpió ningún utensilio, y con esto del covid, se deberían limpiar antes de usarlo con un nuevo cliente",
+        fecha: "Hace 5 años"
+    }
+    // ──────────────────────────────────────────────
+    // Para AGREGAR una reseña, copia este bloque:
+    //
+    // {
+    //     nombre: "Nombre del Cliente",
+    //     estrellas: 5,
+    //     texto: "Aquí pegas el texto de la reseña...",
+    //     fecha: "Hace X tiempo"
+    // },
+    //
+    // Para QUITAR una, simplemente borra el bloque { ... },
+    // ──────────────────────────────────────────────
+];
+---
+
+<section class="relative py-28 md:py-36 overflow-hidden section-glow-top" id="resenas">
+    <div class="relative z-10">
+
+        <!-- Encabezado -->
+        <div class="text-center mb-14 px-6" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-5 text-gradient">Lo que dicen nuestros clientes</h2>
+            
+            <!-- Badge Google Maps -->
+            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-panel">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                <div class="flex items-center gap-1.5">
+                    <span class="text-[#e8d48b] font-bold text-lg">4.4</span>
+                    <div class="flex gap-0.5">
+                        {[1,2,3,4].map(() => (
+                            <svg class="w-4 h-4 text-[#d4af37]" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        ))}
+                        <svg class="w-4 h-4 text-[#d4af37] opacity-40" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+                <span class="text-[#78716c] text-xs tracking-wide">en Google Maps</span>
+            </div>
+        </div>
+
+        <!-- Carrusel infinito -->
+        <!-- Fade en los bordes para efecto de profundidad -->
+        <div class="relative">
+            <!-- Gradiente izquierdo -->
+            <div class="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-[#111110] to-transparent z-20 pointer-events-none"></div>
+            <!-- Gradiente derecho -->
+            <div class="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-[#111110] to-transparent z-20 pointer-events-none"></div>
+
+            <!-- Contenedor del scroll — se pausa al hover/touch -->
+            <div class="carousel-track flex gap-6 py-4 hover:[animation-play-state:paused]" id="carousel-track">
+                {/* Primer set de tarjetas */}
+                {resenas.map((r) => (
+                    <div class="carousel-card glass-panel p-7 flex flex-col flex-shrink-0 w-[320px] md:w-[380px] select-none">
+                        
+                        <!-- Estrellas -->
+                        <div class="flex gap-0.5 mb-4">
+                            {Array.from({ length: 5 }).map((_, s) => (
+                                <svg class={`w-4 h-4 ${s < r.estrellas ? 'text-[#d4af37]' : 'text-[#44403c]'}`} fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            ))}
+                        </div>
+
+                        <!-- Texto -->
+                        <p class="text-[#a8a29e] text-sm leading-relaxed font-light flex-1 mb-6">
+                            "{r.texto}"
+                        </p>
+
+                        <!-- Nombre y fecha -->
+                        <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-[#d4af37]"
+                                     style="background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.15);">
+                                    {r.nombre.charAt(0)}
+                                </div>
+                                <span class="text-[#e8e6e3] text-sm font-medium">{r.nombre}</span>
+                            </div>
+                            <span class="text-[#57534e] text-[10px] tracking-wider uppercase">{r.fecha}</span>
+                        </div>
+                    </div>
+                ))}
+
+                {/* Segundo set (duplicado) para hacer el loop infinito */}
+                {resenas.map((r) => (
+                    <div class="carousel-card glass-panel p-7 flex flex-col flex-shrink-0 w-[320px] md:w-[380px] select-none" aria-hidden="true">
+                        <div class="flex gap-0.5 mb-4">
+                            {Array.from({ length: 5 }).map((_, s) => (
+                                <svg class={`w-4 h-4 ${s < r.estrellas ? 'text-[#d4af37]' : 'text-[#44403c]'}`} fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            ))}
+                        </div>
+                        <p class="text-[#a8a29e] text-sm leading-relaxed font-light flex-1 mb-6">
+                            "{r.texto}"
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-[#d4af37]"
+                                     style="background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.15);">
+                                    {r.nombre.charAt(0)}
+                                </div>
+                                <span class="text-[#e8e6e3] text-sm font-medium">{r.nombre}</span>
+                            </div>
+                            <span class="text-[#57534e] text-[10px] tracking-wider uppercase">{r.fecha}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .carousel-track {
+        animation: scroll-carousel 30s linear infinite;
+        width: max-content;
+    }
+
+    /* Pausa en hover (desktop) */
+    .carousel-track:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes scroll-carousel {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            /* Se mueve exactamente la mitad (el primer set de tarjetas) */
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Pausa en touch (mobile) */
+    @media (hover: none) {
+        .carousel-track:active {
+            animation-play-state: paused;
+        }
+    }
+
+    /* No hover effect en tarjetas del carrusel (evita saltos) */
+    .carousel-card:hover {
+        transform: none !important;
+    }
+</style>
+
+<script is:inline>
+    // Ajustar velocidad basada en la cantidad de tarjetas
+    // Más tarjetas = más tiempo para verlas todas
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('carousel-track');
+        if (track) {
+            const cardCount = track.querySelectorAll('.carousel-card').length / 2; // Dividir entre 2 porque están duplicadas
+            // ~8 segundos por tarjeta para velocidad suave
+            const duration = Math.max(20, cardCount * 8);
+            track.style.animationDuration = duration + 's';
+
+            // Touch: pausa al tocar, reanuda al soltar
+            track.addEventListener('touchstart', () => {
+                track.style.animationPlayState = 'paused';
+            }, { passive: true });
+            track.addEventListener('touchend', () => {
+                track.style.animationPlayState = 'running';
+            }, { passive: true });
+        }
+    });
+</script>
