@@ -1,24 +1,47 @@
 <section id="reservas" class="relative py-28 md:py-36 px-6 overflow-hidden section-glow-top">
     
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
+    <div class="max-w-5xl mx-auto relative z-10 text-center">
         
         <div data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold mb-14 text-gradient-accent">Reserva tu Espacio</h2>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient-accent">Reserva tu Espacio</h2>
+            
+            <!-- Pasos discretos -->
+            <div class="flex flex-wrap justify-center items-center gap-3 md:gap-6 mb-10 text-[#a8a29e] text-sm font-light w-full">
+                <div class="flex items-center gap-2">
+                    <span class="flex items-center justify-center w-5 h-5 rounded-full border border-[rgba(212,175,55,0.3)] text-[#d4af37] text-[10px]">1</span>
+                    <span>Elige servicio</span>
+                </div>
+                <div class="hidden md:block w-4 h-[1px] bg-[rgba(255,255,255,0.1)]"></div>
+                <div class="flex items-center gap-2">
+                    <span class="flex items-center justify-center w-5 h-5 rounded-full border border-[rgba(212,175,55,0.3)] text-[#d4af37] text-[10px]">2</span>
+                    <span>Elige Fecha y hora</span>
+                </div>
+                <div class="hidden md:block w-4 h-[1px] bg-[rgba(255,255,255,0.1)]"></div>
+                <div class="flex items-center gap-2">
+                    <span class="flex items-center justify-center w-5 h-5 rounded-full border border-[rgba(212,175,55,0.3)] text-[#d4af37] text-[10px]">3</span>
+                    <span>Ingresa tu nombre</span>
+                </div>
+                <div class="hidden md:block w-4 h-[1px] bg-[rgba(255,255,255,0.1)]"></div>
+                <div class="flex items-center gap-2">
+                    <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[rgba(212,175,55,0.15)] text-[#d4af37] text-[10px] font-medium">✓</span>
+                    <span>¡Ya tienes tu reserva!</span>
+                </div>
+            </div>
         </div>
 
         <!-- Panel Glass del Widget -->
-        <div class="glass-panel p-3 md:p-4 rounded-3xl relative overflow-hidden group mx-auto max-w-3xl" data-aos="zoom-in" data-aos-duration="1000">
-            
+        <div class="glass-panel p-0 md:p-1 rounded-x2 max-w-[800px] md:rounded-3xl relative overflow-hidden group mx-auto w-full" data-aos="zoom-in" data-aos-duration="1000">
+           
             <!-- Shimmer -->
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.08)] to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none z-20"></div>
 
-            <!-- Contenedor del Calendario (Altura ajustada a h-[600px] para mejor experiencia de usuario) -->
-            <div class="rounded-2xl w-full h-[600px] relative z-10 overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+            <!-- Contenedor del Calendario -->
+            <div class="rounded-x2 md:rounded-2xl w-full h-[600px] max-w-[880px] relative z-10 overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
                 
                 <!-- Iframe de Setmore incrustado -->
                 <iframe 
                     src="https://esteticaparis.setmore.com/926a54c2-88c3-4943-8cda-82c188dd0515" 
-                    class="absolute inset-0 w-full h-full border-0 bg-transparent rounded-2xl"
+                    class="absolute inset-0 w-full h-full border-0 bg-transparent rounded-xl md:rounded-2xl"
                     scrolling="yes"
                     loading="lazy">
                 </iframe>
