@@ -1,126 +1,308 @@
 <section class="relative py-28 md:py-36 px-6 overflow-hidden section-glow-top" id="servicios">
-    <div class="max-w-5xl mx-auto relative z-10">
+    <div class="max-w-6xl mx-auto relative z-10">
         
         <!-- Header -->
-        <div class="text-center mb-16" data-aos="fade-up">
+        <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">Nuestros Servicios</h2>
             <p class="text-[#78716c] text-sm tracking-wide">
                 El pago se realiza en efectivo o terminal en la barbería.
             </p>
         </div>
         
-        <!-- 1. SERVICIOS DESTACADOS (Tus tarjetas originales para lo más vendido) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            
-            <!-- Corte Clásico / Fade -->
-            <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex items-start justify-between mb-6">
-                    <div class="icon-circle">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-right">
-                        <span class="block text-2xl font-bold text-[#e8d48b]">$190</span>
-                        <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Base</span>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Corte Caballeros / Fade</h3>
-                <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                    Corte tradicional a tijera o máquina con acabado perfecto y desvanecido limpio.
-                </p>
+        <!-- ==========================================
+             1. CORTES Y PELUQUERÍA
+             ========================================== -->
+        <div class="mb-20">
+            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
+                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
+                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Cortes y Peluquería</h3>
+                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
             </div>
 
-            <!-- Especialidad Color (Balayage) -->
-            <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex items-start justify-between mb-6">
-                    <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                        </svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Corte Caballeros / Fade -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$190 / $200</span>
+                        </div>
                     </div>
-                    <div class="text-right">
-                        <span class="block text-2xl font-bold text-[#e8d48b]">$1,500</span>
-                        <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Desde</span>
-                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Corte Caballeros / Fade</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Corte tradicional a tijera o máquina con acabado perfecto y desvanecido limpio.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Balayage / Color</h3>
-                <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                    Técnica de iluminación profesional. El costo final se ajusta previa valoración de acuerdo al largo y volumen.
-                </p>
-            </div>
 
+                <!-- Corte Damas -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$220</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Corte Damas</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Corte de diseño adaptado a tu estilo, con técnica precisa para resaltar tus facciones.
+                    </p>
+                </div>
+
+                <!-- Arreglo de Barba -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$190</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Arreglo de Barba</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Alineación meticulosa y perfilado de contornos con navaja clásica para un aspecto limpio.
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <!-- 2. MENÚ COMPLETO (Diseño compacto y elegante para el resto de servicios) -->
-        <div class="text-center mb-8" data-aos="fade-up">
-            <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide">Catálogo Completo</h3>
+        <!-- ==========================================
+             2. UÑAS
+             ========================================== -->
+        <div class="mb-20">
+            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
+                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
+                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Uñas</h3>
+                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Manicure -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$180</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Manicure</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Cuidado completo de manos y cutículas con un esmaltado tradicional impecable.
+                    </p>
+                </div>
+
+                <!-- Pedicure -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$300</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Pedicure</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Ritual de relajación y cuidado profundo para tus pies, garantizando suavidad y estética.
+                    </p>
+                </div>
+
+                <!-- Gelish -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$130</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Gelish</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Aplicación de gel semipermanente para un brillo duradero y uñas perfectas por semanas.
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="glass-panel p-8 md:p-12" data-aos="fade-up" data-aos-delay="300">
-            <!-- Grid de 2 columnas para la lista -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6">
-                
-                <!-- Item Lista Fija -->
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light">Arreglo de Barba</span>
-                    <span class="text-[#e8d48b] font-bold">$190</span>
-                </div>
-
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light">Corte Damas</span>
-                    <span class="text-[#e8d48b] font-bold">$220</span>
-                </div>
-
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light">Limpieza Facial</span>
-                    <span class="text-[#e8d48b] font-bold">$200</span>
-                </div>
-
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light">Gelish (G3L12H)</span>
-                    <span class="text-[#e8d48b] font-bold">$130</span>
-                </div>
-
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light">Manicure / Pedicure</span>
-                    <span class="text-[#e8d48b] font-bold">$180 / $300</span>
-                </div>
-
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light">Tratamiento Profundo</span>
-                    <span class="text-[#e8d48b] font-bold">$250</span>
-                </div>
-
-                <!-- Item Lista Variable (DSD) -->
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light flex items-center gap-2">
-                        Rayos
-                    </span>
-                    <div class="text-right">
-                        <span class="text-[10px] text-[#78716c] uppercase mr-1">Desde</span>
-                        <span class="text-[#e8d48b] font-bold">$950</span>
-                    </div>
-                </div>
-
-                <div class="flex justify-between items-center border-b border-[#78716c]/20 pb-2">
-                    <span class="text-[#e8e6e3] font-light flex items-center gap-2">
-                        Tintes Completos
-                    </span>
-                    <div class="text-right">
-                        <span class="text-[10px] text-[#78716c] uppercase mr-1">Desde</span>
-                        <span class="text-[#e8d48b] font-bold">$500</span>
-                    </div>
-                </div>
-
+        <!-- ==========================================
+             3. COLORIMETRÍA Y TRATAMIENTOS
+             ========================================== -->
+        <div class="mb-20">
+            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
+                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
+                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Colorimetría y Tratamientos</h3>
+                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
             </div>
 
-            <!-- Disclaimer para los precios DSD -->
-            <div class="mt-10 pt-6 border-t border-[#78716c]/20 text-center">
-                <p class="text-[12px] text-[#78716c] font-light">
-                    * Los servicios con etiqueta <span class="font-bold text-[#a8a29e]">"Desde"</span> representan tarifas base. El costo exacto se determinará en sucursal tras una valoración del largo, volumen y estado de su cabello.
-                </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Balayage -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Desde</span>
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$1,500</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Balayage / Color</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Técnica de iluminación profesional para un degradado natural.
+                    </p>
+                </div>
+
+                <!-- Rayos -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Desde</span>
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$950</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Rayos</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Iluminación estratégica para darle dimensión y luz a tu cabello.
+                    </p>
+                </div>
+
+                <!-- Tintes Completos -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Desde</span>
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$500</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Tintes (Orgánico)</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Cobertura total o cambio de look con fórmulas de alta calidad que protegen tu cabello.
+                    </p>
+                </div>
+
+                <!-- Aplicación de Tinte -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$190</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Aplicación de Tinte</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Servicio profesional de aplicación para tu tinte, asegurando un color uniforme.
+                    </p>
+                </div>
+
+                <!-- Tratamiento Profundo -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$250</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Tratamiento Profundo</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Nutrición intensiva para restaurar la fuerza, el brillo y la suavidad de tu cabello.
+                    </p>
+                </div>
+
+                <!-- Planchado Express -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$140</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Planchado Express</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Alisado rápido y perfecto para lucir un cabello pulido en cualquier ocasión.
+                    </p>
+                </div>
             </div>
+        </div>
+
+        <!-- ==========================================
+             4. CUIDADO FACIAL
+             ========================================== -->
+        <div class="mb-20">
+            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
+                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
+                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Cuidado Facial</h3>
+                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Limpieza Facial -->
+                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-2xl font-bold text-[#e8d48b]">$200</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Facial / Limpieza</h3>
+                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
+                        Higiene profunda para renovar tu piel, eliminando impurezas y devolviendo su luminosidad natural.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer para los precios DSD -->
+        <div class="mt-16 pt-8 border-t border-[#78716c]/20 text-center" data-aos="fade-up">
+            <p class="text-[12px] text-[#78716c] font-light">
+                * Los servicios con etiqueta <span class="font-bold text-[#a8a29e]">"Desde"</span> representan tarifas base. El costo exacto se determinará en sucursal tras una valoración del largo, volumen y estado de su cabello.
+            </p>
         </div>
 
     </div>
