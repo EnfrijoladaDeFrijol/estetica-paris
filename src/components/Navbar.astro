@@ -14,10 +14,10 @@
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex gap-8 items-center">
-            <a href="#nosotros" class="text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-colors duration-300 tracking-wide">Nosotros</a>
-            <a href="#servicios" class="text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-colors duration-300 tracking-wide">Servicios</a>
-            <a href="#reservas" class="text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-colors duration-300 tracking-wide">Citas</a>
-            <a href="#ubicacion" class="text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-colors duration-300 tracking-wide">Ubicación</a>
+            <a href="#nosotros" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Nosotros</a>
+            <a href="#servicios" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Servicios</a>
+            <a href="#reservas" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Citas</a>
+            <a href="#ubicacion" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Ubicación</a>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -32,10 +32,10 @@
 <!-- 2. MENÚ MÓVIL (LIBERADO DEL NAVBAR) -->
 <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500"
      style="background: rgba(17,17,16,0.97); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);">
-    <a href="#nosotros" class="mobile-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Nosotros</a>
-    <a href="#servicios" class="mobile-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Servicios</a>
-    <a href="#reservas" class="mobile-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Citas</a>
-    <a href="#ubicacion" class="mobile-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Ubicación</a>
+    <a href="#nosotros" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Nosotros</a>
+    <a href="#servicios" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Servicios</a>
+    <a href="#reservas" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Citas</a>
+    <a href="#ubicacion" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Ubicación</a>
 </div>
 
 <!-- 3. LÓGICA DE ANIMACIÓN Y SCROLL -->
@@ -72,5 +72,41 @@
             nav.style.background = 'rgba(17,17,16,0.6)';
             nav.style.borderBottomColor = 'rgba(255,255,255,0.06)';
         }
+    });
+
+    // Lógica para resaltar el enlace activo según el scroll
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = Array.from(navLinks).map(link => {
+            const id = link.getAttribute('href').substring(1);
+            return document.getElementById(id);
+        }).filter(section => section !== null);
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -50% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('!text-[#e8d48b]', 'font-medium');
+                            link.style.textShadow = '0 0 12px rgba(232, 212, 139, 0.4)';
+                        } else {
+                            link.classList.remove('!text-[#e8d48b]', 'font-medium');
+                            link.style.textShadow = 'none';
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
     });
 </script>

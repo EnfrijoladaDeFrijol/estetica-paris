@@ -1,7 +1,20 @@
-<section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-36 pb-32 md:pt-48 md:pb-40 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('/images/fondo_local.jpg');">
+<section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-36 pb-32 md:pt-48 md:pb-40 overflow-hidden">
     
+    <!-- Video de fondo -->
+    <video 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        class="absolute inset-0 w-full h-full object-cover z-0"
+        poster="/images/fondo_local.jpg"
+    >
+        <!-- NOTA: Colocaste el video dentro de la carpeta images. Si en el futuro lo mueves, recuerda cambiar esta ruta -->
+        <source src="/images/videos/ejmplo.mp4" type="video/mp4" />
+    </video>
+
     <!-- Overlay oscuro elegante con tinte cálido -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/85 via-[#111110]/70 to-[#111110]/95 z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/85 via-[#111110]/70 to-[#111110]/95 z-0 pointer-events-none"></div>
 
     <div class="z-10 max-w-3xl flex flex-col items-center" data-aos="fade-up" data-aos-duration="1200">
 
