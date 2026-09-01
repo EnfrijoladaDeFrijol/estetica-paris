@@ -4,7 +4,8 @@ const {
     titulo, 
     precio, 
     descripcion, 
-    etiqueta = "" // Para el "Desde"
+    etiqueta = "", // Para el "Desde"
+    imagen = "" 
 } = Astro.props;
 ---
 
@@ -13,16 +14,29 @@ const {
     <div class="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#d4af37]/0 via-[#d4af37]/0 to-[#d4af37]/0 group-hover:from-[#d4af37]/30 group-hover:via-[#d4af37]/10 group-hover:to-[#e8d48b]/20 transition-all duration-700 opacity-0 group-hover:opacity-100 blur-[0.5px]"></div>
     
     <!-- Card body -->
-    <div class="relative rounded-2xl overflow-hidden flex flex-col flex-1 bg-[#1a1918]/80 backdrop-blur-xl border border-white/[0.06] group-hover:border-[#d4af37]/20 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(212,175,55,0.06)] group-hover:-translate-y-1">
+    <div class="relative rounded-2xl overflow-hidden flex flex-col flex-1 border border-white/[0.06] group-hover:border-[#d4af37]/20 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(212,175,55,0.06)] group-hover:-translate-y-1 bg-[#1a1918]">
+        
+        {/* Top Image (If provided) */}
+        {imagen && (
+            <div class="relative w-full h-44 shrink-0 overflow-hidden border-b border-white/[0.04]">
+                <img src={imagen} alt={titulo} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100" />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1a1918] via-[#1a1918]/20 to-transparent"></div>
+            </div>
+        )}
+        
+        {/* Fallback solid background if no image */}
+        {!imagen && (
+            <div class="absolute inset-0 z-0 bg-[#1a1918]/80 backdrop-blur-xl pointer-events-none"></div>
+        )}
         
         <!-- Top accent line -->
-        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#d4af37]/30 transition-all duration-700"></div>
+        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#d4af37]/30 transition-all duration-700 z-10 pointer-events-none"></div>
         
         <!-- Inner glow -->
-        <div class="absolute inset-0 bg-gradient-to-br from-[#d4af37]/0 to-transparent group-hover:from-[#d4af37]/[0.03] transition-all duration-700 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-[#d4af37]/0 to-transparent group-hover:from-[#d4af37]/[0.03] transition-all duration-700 pointer-events-none z-10"></div>
 
         <!-- Content -->
-        <div class="relative p-4 flex flex-col flex-1">
+        <div class="relative z-20 p-5 flex flex-col flex-1">
             <!-- Icon + Price Row -->
             <div class="flex items-start justify-between mb-6">
                 <!-- Icon -->
@@ -37,15 +51,15 @@ const {
                     {etiqueta && (
                         <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold block mb-0.5">{etiqueta}</span>
                     )}
-                    <span class="block text-2xl font-bold text-[#e8d48b] group-hover:text-[#f0e0a0] transition-colors duration-300 tabular-nums">{precio}</span>
+                    <span class="block text-2xl font-bold text-[#e8d48b] group-hover:text-[#f0e0a0] transition-colors duration-300 tabular-nums drop-shadow-md">{precio}</span>
                 </div>
             </div>
             
             <!-- Title -->
-            <h3 class="text-[1.1rem] font-bold text-[#e7e5e4] group-hover:text-white flex-none mb-2.5 transition-colors duration-300 leading-tight">{titulo}</h3>
+            <h3 class="text-[1.1rem] font-bold text-[#e7e5e4] group-hover:text-white flex-none mb-2.5 transition-colors duration-300 leading-tight drop-shadow-md">{titulo}</h3>
             
             <!-- Description -->
-            <p class="text-[#a8a29e] text-[0.85rem] leading-relaxed font-light m-0 flex-1 group-hover:text-[#bfb9b2] transition-colors duration-300">{descripcion}</p>
+            <p class="text-[#a8a29e] text-[0.85rem] leading-relaxed font-light m-0 flex-1 group-hover:text-[#e7e5e4] transition-colors duration-300 drop-shadow-md">{descripcion}</p>
 
             <!-- Bottom decorative dots -->
             <div class="flex items-center gap-1.5 mt-5 pt-4 border-t border-white/[0.04]">
