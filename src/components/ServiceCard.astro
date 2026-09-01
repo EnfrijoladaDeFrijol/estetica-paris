@@ -1,0 +1,58 @@
+---
+// Recibimos los datos que cambiarán en cada tarjeta
+const { 
+    titulo, 
+    precio, 
+    descripcion, 
+    etiqueta = "" // Para el "Desde"
+} = Astro.props;
+---
+
+<div class="svc-card snap-center sm:snap-start shrink-0 w-[300px] sm:w-[320px] group relative flex flex-col self-stretch">
+    <!-- Animated border glow on hover -->
+    <div class="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#d4af37]/0 via-[#d4af37]/0 to-[#d4af37]/0 group-hover:from-[#d4af37]/30 group-hover:via-[#d4af37]/10 group-hover:to-[#e8d48b]/20 transition-all duration-700 opacity-0 group-hover:opacity-100 blur-[0.5px]"></div>
+    
+    <!-- Card body -->
+    <div class="relative rounded-2xl overflow-hidden flex flex-col flex-1 bg-[#1a1918]/80 backdrop-blur-xl border border-white/[0.06] group-hover:border-[#d4af37]/20 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(212,175,55,0.06)] group-hover:-translate-y-1">
+        
+        <!-- Top accent line -->
+        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#d4af37]/30 transition-all duration-700"></div>
+        
+        <!-- Inner glow -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#d4af37]/0 to-transparent group-hover:from-[#d4af37]/[0.03] transition-all duration-700 pointer-events-none"></div>
+
+        <!-- Content -->
+        <div class="relative p-7 flex flex-col flex-1">
+            <!-- Icon + Price Row -->
+            <div class="flex items-start justify-between mb-6">
+                <!-- Icon -->
+                <div class="relative">
+                    <slot name="icono" />
+                    <!-- Subtle glow behind icon on hover -->
+                    <div class="absolute inset-0 rounded-xl bg-[#d4af37]/0 group-hover:bg-[#d4af37]/10 blur-xl transition-all duration-500 -z-10 scale-150"></div>
+                </div>
+                
+                <!-- Price badge -->
+                <div class="text-right relative">
+                    {etiqueta && (
+                        <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold block mb-0.5">{etiqueta}</span>
+                    )}
+                    <span class="block text-2xl font-bold text-[#e8d48b] group-hover:text-[#f0e0a0] transition-colors duration-300 tabular-nums">{precio}</span>
+                </div>
+            </div>
+            
+            <!-- Title -->
+            <h3 class="text-[1.1rem] font-bold text-[#e7e5e4] group-hover:text-white flex-none mb-2.5 transition-colors duration-300 leading-tight">{titulo}</h3>
+            
+            <!-- Description -->
+            <p class="text-[#a8a29e] text-[0.85rem] leading-relaxed font-light m-0 flex-1 group-hover:text-[#bfb9b2] transition-colors duration-300">{descripcion}</p>
+
+            <!-- Bottom decorative dots -->
+            <div class="flex items-center gap-1.5 mt-5 pt-4 border-t border-white/[0.04]">
+                <div class="w-1 h-1 rounded-full bg-[#d4af37]/40 group-hover:bg-[#d4af37]/70 transition-all duration-500"></div>
+                <div class="w-1 h-1 rounded-full bg-[#d4af37]/25 group-hover:bg-[#d4af37]/50 transition-all duration-500 delay-75"></div>
+                <div class="w-1 h-1 rounded-full bg-[#d4af37]/15 group-hover:bg-[#d4af37]/30 transition-all duration-500 delay-150"></div>
+            </div>
+        </div>
+    </div>
+</div>

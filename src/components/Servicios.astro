@@ -1,310 +1,621 @@
-<section class="relative py-28 md:py-36 px-6 overflow-hidden section-glow-top" id="servicios">
+---
+import ServiceCard from './ServiceCard.astro';
+---
+<section class="relative py-28 md:py-36 px-4 sm:px-14 md:px-20 lg:px-24 xl:px-12 overflow-hidden section-glow-top" id="servicios">
+    
+    <!-- Ambient gold glow for section -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#d4af37]/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+
     <div class="max-w-6xl mx-auto relative z-10">
-        
-        <!-- Header -->
+
+        <!-- ═══════════════════════════════════════
+             HEADER — Premium Section Title
+             ═══════════════════════════════════════ -->
         <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">Nuestros Servicios</h2>
-            <p class="text-[#78716c] text-sm tracking-wide">
-                El pago se realiza en efectivo o terminal en la barbería.
+            <!-- Decorative top accent -->
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <div class="w-10 h-[1px] bg-gradient-to-r from-transparent to-[#d4af37]/50"></div>
+                <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-5 text-gradient leading-tight">Nuestros Servicios</h2>
+                <div class="w-10 h-[1px] bg-gradient-to-l from-transparent to-[#d4af37]/50"></div>
+            </div>
+            
+            <p class="text-[#78716c] text-sm tracking-wide max-w-lg mx-auto leading-relaxed">
+                Cada servicio diseñado para realzar tu mejor versión. El pago se realiza en efectivo o terminal en la estética.
             </p>
         </div>
-        
-        <!-- ==========================================
-             1. CORTES Y PELUQUERÍA
-             ========================================== -->
-        <div class="mb-20">
-            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
-                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
-                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Cortes y Peluquería</h3>
-                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Corte Caballeros / Fade -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$190 / $200</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Corte Caballeros / Fade</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Corte tradicional a tijera o máquina con acabado perfecto y desvanecido limpio.
-                    </p>
-                </div>
+        <!-- ═══════════════════════════════════════
+             BARRA DE PESTAÑAS (Tabs) — Premium
+             ═══════════════════════════════════════ -->
+        <div class="tabs-wrapper relative mb-14" data-aos="fade-up" data-aos-delay="100">
 
-                <!-- Corte Damas -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$220</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Corte Damas</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Corte de diseño adaptado a tu estilo, con técnica precisa para resaltar tus facciones.
-                    </p>
-                </div>
+            <!-- ◄ Flecha Izquierda Tabs -->
+            <button id="tabArrowLeft" aria-label="Scroll tabs left" class="tab-arrow tab-arrow-left absolute left-0 top-0 bottom-0 z-20 flex items-center pl-1 pr-3 opacity-0 pointer-events-none transition-opacity duration-300" style="background: linear-gradient(to right, #111110 60%, transparent 100%);">
+                <svg class="w-5 h-5 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
 
-                <!-- Arreglo de Barba -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+            <!-- ► Flecha Derecha Tabs -->
+            <button id="tabArrowRight" aria-label="Scroll tabs right" class="tab-arrow tab-arrow-right absolute right-0 top-0 bottom-0 z-20 flex items-center pr-1 pl-3 opacity-0 pointer-events-none transition-opacity duration-300" style="background: linear-gradient(to left, #111110 60%, transparent 100%);">
+                <svg class="w-5 h-5 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+            <!-- Scroll container Tabs -->
+            <div id="tabsScrollContainer" class="overflow-x-auto hide-scroll scroll-smooth snap-x snap-mandatory">
+                <nav class="tabs-nav flex items-center justify-center gap-2 sm:gap-3 min-w-max pb-0" role="tablist" aria-label="Categorías de servicios">
+                    <!-- Tab: Peluquería -->
+                    <button role="tab" aria-selected="true" aria-controls="panel-peluqueria" id="tab-peluqueria" data-tab="peluqueria" class="svc-tab active snap-center group relative px-5 sm:px-7 py-3.5 text-sm font-semibold tracking-wide uppercase transition-all duration-400 whitespace-nowrap rounded-xl">
+                        <span class="relative z-10 flex items-center gap-2.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
                             </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$190</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Arreglo de Barba</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Alineación meticulosa y perfilado de contornos con navaja clásica para un aspecto limpio.
-                    </p>
-                </div>
+                            Peluquería
+                        </span>
+                    </button>
+                    <!-- Tab: Colorimetría -->
+                    <button role="tab" aria-selected="false" aria-controls="panel-colorimetria" id="tab-colorimetria" data-tab="colorimetria" class="svc-tab snap-center group relative px-5 sm:px-7 py-3.5 text-sm font-semibold tracking-wide uppercase transition-all duration-400 whitespace-nowrap rounded-xl">
+                        <span class="relative z-10 flex items-center gap-2.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                            Colorimetría
+                        </span>
+                    </button>
+                    <!-- Tab: Uñas -->
+                    <button role="tab" aria-selected="false" aria-controls="panel-unas" id="tab-unas" data-tab="unas" class="svc-tab snap-center group relative px-5 sm:px-7 py-3.5 text-sm font-semibold tracking-wide uppercase transition-all duration-400 whitespace-nowrap rounded-xl">
+                        <span class="relative z-10 flex items-center gap-2.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                            Uñas
+                        </span>
+                    </button>
+                    <!-- Tab: Cuidado Facial -->
+                    <button role="tab" aria-selected="false" aria-controls="panel-facial" id="tab-facial" data-tab="facial" class="svc-tab snap-center group relative px-5 sm:px-7 py-3.5 text-sm font-semibold tracking-wide uppercase transition-all duration-400 whitespace-nowrap rounded-xl">
+                        <span class="relative z-10 flex items-center gap-2.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Facial
+                        </span>
+                    </button>
+                </nav>
             </div>
         </div>
 
-        <!-- ==========================================
-             2. COLORIMETRÍA Y TRATAMIENTOS
-             ========================================== -->
-        <div class="mb-20">
-            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
-                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
-                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Colorimetría y Tratamientos</h3>
-                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
-            </div>
+        <!-- ═══════════════════════════════════════
+             PANELES DE CARRUSEL
+             ═══════════════════════════════════════ -->
+        <div class="tab-panels-container relative" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Balayage -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+            <!-- Fade en los bordes para efecto de profundidad (Controlados por JS) -->
+            <div id="fadeLeft" class="absolute -left-4 sm:-left-2 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-[#111110] to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300"></div>
+            <div id="fadeRight" class="absolute -right-4 sm:-right-2 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-[#111110] to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300"></div>
+
+
+            <!-- ◄ Flecha Izquierda Carrusel -->
+            <button id="carouselArrowLeft" aria-label="Scroll cards left" class="carousel-arrow hidden sm:flex absolute -left-12 md:-left-16 top-1/2 -translate-y-1/2 z-20 items-center justify-center w-12 h-12 rounded-full bg-[#111110]/90 border border-[#78716c]/30 text-[#d4af37] opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:bg-[#1c1917] hover:border-[#d4af37]/50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            
+            <!-- ► Flecha Derecha Carrusel -->
+            <button id="carouselArrowRight" aria-label="Scroll cards right" class="carousel-arrow hidden sm:flex absolute -right-12 md:-right-16 top-1/2 -translate-y-1/2 z-20 items-center justify-center w-12 h-12 rounded-full bg-[#111110]/90 border border-[#78716c]/30 text-[#d4af37] opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:bg-[#1c1917] hover:border-[#d4af37]/50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+            <!-- ═══ PANEL: Peluquería ═══ -->
+            <div id="panel-peluqueria" role="tabpanel" aria-labelledby="tab-peluqueria" class="svc-panel" data-panel="peluqueria">
+                <div class="svc-carousel flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scroll items-stretch py-6 -mt-6 -mx-4 px-4 sm:-mx-2 sm:px-2">
+
+                    <!-- Card: Corte Caballeros / Fade -->
+                    <ServiceCard titulo="Corte Caballeros / Fade" precio="$190 / $200" descripcion="Corte tradicional a tijera o máquina con acabado perfecto y desvanecido limpio.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
                             </svg>
                         </div>
-                        <div class="text-right">
-                            <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Desde</span>
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$1,500</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Balayage / Color</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Técnica de iluminación profesional para un degradado natural.
-                    </p>
-                </div>
-
-                <!-- Rayos -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                    </ServiceCard>
+                    <!-- Card: Corte Damas -->
+                    <ServiceCard titulo="Corte Damas" precio="$220" descripcion="Corte de diseño adaptado a tu estilo, con técnica precisa para resaltar tus facciones.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
                             </svg>
                         </div>
-                        <div class="text-right">
-                            <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Desde</span>
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$950</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Rayos</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Iluminación estratégica para darle dimensión y luz a tu cabello.
-                    </p>
-                </div>
-
-                <!-- Tintes Completos -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                    </ServiceCard>
+                    <!-- Card: Arreglo de Barba -->
+                    <ServiceCard titulo="Arreglo de Barba" precio="$190" descripcion="Alineación meticulosa y perfilado de contornos con navaja clásica para un aspecto limpio.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
                             </svg>
                         </div>
-                        <div class="text-right">
-                            <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold">Desde</span>
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$500</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Tintes (Orgánico)</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Cobertura total o cambio de look con fórmulas de alta calidad que protegen tu cabello.
-                    </p>
-                </div>
-
-                <!-- Aplicación de Tinte -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$190</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Aplicación de Tinte</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Servicio profesional de aplicación para tu tinte, asegurando un color uniforme.
-                    </p>
-                </div>
-
-                <!-- Tratamiento Profundo -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$250</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Tratamiento Profundo</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Nutrición intensiva para restaurar la fuerza, el brillo y la suavidad de tu cabello.
-                    </p>
-                </div>
-
-                <!-- Planchado Express -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle" style="background: rgba(180, 83, 9, 0.1); border-color: rgba(180, 83, 9, 0.2); color: #e8d48b;">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$140</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Planchado Express</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Alisado rápido y perfecto para lucir un cabello pulido en cualquier ocasión.
-                    </p>
+                    </ServiceCard>
                 </div>
             </div>
+
+            <!-- ═══ PANEL: Colorimetría ═══ -->
+            <div id="panel-colorimetria" role="tabpanel" aria-labelledby="tab-colorimetria" class="svc-panel hidden" data-panel="colorimetria">
+                <div class="svc-carousel flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scroll items-stretch py-6 -mt-6 -mx-4 px-4 sm:-mx-2 sm:px-2">
+                    
+                    <!-- Card: Balayage / Color -->
+                    <ServiceCard titulo="Balayage / Color" precio="$1,500" descripcion="Técnica de iluminación profesional para un degradado natural." etiqueta="Desde">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                    <!-- Card: Rayos -->
+                    <ServiceCard titulo="Rayos" precio="$950" descripcion="Iluminación estratégica para darle dimensión y luz a tu cabello." etiqueta="Desde">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                    <!-- Card: Tintes (Orgánico) -->
+                    <ServiceCard titulo="Tintes (Orgánico)" precio="$500" descripcion="Cobertura total o cambio de look con fórmulas de alta calidad que protegen tu cabello." etiqueta="Desde">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                    <!-- Card: Aplicación de Tinte -->
+                    <ServiceCard titulo="Aplicación de Tinte" precio="$190" descripcion="Servicio profesional de aplicación para tu tinte, asegurando un color uniforme.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                    <!-- Card: Tratamiento Profundo -->
+                    <ServiceCard titulo="Tratamiento Profundo" precio="$250" descripcion="Nutrición intensiva para restaurar la fuerza, el brillo y la suavidad de tu cabello.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                    <!-- Card: Planchado Express -->
+                    <ServiceCard titulo="Planchado Express" precio="$140" descripcion="Alisado rápido y perfecto para lucir un cabello pulido en cualquier ocasión.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                </div>
+            </div>
+
+            <!-- ═══ PANEL: Uñas ═══ -->
+            <div id="panel-unas" role="tabpanel" aria-labelledby="tab-unas" class="svc-panel hidden" data-panel="unas">
+                <div class="svc-carousel flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scroll items-stretch py-6 -mt-6 -mx-4 px-4 sm:-mx-2 sm:px-2">
+                    
+                    <!-- Card: Manicure -->
+                    <ServiceCard titulo="Manicure" precio="$180" descripcion="Cuidado completo de manos y cutículas con un esmaltado tradicional impecable.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                    <!-- Card: Pedicure -->
+                    <ServiceCard titulo="Pedicure" precio="$300" descripcion="Ritual de relajación y cuidado profundo para tus pies, garantizando suavidad y estética.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                    <!-- Card: Gelish -->
+                    <ServiceCard titulo="Gelish" precio="$130" descripcion="Aplicación de gel semipermanente para un brillo duradero y uñas perfectas por semanas.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                </div>
+            </div>
+
+            <!-- ═══ PANEL: Cuidado Facial ═══ -->
+            <div id="panel-facial" role="tabpanel" aria-labelledby="tab-facial" class="svc-panel hidden" data-panel="facial">
+                <div class="svc-carousel flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scroll items-stretch py-6 -mt-6 -mx-4 px-4 sm:-mx-2 sm:px-2">
+                    
+                    <!-- Card: Facial / Limpieza -->
+                    <ServiceCard titulo="Facial / Limpieza" precio="$200" descripcion="Higiene profunda para renovar tu piel, eliminando impurezas y devolviendo su luminosidad natural.">
+                        <div slot="icono" class="icon-circle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </ServiceCard>
+                </div>
+            </div>
+
         </div>
 
-        <!-- ==========================================
-             3. UÑAS
-             ========================================== -->
-        <div class="mb-20">
-            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
-                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
-                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Uñas</h3>
-                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Manicure -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$180</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Manicure</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Cuidado completo de manos y cutículas con un esmaltado tradicional impecable.
-                    </p>
-                </div>
-
-                <!-- Pedicure -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$300</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Pedicure</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Ritual de relajación y cuidado profundo para tus pies, garantizando suavidad y estética.
-                    </p>
-                </div>
-
-                <!-- Gelish -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$130</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Gelish</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Aplicación de gel semipermanente para un brillo duradero y uñas perfectas por semanas.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ==========================================
-             4. CUIDADO FACIAL
-             ========================================== -->
-        <div class="mb-20">
-            <div class="flex items-center gap-4 mb-10" data-aos="fade-right">
-                <div class="w-8 h-[1px] bg-[#d4af37]"></div>
-                <h3 class="text-2xl font-bold text-[#e8e6e3] tracking-wide uppercase">Cuidado Facial</h3>
-                <div class="flex-grow h-[1px] bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Limpieza Facial -->
-                <div class="glass-panel p-8 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-circle">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-right">
-                            <span class="block text-2xl font-bold text-[#e8d48b]">$200</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-[#e8e6e3]">Facial / Limpieza</h3>
-                    <p class="text-[#a8a29e] text-sm leading-relaxed font-light">
-                        Higiene profunda para renovar tu piel, eliminando impurezas y devolviendo su luminosidad natural.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Disclaimer para los precios DSD -->
-        <div class="mt-16 pt-8 border-t border-[#78716c]/20 text-center" data-aos="fade-up">
-            <p class="text-[12px] text-[#78716c] font-light">
-                * Los servicios con etiqueta <span class="font-bold text-[#a8a29e]">"Desde"</span> representan tarifas base. El costo exacto se determinará en sucursal tras una valoración del largo, volumen y estado de su cabello.
+        <!-- Disclaimer -->
+        <div class="mt-14 pt-8 border-t border-[#78716c]/10 text-center" data-aos="fade-up">
+            <p class="text-[12px] text-[#78716c] font-light leading-relaxed max-w-xl mx-auto">
+                * Los servicios con etiqueta <span class="font-semibold text-[#a8a29e]">"Desde"</span> representan tarifas base. El costo exacto se determinará en sucursal tras una valoración del largo, volumen y estado de su cabello.
             </p>
         </div>
 
     </div>
+
+    <style>
+        /* ── Hide scrollbar globally ── */
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ═══════════════════════════════════════
+           PREMIUM TAB STYLING
+           ═══════════════════════════════════════ */
+        .svc-tab {
+            position: relative;
+            color: #78716c;
+            background: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+        }
+
+        /* Background fill for active/hover */
+        .svc-tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.04));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Bottom accent bar */
+        .svc-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            border-radius: 2px 2px 0 0;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Active state */
+        .svc-tab[aria-selected="true"] {
+            color: #e8d48b;
+            border-color: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.06);
+        }
+
+        .svc-tab[aria-selected="true"]::before {
+            opacity: 1;
+        }
+
+        .svc-tab[aria-selected="true"]::after {
+            opacity: 1;
+            transform: scaleX(1);
+            left: 10%;
+            right: 10%;
+        }
+
+        /* Hover state (inactive tabs) */
+        .svc-tab[aria-selected="false"]:hover {
+            color: #a8a29e;
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+
+        .svc-tab[aria-selected="false"]:hover::before {
+            opacity: 0.3;
+        }
+
+        /* ═══════════════════════════════════════
+           CATEGORY DOTS
+           ═══════════════════════════════════════ */
+        .svc-dot {
+            background: rgba(120, 113, 108, 0.3);
+            cursor: pointer;
+            outline: none;
+            border: none;
+        }
+
+        .svc-dot.active {
+            background: #d4af37;
+            width: 1.5rem;
+            border-radius: 9999px;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ── Arrow button interactivity ── */
+        .tab-arrow, .carousel-arrow {
+            cursor: pointer;
+            outline: none;
+        }
+        .tab-arrow.is-visible, .carousel-arrow.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .tab-arrow:hover svg, .carousel-arrow:hover svg {
+            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+        }
+
+        /* ═══════════════════════════════════════
+           CARD ENTRANCE ANIMATION
+           ═══════════════════════════════════════ */
+        .svc-panel:not(.hidden) .svc-card {
+            animation: svcCardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .svc-panel:not(.hidden) .svc-card:nth-child(2) { animation-delay: 0.08s; }
+        .svc-panel:not(.hidden) .svc-card:nth-child(3) { animation-delay: 0.16s; }
+        .svc-panel:not(.hidden) .svc-card:nth-child(4) { animation-delay: 0.24s; }
+        .svc-panel:not(.hidden) .svc-card:nth-child(5) { animation-delay: 0.32s; }
+        .svc-panel:not(.hidden) .svc-card:nth-child(6) { animation-delay: 0.40s; }
+
+        @keyframes svcCardIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ── Panel transition ── */
+        .svc-panel {
+            transition: opacity 0.3s ease;
+        }
+        .svc-panel.hidden {
+            display: none;
+        }
+    </style>
+
+    <script is:inline>
+    (function() {
+        /* ── Refs ── */
+        var tabs = document.querySelectorAll('.svc-tab');
+        var panels = document.querySelectorAll('.svc-panel');
+        var dots = document.querySelectorAll('.svc-dot');
+        
+        var tabScrollContainer = document.getElementById('tabsScrollContainer');
+        var tabArrowLeft = document.getElementById('tabArrowLeft');
+        var tabArrowRight = document.getElementById('tabArrowRight');
+
+        var carouselArrowLeft = document.getElementById('carouselArrowLeft');
+        var carouselArrowRight = document.getElementById('carouselArrowRight');
+
+        /* ═══════════════════════════════════════════
+           0. INITIALIZE DOTS
+           ═══════════════════════════════════════════ */
+        function updateDots(activeTab) {
+            dots.forEach(function(dot) {
+                if (dot.getAttribute('data-dot') === activeTab) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        // Initialize first dot
+        updateDots('peluqueria');
+
+        // Dot click handlers
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                var target = this.getAttribute('data-dot');
+                var tab = document.querySelector('.svc-tab[data-tab="' + target + '"]');
+                if (tab) tab.click();
+            });
+        });
+
+        /* ═══════════════════════════════════════════
+           1. TABS SCROLL & ARROWS
+           ═══════════════════════════════════════════ */
+        function updateTabArrows() {
+            if (!tabScrollContainer || !tabArrowLeft || !tabArrowRight) return;
+            var sl = tabScrollContainer.scrollLeft;
+            var sw = tabScrollContainer.scrollWidth;
+            var cw = tabScrollContainer.clientWidth;
+            var threshold = 4;
+            if (sw <= cw + threshold) {
+                tabArrowLeft.classList.remove('is-visible');
+                tabArrowRight.classList.remove('is-visible');
+                return;
+            }
+            tabArrowLeft.classList.toggle('is-visible', sl > threshold);
+            tabArrowRight.classList.toggle('is-visible', sl + cw < sw - threshold);
+        }
+
+        if (tabScrollContainer) {
+            tabScrollContainer.addEventListener('scroll', updateTabArrows, { passive: true });
+            window.addEventListener('resize', updateTabArrows);
+            updateTabArrows();
+            setTimeout(updateTabArrows, 300);
+            
+            if (tabArrowLeft) {
+                tabArrowLeft.addEventListener('click', function() {
+                    tabScrollContainer.scrollBy({ left: -150, behavior: 'smooth' });
+                });
+            }
+            if (tabArrowRight) {
+                tabArrowRight.addEventListener('click', function() {
+                    tabScrollContainer.scrollBy({ left: 150, behavior: 'smooth' });
+                });
+            }
+        }
+
+        /* ═══════════════════════════════════════════
+           2. CAROUSEL SCROLL, ARROWS & FADES
+           ═══════════════════════════════════════════ */
+        var fadeLeft = document.getElementById('fadeLeft');
+        var fadeRight = document.getElementById('fadeRight');
+
+        function getActiveCarousel() {
+            var activePanel = document.querySelector('.svc-panel:not(.hidden)');
+            if (activePanel) return activePanel.querySelector('.svc-carousel');
+            return null;
+        }
+
+        function updateCarouselUI() {
+            var carousel = getActiveCarousel();
+            
+            // Si no hay carrusel activo, ocultamos todo
+            if (!carousel) {
+                if (carouselArrowLeft) carouselArrowLeft.classList.remove('is-visible');
+                if (carouselArrowRight) carouselArrowRight.classList.remove('is-visible');
+                if (fadeLeft) fadeLeft.style.opacity = '0';
+                if (fadeRight) fadeRight.style.opacity = '0';
+                return;
+            }
+            
+            var sl = carousel.scrollLeft;
+            var sw = carousel.scrollWidth;
+            var cw = carousel.clientWidth;
+            var threshold = 4; // Margen de error de pixeles
+            
+            // ¿Hay espacio extra para hacer scroll?
+            var hasScroll = sw > (cw + threshold);
+            
+            // LÓGICA IZQUIERDA: Mostrar si ya nos movimos hacia la derecha
+            var showLeft = hasScroll && (sl > threshold);
+            
+            // LÓGICA DERECHA: Mostrar si no hemos llegado al final
+            var showRight = hasScroll && (sl + cw < sw - threshold);
+
+            // Actualizar Flechas
+            if (carouselArrowLeft) carouselArrowLeft.classList.toggle('is-visible', showLeft);
+            if (carouselArrowRight) carouselArrowRight.classList.toggle('is-visible', showRight);
+
+            // Actualizar Sombras Difuminadas
+            if (fadeLeft) fadeLeft.style.opacity = showLeft ? '1' : '0';
+            if (fadeRight) fadeRight.style.opacity = showRight ? '1' : '0';
+        }
+
+        // Attach scroll event to all carousels
+        document.querySelectorAll('.svc-carousel').forEach(function(carousel) {
+            carousel.addEventListener('scroll', updateCarouselUI, { passive: true });
+        });
+        window.addEventListener('resize', updateCarouselUI);
+
+        if (carouselArrowLeft) {
+            carouselArrowLeft.addEventListener('click', function() {
+                var carousel = getActiveCarousel();
+                if (carousel) carousel.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+        }
+        if (carouselArrowRight) {
+            carouselArrowRight.addEventListener('click', function() {
+                var carousel = getActiveCarousel();
+                if (carousel) carousel.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+        }
+
+        /* ═══════════════════════════════════════════
+           3. TAB SWITCHING + AUTO-CENTER
+           ═══════════════════════════════════════════ */
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var target = this.getAttribute('data-tab');
+
+                // Reset all tabs
+                tabs.forEach(function(t) {
+                    t.setAttribute('aria-selected', 'false');
+                });
+
+                // Activate clicked tab
+                this.setAttribute('aria-selected', 'true');
+
+                // Centrado matemático: Solo mueve el contenedor interno, no la página
+                if (tabScrollContainer) {
+                    var scrollPos = this.offsetLeft - (tabScrollContainer.offsetWidth / 2) + (this.offsetWidth / 2);
+                    tabScrollContainer.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                }
+
+                // Update dots
+                updateDots(target);
+
+                // Show target panel, hide others
+                panels.forEach(function(panel) {
+                    if (panel.getAttribute('data-panel') === target) {
+                        panel.classList.remove('hidden');
+                        var carousel = panel.querySelector('.svc-carousel');
+                        if (carousel) carousel.scrollLeft = 0;
+                        var cards = panel.querySelectorAll('.svc-card');
+                        cards.forEach(function(card) {
+                            card.style.animation = 'none';
+                            card.offsetHeight;
+                            card.style.animation = '';
+                        });
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                });
+
+                setTimeout(updateTabArrows, 100);
+                setTimeout(updateCarouselUI, 150);
+            });
+        });
+
+        /* ═══════════════════════════════════════════
+           4. DRAG TO SCROLL FOR CAROUSELS (PC)
+           ═══════════════════════════════════════════ */
+        var carouselsList = document.querySelectorAll('.svc-carousel');
+        carouselsList.forEach(function(slider) {
+            var isDown = false;
+            var startX;
+            var scrollLeft;
+
+            slider.addEventListener('mousedown', function(e) {
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', function() {
+                isDown = false;
+                slider.style.cursor = '';
+            });
+            slider.addEventListener('mouseup', function() {
+                isDown = false;
+                slider.style.cursor = '';
+            });
+            slider.addEventListener('mousemove', function(e) {
+                if (!isDown) return;
+                e.preventDefault();
+                var x = e.pageX - slider.offsetLeft;
+                var walk = (x - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+
+        // Init arrows — run multiple times to handle layout settling
+        updateTabArrows();
+        updateCarouselUI();
+        setTimeout(updateCarouselUI, 150);
+        setTimeout(updateCarouselUI, 500);
+
+    })();
+    </script>
 </section>
