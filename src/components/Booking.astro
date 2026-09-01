@@ -1,59 +1,148 @@
-<section id="reservas" class="relative py-28 md:py-36 px-6 overflow-hidden section-glow-top">
-    
-    <div class="max-w-5xl mx-auto relative z-10 text-center">
-        
-        <div data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient-accent">Reserva tu Espacio</h2>
-            
-            <!-- Pasos discretos -->
-            <div class="flex flex-wrap justify-center items-center gap-3 md:gap-6 mb-10 text-[#a8a29e] text-sm font-light w-full">
-                <div class="flex items-center gap-2">
-                    <span class="flex items-center justify-center w-5 h-5 rounded-full border border-[rgba(212,175,55,0.3)] text-[#d4af37] text-[10px]">1</span>
-                    <span>Elige servicio</span>
-                </div>
-                <div class="hidden md:block w-4 h-[1px] bg-[rgba(255,255,255,0.1)]"></div>
-                <div class="flex items-center gap-2">
-                    <span class="flex items-center justify-center w-5 h-5 rounded-full border border-[rgba(212,175,55,0.3)] text-[#d4af37] text-[10px]">2</span>
-                    <span>Elige Fecha y hora</span>
-                </div>
-                <div class="hidden md:block w-4 h-[1px] bg-[rgba(255,255,255,0.1)]"></div>
-                <div class="flex items-center gap-2">
-                    <span class="flex items-center justify-center w-5 h-5 rounded-full border border-[rgba(212,175,55,0.3)] text-[#d4af37] text-[10px]">3</span>
-                    <span>Ingresa tu nombre</span>
-                </div>
-                <div class="hidden md:block w-4 h-[1px] bg-[rgba(255,255,255,0.1)]"></div>
-                <div class="flex items-center gap-2">
-                    <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[rgba(212,175,55,0.15)] text-[#d4af37] text-[10px] font-medium">✓</span>
-                    <span>¡Ya tienes tu reserva!</span>
-                </div>
-            </div>
+<section id="reservas" class="relative py-28 md:py-40 px-4 sm:px-6 overflow-hidden section-glow-top" style="background: linear-gradient(180deg, #0c0a09 0%, #1c1917 50%, #0c0a09 100%);">
+
+    <!-- Ambient golden orb behind widget -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(180,83,9,0.03) 40%, transparent 70%); filter: blur(80px);" aria-hidden="true"></div>
+
+    <!-- Secondary orb for depth -->
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 60%); filter: blur(100px);" aria-hidden="true"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10">
+
+        <!-- Título -->
+        <div data-aos="fade-up" class="text-center mb-6">
+            <span class="inline-block text-[11px] font-medium tracking-[0.35em] uppercase mb-5" style="color: rgba(245,158,11,0.6);">Agenda Online</span>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
+                <span class="text-gradient-accent">Reserva tu</span>
+                <br class="hidden sm:block" />
+                <span class="text-[#e7e5e4]">Espacio</span>
+            </h2>
         </div>
 
-        <!-- Panel Glass del Widget -->
-        <div class="glass-panel p-0 md:p-1 rounded-x2 max-w-[800px] md:rounded-3xl relative overflow-hidden group mx-auto w-full" data-aos="zoom-in" data-aos-duration="1000">
-           
-            <!-- Shimmer -->
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.08)] to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none z-20"></div>
+       <!-- Indicador de Pasos Premium -->
+        <div data-aos="fade-up" data-aos-delay="150" class="flex flex-wrap justify-center items-center gap-3 sm:gap-0 mb-14 md:mb-16 px-2">
 
-            <!-- Contenedor del Calendario -->
-            <div class="rounded-x2 md:rounded-2xl w-full h-[600px] max-w-[880px] relative z-10 overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
-                
-                <!-- Iframe de Setmore incrustado -->
-                <iframe 
-                    src="https://esteticaparis.setmore.com/926a54c2-88c3-4943-8cda-82c188dd0515" 
-                    class="absolute inset-0 w-full h-full border-0 bg-transparent rounded-xl md:rounded-2xl"
-                    scrolling="yes"
-                    loading="lazy">
-                </iframe>
+            <!-- Paso 1 -->
+            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0c0a09] border border-[#f59e0b]/20 shadow-[0_8px_20px_rgba(0,0,0,0.6)] transition-colors hover:border-[#f59e0b]/40">
+                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#f59e0b] border border-[#f59e0b]/40 bg-[#f59e0b]/5">1</span>
+                <span class="text-[13px] md:text-sm font-medium text-[#e7e5e4] tracking-wide">Servicio</span>
+            </div>
 
+            <!-- Conector -->
+            <div class="hidden sm:flex items-center mx-1 sm:mx-2 opacity-60">
+                <div class="w-6 md:w-10 h-[1px] bg-[#f59e0b]/30"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]/40 shadow-[0_0_5px_rgba(245,158,11,0.3)]"></div>
+                <div class="w-6 md:w-10 h-[1px] bg-[#f59e0b]/30"></div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0c0a09] border border-[#f59e0b]/20 shadow-[0_8px_20px_rgba(0,0,0,0.6)] transition-colors hover:border-[#f59e0b]/40">
+                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#f59e0b] border border-[#f59e0b]/40 bg-[#f59e0b]/5">2</span>
+                <span class="text-[13px] md:text-sm font-medium text-[#e7e5e4] tracking-wide">Fecha</span>
+            </div>
+
+            <!-- Conector -->
+            <div class="hidden sm:flex items-center mx-1 sm:mx-2 opacity-60">
+                <div class="w-6 md:w-10 h-[1px] bg-[#f59e0b]/30"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]/40 shadow-[0_0_5px_rgba(245,158,11,0.3)]"></div>
+                <div class="w-6 md:w-10 h-[1px] bg-[#f59e0b]/30"></div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0c0a09] border border-[#f59e0b]/20 shadow-[0_8px_20px_rgba(0,0,0,0.6)] transition-colors hover:border-[#f59e0b]/40">
+                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#f59e0b] border border-[#f59e0b]/40 bg-[#f59e0b]/5">3</span>
+                <span class="text-[13px] md:text-sm font-medium text-[#e7e5e4] tracking-wide">Nombre</span>
+            </div>
+
+            <!-- Conector -->
+            <div class="hidden sm:flex items-center mx-1 sm:mx-2 opacity-60">
+                <div class="w-6 md:w-10 h-[1px] bg-[#f59e0b]/30"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]/40 shadow-[0_0_5px_rgba(245,158,11,0.3)]"></div>
+                <div class="w-6 md:w-10 h-[1px] bg-[#f59e0b]/30"></div>
+            </div>
+
+            <!-- Paso ✓ (Destacado en Ámbar como en tu imagen) -->
+            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#f59e0b]/5 border border-[#f59e0b]/30 shadow-[0_0_15px_rgba(245,158,11,0.08)] transition-colors hover:border-[#f59e0b]/50">
+                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#f59e0b] border border-[#f59e0b]/50 bg-[#f59e0b]/10">✓</span>
+                <span class="text-[13px] md:text-sm font-semibold text-[#f59e0b] tracking-wide">Listo</span>
+            </div>
+
+        </div>
+
+        <!-- Panel Liquid Glass Principal -->
+        <div class="relative max-w-[880px] mx-auto" data-aos="zoom-in" data-aos-duration="1200">
+
+            <!-- Levitation glow beneath widget -->
+            <div class="absolute -bottom-6 left-[10%] right-[10%] h-16 rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(245,158,11,0.12) 0%, transparent 70%); filter: blur(20px);" aria-hidden="true"></div>
+
+            <!-- Outer Glass Shell -->
+            <div class="booking-glass-outer relative rounded-[1.75rem] p-[1px] group" style="background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 50%, rgba(245,158,11,0.08) 100%);">
+
+                <!-- Shimmer overlay — continuous liquid motion -->
+                <div class="booking-shimmer absolute inset-0 rounded-[1.75rem] pointer-events-none z-30 overflow-hidden">
+                    <div class="absolute inset-0 -translate-x-full animate-[bookingShimmer_4s_ease-in-out_infinite]" style="background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 45%, rgba(245,158,11,0.06) 50%, rgba(255,255,255,0.04) 55%, transparent 70%);"></div>
+                </div>
+
+                <!-- Inner container -->
+                <div class="relative rounded-[1.7rem] overflow-hidden" style="background: rgba(12,10,9,0.85); backdrop-filter: blur(40px) saturate(1.4); -webkit-backdrop-filter: blur(40px) saturate(1.4); box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.04), inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.3);">
+
+                    <!-- Top edge highlight -->
+                    <div class="absolute top-0 left-[15%] right-[15%] h-[1px] z-20 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(245,158,11,0.25), rgba(255,255,255,0.15), rgba(245,158,11,0.25), transparent);"></div>
+
+                    <!-- Content wrapper with subtle inner glow -->
+                    <div class="relative p-1 sm:p-1.5">
+
+                        <!-- Iframe Container -->
+                        <div class="relative w-full h-[600px] sm:h-[650px] rounded-[1.4rem] overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
+
+                            <iframe
+                                src="https://esteticaparis.setmore.com/926a54c2-88c3-4943-8cda-82c188dd0515"
+                                class="absolute inset-0 w-full h-full border-0 bg-transparent rounded-2xl"
+                                scrolling="yes"
+                                loading="lazy">
+                            </iframe>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom edge highlight -->
+                    <div class="absolute bottom-0 left-[20%] right-[20%] h-[1px] z-20 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Disclaimer -->
+        <div data-aos="fade-up" data-aos-delay="200" class="mt-10 md:mt-14 text-center max-w-lg mx-auto">
+            <div class="inline-flex items-start gap-3 px-5 py-3.5 rounded-2xl" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); box-shadow: inset 0 1px 1px rgba(255,255,255,0.04);">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: rgba(245,158,11,0.5);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                </svg>
+                <p class="text-[12px] sm:text-[13px] leading-relaxed text-left" style="color: rgba(231,229,228,0.45);">
+                    La web solo aparta el lugar; el pago es en efectivo o terminal física en la barbería.
+                </p>
             </div>
         </div>
 
     </div>
 
     <style>
-        @keyframes shimmer {
+        @keyframes bookingShimmer {
+            0%   { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
+
+        .booking-glass-outer {
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)) drop-shadow(0 0 60px rgba(245,158,11,0.06));
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .booking-glass-outer:hover {
+            filter: drop-shadow(0 28px 55px rgba(0,0,0,0.45)) drop-shadow(0 0 80px rgba(245,158,11,0.1));
+            transform: translateY(-4px);
+        }
     </style>
+
 </section>
