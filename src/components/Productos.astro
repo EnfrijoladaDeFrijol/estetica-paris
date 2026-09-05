@@ -1,0 +1,411 @@
+﻿---
+// Productos.astro — Sección "Nuestros Favoritos"
+// Bug fix: Caracteres invisibles eliminados, layout en flex asegurado
+// Diseño: Liquid Glass coherente con el resto del sitio
+---
+
+<section class="relative py-24 md:py-28 px-4 sm:px-6 overflow-hidden section-glow-top" id="productos">
+
+    <!-- Ambient glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none"
+         style="width:800px;height:450px;background:radial-gradient(ellipse,rgba(212,175,55,0.035) 0%,transparent 70%);filter:blur(100px);">
+    </div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+
+        <!-- HEADER -->
+        <div class="flex items-end justify-between mb-12" data-aos="fade-up">
+            <div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-6 h-[1px] bg-gradient-to-r from-transparent to-[#d4af37]/50"></div>
+                    <span class="text-[#d4af37] text-xs font-semibold tracking-widest uppercase">Lo que usamos</span>
+                </div>
+                <h2 class="text-[1.75rem] sm:text-4xl md:text-5xl font-bold text-gradient leading-tight">
+                    Nuestros Favoritos
+                </h2>
+                <p class="text-[#78716c] text-sm mt-3 max-w-sm leading-relaxed">
+                    Marcas de confianza internacional para resultados impecables.
+                </p>
+            </div>
+            <!-- Badge desktop -->
+            <div class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full shrink-0"
+                 style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.14);">
+                <svg class="w-3.5 h-3.5 text-[#d4af37]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span class="text-[10px] font-semibold tracking-widest uppercase text-[#a8a29e]">100% Profesional</span>
+            </div>
+        </div>
+
+        <!-- CARRUSEL WRAPPER -->
+        <div class="prod-wrapper relative" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Fade bordes (controlados por JS) -->
+            <div id="prodFadeLeft" class="prod-fade prod-fade-left"></div>
+            <div id="prodFadeRight" class="prod-fade prod-fade-right"></div>
+
+            <!-- Flecha izquierda -->
+            <button id="prodLeft" aria-label="Anterior" class="prod-arrow" style="left:-16px;">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+
+            <!-- Flecha derecha -->
+            <button id="prodRight" aria-label="Siguiente" class="prod-arrow" style="right:-16px;">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            <!-- Track scrollable -->
+            <div id="prodTrack" class="prod-track">
+
+                <!-- CARD 1 -->
+                <article class="prod-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=500&q=80"
+                             alt="BC Color Freeze Mascarilla" class="prod-img" loading="lazy">
+                    </div>
+                    <div class="prod-info">
+                        <span class="prod-brand">Schwarzkopf</span>
+                        <h3 class="prod-name">BC Color Freeze Mascarilla</h3>
+                        <p class="prod-price">$500</p>
+                    </div>
+                </article>
+
+                <!-- CARD 2 -->
+                <article class="prod-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1585232351009-aa45c9a1a72f?auto=format&fit=crop&w=500&q=80"
+                             alt="Brilliance Shampoo Color" class="prod-img" loading="lazy">
+                    </div>
+                    <div class="prod-info">
+                        <span class="prod-brand">Wella Professionals</span>
+                        <h3 class="prod-name">Brilliance Shampoo Color</h3>
+                        <p class="prod-price">$380</p>
+                    </div>
+                </article>
+
+                <!-- CARD 3 -->
+                <article class="prod-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=500&q=80"
+                             alt="Serie Expert Absolut Repair" class="prod-img" loading="lazy">
+                    </div>
+                    <div class="prod-info">
+                        <span class="prod-brand">L'Oréal Professionnel</span>
+                        <h3 class="prod-name">Serie Expert Absolut Repair</h3>
+                        <p class="prod-price">$620</p>
+                    </div>
+                </article>
+
+                <!-- CARD 4 -->
+                <article class="prod-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=500&q=80"
+                             alt="All Soft Argan-6 Oil" class="prod-img" loading="lazy">
+                    </div>
+                    <div class="prod-info">
+                        <span class="prod-brand">Redken</span>
+                        <h3 class="prod-name">All Soft Argan-6 Oil</h3>
+                        <p class="prod-price">$750</p>
+                    </div>
+                </article>
+
+                <!-- CARD 5 -->
+                <article class="prod-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=500&q=80"
+                             alt="Nutritive Masquintense" class="prod-img" loading="lazy">
+                    </div>
+                    <div class="prod-info">
+                        <span class="prod-brand">Kérastase</span>
+                        <h3 class="prod-name">Nutritive Masquintense</h3>
+                        <p class="prod-price">$980</p>
+                    </div>
+                </article>
+
+                <!-- CARD 6 -->
+                <article class="prod-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=500&q=80"
+                             alt="Nail Lacquer Collection" class="prod-img" loading="lazy">
+                    </div>
+                    <div class="prod-info">
+                        <span class="prod-brand">OPI</span>
+                        <h3 class="prod-name">Nail Lacquer Collection</h3>
+                        <p class="prod-price">$220</p>
+                    </div>
+                </article>
+
+            </div><!-- /prod-track -->
+        </div><!-- /prod-wrapper -->
+
+        <!-- Nota pie -->
+        <p class="text-center text-[11px] text-[#3a3835] mt-10" data-aos="fade-up" data-aos-delay="150">
+            Productos sujetos a disponibilidad · Solo para uso en sucursal
+        </p>
+
+    </div>
+</section>
+
+<style>
+    /* ══════════════════════════════════════
+       TRACK
+       ══════════════════════════════════════ */
+    .prod-track {
+        display: flex;
+        flex-direction: row;
+        gap: 1.25rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 0.5rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        cursor: grab;
+    }
+    .prod-track::-webkit-scrollbar { 
+        display: none; 
+    }
+    .prod-track.is-grabbing { 
+        cursor: grabbing; 
+    }
+
+    /* ══════════════════════════════════════
+       PRODUCT CARD — Liquid Glass
+       ══════════════════════════════════════ */
+    .prod-card {
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        width: 240px;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(20px) saturate(1.3);
+        -webkit-backdrop-filter: blur(20px) saturate(1.3);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.15rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    @media (min-width: 640px) {
+        .prod-card { width: 260px; }
+    }
+
+    .prod-card:hover {
+        border-color: rgba(212, 175, 55, 0.28);
+        transform: translateY(-5px);
+        box-shadow:
+            0 18px 44px rgba(0, 0, 0, 0.3),
+            0 0 30px rgba(212, 175, 55, 0.07),
+            inset 0 1px 0 rgba(255, 255, 255, 0.09);
+    }
+
+    /* Zona imagen */
+    .prod-img-wrap {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.02);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        position: relative;
+    }
+
+    @media (min-width: 640px) {
+        .prod-img-wrap { height: 270px; }
+    }
+
+    /* Glow interior sutil al hover */
+    .prod-img-wrap::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 100%, rgba(212,175,55,0.08) 0%, transparent 65%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .prod-card:hover .prod-img-wrap::after { opacity: 1; }
+
+    .prod-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        filter: brightness(0.9) saturate(1.05);
+    }
+    .prod-card:hover .prod-img {
+        transform: scale(1.06);
+        filter: brightness(1) saturate(1.12);
+    }
+
+    /* Zona texto */
+    .prod-info {
+        padding: 1rem 1.15rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .prod-brand {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #d4af37;
+        opacity: 0.9;
+    }
+
+    .prod-name {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #e8e6e3;
+        line-height: 1.4;
+        margin-top: 0.1rem;
+    }
+
+    .prod-price {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #e8d48b;
+        margin-top: 0.4rem;
+    }
+
+    /* ══════════════════════════════════════
+       FLECHAS
+       ══════════════════════════════════════ */
+    .prod-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background: rgba(17, 17, 16, 0.92);
+        border: 1px solid rgba(120, 113, 108, 0.3);
+        color: #d4af37;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        cursor: pointer;
+        outline: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .prod-arrow.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .prod-arrow:hover {
+        border-color: rgba(212, 175, 55, 0.5);
+        box-shadow: 0 0 28px rgba(212, 175, 55, 0.2);
+        transform: translateY(-50%) scale(1.08);
+    }
+
+    .prod-arrow:hover svg {
+        filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+    }
+
+    @media (min-width: 640px) {
+        .prod-arrow { width: 2.75rem; height: 2.75rem; }
+        #prodLeft  { left: -22px; }
+        #prodRight { right: -22px; }
+    }
+
+    /* ══════════════════════════════════════
+       FADES LATERALES
+       ══════════════════════════════════════ */
+    .prod-fade {
+        position: absolute;
+        top: 0; bottom: 0;
+        width: 5rem;
+        z-index: 10;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .prod-fade-left  { left: 0;  background: linear-gradient(to right, #111110 30%, transparent); }
+    .prod-fade-right { right: 0; background: linear-gradient(to left,  #111110 30%, transparent); }
+    .prod-fade.show  { opacity: 1; }
+</style>
+
+<script is:inline>
+(function () {
+    var track  = document.getElementById('prodTrack');
+    var btnL   = document.getElementById('prodLeft');
+    var btnR   = document.getElementById('prodRight');
+    var fadeL  = document.getElementById('prodFadeLeft');
+    var fadeR  = document.getElementById('prodFadeRight');
+    var STEP   = 280;
+
+    function updateUI() {
+        if (!track) return;
+        var sl  = track.scrollLeft;
+        var sw  = track.scrollWidth;
+        var cw  = track.clientWidth;
+        var thr = 12;
+        var canLeft  = sl > thr;
+        var canRight = sl + cw < sw - thr;
+
+        if (btnL) btnL.classList.toggle('visible', canLeft);
+        if (btnR) btnR.classList.toggle('visible', canRight);
+
+        if (fadeL) fadeL.classList.toggle('show', canLeft);
+        if (fadeR) fadeR.classList.toggle('show', canRight);
+    }
+
+    if (track) {
+        track.addEventListener('scroll', updateUI, { passive: true });
+        window.addEventListener('resize', updateUI);
+        updateUI();
+        setTimeout(updateUI, 150);
+        setTimeout(updateUI, 500);
+    }
+
+    if (btnL) btnL.addEventListener('click', function () { track.scrollBy({ left: -STEP, behavior: 'smooth' }); });
+    if (btnR) btnR.addEventListener('click', function () { track.scrollBy({ left:  STEP, behavior: 'smooth' }); });
+
+    if (track) {
+        var isDown = false, startX, scrollLeft;
+
+        track.addEventListener('mousedown', function (e) {
+            isDown = true;
+            track.classList.add('is-grabbing');
+            startX     = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener('mouseleave', function () {
+            isDown = false;
+            track.classList.remove('is-grabbing');
+        });
+        track.addEventListener('mouseup', function () {
+            isDown = false;
+            track.classList.remove('is-grabbing');
+        });
+        track.addEventListener('mousemove', function (e) {
+            if (!isDown) return;
+            e.preventDefault();
+            var x    = e.pageX - track.offsetLeft;
+            var walk = (x - startX) * 1.6;
+            track.scrollLeft = scrollLeft - walk;
+        });
+    }
+})();
+</script>
