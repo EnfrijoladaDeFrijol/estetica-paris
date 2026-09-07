@@ -2,19 +2,19 @@
     
     <!-- Video de fondo -->
     <video 
+        id="hero-video"
         autoplay 
         loop 
         muted 
         playsinline 
-        class="absolute inset-0 w-full h-full object-cover z-0"
+        class="absolute inset-0 w-full h-full object-cover z-0 scale-105"
         poster="/images/fondo_local.jpg"
     >
-        <!-- NOTA: Colocaste el video dentro de la carpeta images. Si en el futuro lo mueves, recuerda cambiar esta ruta -->
-        <source src="/images/videos/ejmplo.mp4" type="video/mp4" />
+        <source src="/images/videos/hero_edited.mp4" type="video/mp4" />
     </video>
 
     <!-- Overlay oscuro elegante con tinte cálido -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/85 via-[#111110]/70 to-[#111110]/95 z-0 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/90 via-[#111110]/80 to-[#111110]/95 z-0 pointer-events-none mix-blend-multiply"></div>
 
     <div class="z-10 max-w-3xl flex flex-col items-center" data-aos="fade-up" data-aos-duration="1200">
 
@@ -58,3 +58,4 @@
     <!-- Bottom fade -->
     <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#111110] to-transparent z-10 pointer-events-none"></div>
 </section>
+
