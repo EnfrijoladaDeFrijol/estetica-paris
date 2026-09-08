@@ -34,7 +34,6 @@ import Navbar from '../components/Navbar.astro';
                 radial-gradient(ellipse 80% 60% at 10% 0%, rgba(180, 145, 38, 0.07) 0%, transparent 60%),
                 radial-gradient(ellipse 60% 50% at 90% 20%, rgba(120, 100, 180, 0.05) 0%, transparent 60%),
                 radial-gradient(ellipse 50% 40% at 50% 100%, rgba(180, 80, 80, 0.04) 0%, transparent 60%);
-            background-attachment: fixed;
             color: #e8e6e3;
             overflow-x: hidden;
         }
@@ -55,7 +54,6 @@ import Navbar from '../components/Navbar.astro';
                 inset 0 1px 0 rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateZ(0);
-            will-change: backdrop-filter, transform;
             backface-visibility: hidden;
         }
 
@@ -79,7 +77,6 @@ import Navbar from '../components/Navbar.astro';
                 inset 0 1px 0 rgba(255, 255, 255, 0.06);
             transition: all 0.3s ease;
             transform: translateZ(0);
-            will-change: backdrop-filter, transform;
             backface-visibility: hidden;
         }
 
@@ -109,7 +106,6 @@ import Navbar from '../components/Navbar.astro';
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
             transform: translateZ(0);
-            will-change: backdrop-filter, transform;
             backface-visibility: hidden;
         }
 
@@ -125,10 +121,8 @@ import Navbar from '../components/Navbar.astro';
         .glow-orb {
             position: fixed;
             border-radius: 50%;
-            /* filter: blur(130px); REMOVIDO: Causa lag extremo en móviles al combinar con video */
             pointer-events: none;
             z-index: 0;
-            will-change: transform; /* Optimización para GPU */
             animation: orbFloat 30s ease-in-out infinite;
         }
 
@@ -212,6 +206,39 @@ import Navbar from '../components/Navbar.astro';
             transform: scale(1.1);
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
         }
+
+        /* ══════════════════════════════════════════
+           MOBILE PERFORMANCE OPTIMIZATIONS
+           Reducir efectos pesados en dispositivos móviles
+           ══════════════════════════════════════════ */
+        @media (max-width: 767px) {
+            .glass-panel {
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            }
+            .glass-panel:hover {
+                transform: none;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            }
+            .glass-panel-strong {
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            }
+            .glass-btn {
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                box-shadow: 0 2px 10px rgba(212, 175, 55, 0.08);
+            }
+            .glow-orb {
+                animation: none !important;
+                opacity: 0.5;
+            }
+            .glow-orb-1 { width: 40vw; height: 40vw; }
+            .glow-orb-2 { width: 30vw; height: 30vw; }
+            .glow-orb-3 { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -241,7 +268,16 @@ import Navbar from '../components/Navbar.astro';
     <script is:inline>
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof AOS !== 'undefined') {
-                AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic' });
+                var isMobile = window.innerWidth < 768;
+                AOS.init({
+                    once: true,
+                    duration: isMobile ? 400 : 800,
+                    easing: 'ease-out-cubic',
+                    // Desactivar en dispositivos muy lentos
+                    disable: function() {
+                        return window.innerWidth < 768 && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
+                    }
+                });
             } else {
                 document.querySelectorAll('[data-aos]').forEach(el => {
                     el.style.opacity = '1';

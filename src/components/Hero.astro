@@ -1,22 +1,20 @@
 <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-36 pb-32 md:pt-48 md:pb-40 overflow-hidden">
     
-    <!-- Video de fondo (Solo se muestra en pantallas md o mayores para evitar lag en móviles) -->
+    <!-- Video de fondo — Visible en todas las pantallas con carga inteligente -->
     <video 
         id="hero-video"
         autoplay 
         loop 
         muted 
         playsinline 
-        class="absolute inset-0 w-full h-full object-cover z-0 scale-105 hidden md:block"
+        preload="metadata"
+        class="absolute inset-0 w-full h-full object-cover z-0 scale-105"
         poster="/images/fondo_local.jpg"
     >
         <source src="/images/videos/hero_edited.mp4" type="video/mp4" />
     </video>
-    
-    <!-- Imagen estática para móviles en lugar de video pesado -->
-    <div class="absolute inset-0 w-full h-full bg-[url('/images/fondo_local.jpg')] bg-cover bg-center z-0 scale-105 md:hidden"></div>
 
-    <!-- Overlay oscuro elegante (Quitamos mix-blend-multiply que causa mucho lag) -->
+    <!-- Overlay oscuro elegante -->
     <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/95 via-[#111110]/85 to-[#111110]/95 z-0 pointer-events-none"></div>
 
     <div class="z-10 max-w-3xl flex flex-col items-center" data-aos="fade-up" data-aos-duration="1200">
@@ -28,14 +26,14 @@
 
         <!-- Torre Eiffel -->
         <div class="relative mb-10 flex justify-center items-center" data-aos="zoom-in" data-aos-delay="200">
-            <!-- Halo de luz adaptado a la nueva proporción -->
-            <div class="absolute inset-0 bg-[#f59e0b] blur-[70px] opacity-20 rounded-full scale-[1.1]"></div>
+            <!-- Halo de luz — versión ligera en móvil -->
+            <div class="absolute inset-0 hero-tower-halo rounded-full scale-[1.1]"></div>
             
             <!-- El salto de tamaño: w-48 (Móvil), md:w-56 (Tablet), lg:w-64 (Escritorio) -->
             <img 
                 src="/images/torre_hero.png" 
                 alt="Logo Estética París" 
-                class="relative z-10 w-48 md:w-56 lg:w-64 object-contain drop-shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-transform duration-700 hover:scale-105"
+                class="relative z-10 w-48 md:w-56 lg:w-64 object-contain hero-tower-img transition-transform duration-700 hover:scale-105"
             >
         </div>
 
@@ -62,3 +60,50 @@
     <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#111110] to-transparent z-10 pointer-events-none"></div>
 </section>
 
+<style>
+    /* Halo de la torre — desktop: blur grande, móvil: sin blur */
+    .hero-tower-halo {
+        background: rgba(245, 158, 11, 0.20);
+        filter: blur(70px);
+    }
+    .hero-tower-img {
+        filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+    }
+
+    @media (max-width: 767px) {
+        .hero-tower-halo {
+            filter: none;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+        }
+        .hero-tower-img {
+            filter: none;
+        }
+    }
+</style>
+
+<script is:inline>
+    // Video inteligente: play/pause según visibilidad para ahorrar recursos
+    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.getElementById('hero-video');
+        if (!video) return;
+
+        // En móvil: reducir calidad de reproducción
+        if (window.innerWidth < 768) {
+            video.playbackRate = 1;
+        }
+
+        // Pausar video cuando no es visible
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        video.play().catch(function() {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(video);
+        }
+    });
+</script>

@@ -6,8 +6,8 @@
 <section class="relative py-24 md:py-28 px-4 sm:px-6 overflow-hidden section-glow-top" id="productos">
 
     <!-- Ambient glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none"
-         style="width:800px;height:450px;background:radial-gradient(ellipse,rgba(212,175,55,0.035) 0%,transparent 70%);filter:blur(100px);">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none prod-ambient-glow"
+         style="width:800px;height:450px;background:radial-gradient(ellipse,rgba(212,175,55,0.035) 0%,transparent 70%);">
     </div>
 
     <div class="max-w-6xl mx-auto relative z-10">
@@ -193,7 +193,6 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 1.5rem;
         transform: translateZ(0);
-        will-change: transform, backdrop-filter;
         backface-visibility: hidden;
         overflow: hidden;
         display: flex;
@@ -346,6 +345,20 @@
         background: #d4af37;
         border-radius: 9999px;
         box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Ambient glow blur — solo desktop */
+    .prod-ambient-glow {
+        filter: blur(100px);
+    }
+
+    @media (max-width: 767px) {
+        .prod-ambient-glow {
+            display: none;
+        }
+        .prod-card:hover {
+            transform: none;
+        }
     }
 </style>
 

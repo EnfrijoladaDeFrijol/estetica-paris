@@ -1,10 +1,10 @@
 <section id="reservas" class="relative py-28 md:py-40 px-4 sm:px-6 overflow-hidden section-glow-top" style="background: linear-gradient(180deg, transparent 0%, rgba(12,10,9,0.6) 20%, rgba(12,10,9,0.6) 80%, transparent 100%);">
 
     <!-- Ambient golden orb behind widget -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(180,83,9,0.03) 40%, transparent 70%); filter: blur(80px);" aria-hidden="true"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(180,83,9,0.03) 40%, transparent 70%);" aria-hidden="true"></div>
 
     <!-- Secondary orb for depth -->
-    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 60%); filter: blur(100px);" aria-hidden="true"></div>
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 60%);" aria-hidden="true"></div>
 
     <div class="max-w-5xl mx-auto relative z-10">
 
@@ -72,7 +72,7 @@
         <div class="relative max-w-[880px] mx-auto" data-aos="zoom-in" data-aos-duration="1200">
 
             <!-- Levitation glow beneath widget -->
-            <div class="absolute -bottom-6 left-[10%] right-[10%] h-16 rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(245,158,11,0.12) 0%, transparent 70%); filter: blur(20px);" aria-hidden="true"></div>
+            <div class="absolute -bottom-6 left-[10%] right-[10%] h-16 rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(ellipse, rgba(245,158,11,0.12) 0%, transparent 70%);" aria-hidden="true"></div>
 
             <!-- Outer Glass Shell -->
             <div class="booking-glass-outer relative rounded-[1.75rem] p-[1px] group" style="background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 50%, rgba(245,158,11,0.08) 100%);">
@@ -142,6 +142,27 @@
         .booking-glass-outer:hover {
             filter: drop-shadow(0 28px 55px rgba(0,0,0,0.45)) drop-shadow(0 0 80px rgba(245,158,11,0.1));
             transform: translateY(-4px);
+        }
+
+        /* Ambient orb blurs — solo desktop */
+        .booking-ambient-orb {
+            filter: blur(80px);
+        }
+
+        @media (max-width: 767px) {
+            .booking-ambient-orb {
+                display: none;
+            }
+            .booking-shimmer {
+                display: none;
+            }
+            .booking-glass-outer {
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            }
+            .booking-glass-outer:hover {
+                transform: none;
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            }
         }
     </style>
 

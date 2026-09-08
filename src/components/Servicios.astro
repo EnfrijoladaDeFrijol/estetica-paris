@@ -4,7 +4,7 @@ import ServiceCard from './ServiceCard.astro';
 <section class="relative py-28 md:py-36 px-4 sm:px-14 md:px-20 lg:px-24 xl:px-12 overflow-hidden section-glow-top" id="servicios">
     
     <!-- Ambient gold glow for section -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#d4af37]/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#d4af37]/[0.02] rounded-full svc-ambient-glow pointer-events-none"></div>
 
     <div class="max-w-6xl mx-auto relative z-10">
 
@@ -235,14 +235,14 @@ import ServiceCard from './ServiceCard.astro';
             </div>
 
             <!-- ◄ Flecha Izquierda Carrusel -->
-            <button id="carouselArrowLeft" aria-label="Scroll cards left" class="carousel-arrow flex absolute left-1 sm:-left-12 md:-left-16 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+            <button id="carouselArrowLeft" aria-label="Scroll cards left" class="carousel-arrow flex absolute left-1 sm:-left-12 md:-left-16 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[8px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
             
             <!-- ► Flecha Derecha Carrusel -->
-            <button id="carouselArrowRight" aria-label="Scroll cards right" class="carousel-arrow flex absolute right-1 sm:-right-12 md:-right-16 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+            <button id="carouselArrowRight" aria-label="Scroll cards right" class="carousel-arrow flex absolute right-1 sm:-right-12 md:-right-16 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[8px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -398,6 +398,22 @@ import ServiceCard from './ServiceCard.astro';
         }
         .svc-panel.hidden {
             display: none;
+        }
+
+        /* Ambient glow blur — solo desktop */
+        .svc-ambient-glow {
+            filter: blur(120px);
+        }
+
+        @media (max-width: 767px) {
+            .svc-ambient-glow {
+                display: none;
+            }
+            .carousel-arrow {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(17, 17, 16, 0.8) !important;
+            }
         }
     </style>
 

@@ -32,7 +32,7 @@
 
 <!-- 2. MENÚ MÓVIL (LIBERADO DEL NAVBAR) -->
 <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500"
-     style="background: rgba(17,17,16,0.97); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);">
+     style="background: rgba(17,17,16,0.98);">
     <a href="#nosotros" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Nosotros</a>
     <a href="#equipo" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Equipo</a>
     <a href="#servicios" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Servicios</a>
@@ -112,3 +112,12 @@
         });
     });
 </script>
+
+<style>
+    @media (max-width: 767px) {
+        #navbar {
+            backdrop-filter: blur(6px) !important;
+            -webkit-backdrop-filter: blur(6px) !important;
+        }
+    }
+</style>
