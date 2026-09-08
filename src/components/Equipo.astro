@@ -132,14 +132,17 @@ const team = [
     /* Liquid Glass info panel */
     .team-info-glass {
         background: rgba(17, 17, 16, 0.65);
-        backdrop-filter: blur(24px) saturate(1.4);
-        -webkit-backdrop-filter: blur(24px) saturate(1.4);
+        backdrop-filter: blur(12px) saturate(1.4);
+        -webkit-backdrop-filter: blur(12px) saturate(1.4);
         border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.06),
             inset 0 -1px 0 rgba(0, 0, 0, 0.1);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateZ(0);
+        will-change: transform, backdrop-filter;
+        backface-visibility: hidden;
     }
 
     .group:hover .team-info-glass {
