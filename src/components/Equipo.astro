@@ -1,0 +1,278 @@
+---
+const team = [
+    {
+        name: "Alison",
+        image: "/images/equipo/ali.png",
+        description: "Especialista en cortes clásicos y arreglo de barba tradicional con navaja."
+    },
+    {
+        name: "Nathaly",
+        image: "/images/equipo/nose.png",
+        description: "Experto en texturas, desvanecidos modernos y diseño capilar."
+    },
+    {
+        name: "Olivia",
+        image: "/images/fotoperfil.png",
+        description: "Maestro en colorimetría, camuflaje de canas y tratamientos capilares."
+    }
+];
+---
+
+<section class="equipo-section relative py-28 px-6 overflow-hidden" id="equipo">
+
+    <!-- Background image with overlay -->
+    <div class="absolute inset-0 z-0">
+        <img 
+            src="/images/fondo_local.jpg" 
+            alt="" 
+            class="w-full h-full object-cover opacity-[0.12]"
+            loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#111110] via-[#111110]/95 to-[#111110]"></div>
+    </div>
+
+    <!-- Decorative gold line accents -->
+    <div class="absolute top-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.25)] to-transparent z-10"></div>
+    <div class="absolute bottom-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.15)] to-transparent z-10"></div>
+
+    <!-- Ambient glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#d4af37]/[0.03] blur-[120px] pointer-events-none z-0"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+        
+        <!-- Header -->
+        <div class="text-center mb-20" data-aos="fade-up" data-aos-duration="800">
+            <div class="inline-flex items-center gap-3 mb-6" data-aos="fade-down" data-aos-delay="100">
+                <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#d4af37]/60"></span>
+                <span class="text-[#d4af37] text-xs font-semibold tracking-[0.25em] uppercase">Nuestro Equipo</span>
+                <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#d4af37]/60"></span>
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
+                Profesionales en el negocio
+            </h2>
+            <p class="text-[#a8a29e] max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                Cada miembro de nuestro equipo está dedicado a ofrecerte la mejor experiencia y un resultado impecable.
+            </p>
+        </div>
+
+        <!-- Team Grid: horizontal scroll on mobile, grid on desktop -->
+        <div class="relative team-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <!-- Fade edges (controlled by JS) -->
+            <div id="teamFadeLeft" class="absolute -left-6 top-0 bottom-0 w-12 bg-gradient-to-r from-[#111110] to-transparent z-10 opacity-0 transition-opacity duration-300 md:hidden pointer-events-none"></div>
+            <div id="teamFadeRight" class="absolute -right-6 top-0 bottom-0 w-12 bg-gradient-to-l from-[#111110] to-transparent z-10 opacity-0 transition-opacity duration-300 md:hidden pointer-events-none"></div>
+
+            <div id="teamTrack" class="team-scroll flex md:grid md:grid-cols-3 gap-5 lg:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
+            {team.map((member, index) => (
+                <div 
+                    class="team-card group relative rounded-2xl overflow-hidden cursor-pointer snap-center shrink-0 w-[280px] sm:w-[300px] md:w-auto md:shrink flex flex-col h-auto"
+                    data-aos="fade-up" 
+                    data-aos-delay={index * 150}
+                >
+                    <!-- Card border glow on hover -->
+                    <div class="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-[#d4af37]/0 via-[#d4af37]/0 to-[#d4af37]/0 group-hover:from-[#d4af37]/30 group-hover:via-[#d4af37]/10 group-hover:to-[#e8d48b]/20 transition-all duration-700 opacity-0 group-hover:opacity-100 blur-[0.5px] z-0"></div>
+
+                    <div class="relative rounded-2xl overflow-hidden border border-white/[0.06] group-hover:border-[#d4af37]/25 transition-all duration-500 bg-[#161615] flex-1 flex flex-col w-full">
+                        
+                        <!-- Full Photo Area -->
+                        <div class="relative w-full aspect-[3/4] overflow-hidden shrink-0" style="aspect-ratio: 3/4;">
+                            <img 
+                                src={member.image} 
+                                alt={`Foto de ${member.name}`} 
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                            />
+                            
+                            <!-- Photo gradient overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#111110] via-[#111110]/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                            
+                            <!-- Subtle golden tint on hover -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#d4af37]/0 to-[#d4af37]/0 group-hover:from-[#d4af37]/10 group-hover:to-transparent transition-all duration-700 pointer-events-none"></div>
+
+                            <!-- Top accent line -->
+                            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#d4af37]/30 transition-all duration-700 z-10"></div>
+                        </div>
+
+                        <!-- Glass Info Panel - overlapping the photo bottom -->
+                        <div class="relative -mt-16 mx-3 mb-3 z-20 flex-grow flex flex-col">
+                            <div class="team-info-glass rounded-xl p-5 backdrop-blur-xl h-full flex flex-col justify-center text-center">
+                                <!-- Name -->
+                                <h3 class="text-xl font-bold text-[#e8e6e3] mb-2 group-hover:text-white transition-colors duration-300 leading-tight">
+                                    {member.name}
+                                </h3>
+                                
+                                <!-- Description -->
+                                <p class="text-[#a8a29e] text-[0.82rem] leading-relaxed font-light group-hover:text-[#c8c4bf] transition-colors duration-300 line-clamp-3">
+                                    {member.description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+            </div>
+
+            <!-- ◄ Arrow Left -->
+            <button id="teamArrowLeft" aria-label="Scroll left" class="team-arrow absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full text-[#d4af37] transition-all duration-300 md:hidden bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+
+            <!-- ► Arrow Right -->
+            <button id="teamArrowRight" aria-label="Scroll right" class="team-arrow absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full text-[#d4af37] transition-all duration-300 md:hidden bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+        
+    </div>
+</section>
+
+<style>
+    /* Liquid Glass info panel */
+    .team-info-glass {
+        background: rgba(17, 17, 16, 0.65);
+        backdrop-filter: blur(24px) saturate(1.4);
+        -webkit-backdrop-filter: blur(24px) saturate(1.4);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .group:hover .team-info-glass {
+        background: rgba(17, 17, 16, 0.75);
+        border-color: rgba(212, 175, 55, 0.15);
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.35),
+            0 0 30px rgba(212, 175, 55, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    /* Card hover lift */
+    .team-card {
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .team-card:hover {
+        transform: translateY(-6px);
+    }
+
+    /* Hide scrollbar but keep scroll functionality */
+    .team-scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .team-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* ── Arrow button interactivity ── */
+    .team-arrow {
+        cursor: pointer;
+        outline: none;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .team-arrow.is-visible {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .team-arrow:hover svg {
+        filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+    }
+
+</style>
+
+<script is:inline>
+(function() {
+    var track = document.getElementById('teamTrack');
+    var arrowLeft = document.getElementById('teamArrowLeft');
+    var arrowRight = document.getElementById('teamArrowRight');
+    var fadeLeft = document.getElementById('teamFadeLeft');
+    var fadeRight = document.getElementById('teamFadeRight');
+
+    if (!track) return;
+
+    function updateTeamArrows() {
+        // Only run logic if track is horizontally scrollable
+        if (window.innerWidth >= 768) {
+            if (arrowLeft) arrowLeft.classList.remove('is-visible');
+            if (arrowRight) arrowRight.classList.remove('is-visible');
+            if (fadeLeft) fadeLeft.style.opacity = '0';
+            if (fadeRight) fadeRight.style.opacity = '0';
+            return;
+        }
+
+        var sl = track.scrollLeft;
+        var sw = track.scrollWidth;
+        var cw = track.clientWidth;
+        var threshold = 30; // Margen para compensar padding
+        
+        var hasScroll = sw > (cw + threshold);
+        var showLeft = hasScroll && (sl > threshold);
+        var showRight = hasScroll && (sl + cw < sw - threshold);
+
+        if (arrowLeft) arrowLeft.classList.toggle('is-visible', showLeft);
+        if (arrowRight) arrowRight.classList.toggle('is-visible', showRight);
+        
+        if (fadeLeft) fadeLeft.style.opacity = showLeft ? '1' : '0';
+        if (fadeRight) fadeRight.style.opacity = showRight ? '1' : '0';
+    }
+
+    track.addEventListener('scroll', updateTeamArrows, { passive: true });
+    window.addEventListener('resize', updateTeamArrows);
+    
+    // Init multiple times for layout settling
+    updateTeamArrows();
+    setTimeout(updateTeamArrows, 150);
+    setTimeout(updateTeamArrows, 500);
+
+    if (arrowLeft) {
+        arrowLeft.addEventListener('click', function() {
+            track.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+    }
+    if (arrowRight) {
+        arrowRight.addEventListener('click', function() {
+            track.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    }
+
+    // Drag to scroll for mobile emulation on desktop
+    var isDown = false;
+    var startX;
+    var scrollLeft;
+
+    track.addEventListener('mousedown', function(e) {
+        if (window.innerWidth >= 768) return; // Only on mobile layout
+        isDown = true;
+        track.style.cursor = 'grabbing';
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    });
+    track.addEventListener('mouseleave', function() {
+        isDown = false;
+        track.style.cursor = '';
+    });
+    track.addEventListener('mouseup', function() {
+        isDown = false;
+        track.style.cursor = '';
+    });
+    track.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - track.offsetLeft;
+        var walk = (x - startX) * 2;
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+})();
+</script>

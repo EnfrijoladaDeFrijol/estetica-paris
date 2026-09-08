@@ -29,20 +29,6 @@ import ServiceCard from './ServiceCard.astro';
              ═══════════════════════════════════════ -->
         <div class="tabs-wrapper relative mb-14" data-aos="fade-up" data-aos-delay="100">
 
-            <!-- ◄ Flecha Izquierda Tabs -->
-            <button id="tabArrowLeft" aria-label="Scroll tabs left" class="tab-arrow tab-arrow-left absolute left-0 top-0 bottom-0 z-20 flex items-center pl-1 pr-3 opacity-0 pointer-events-none transition-opacity duration-300" style="background: linear-gradient(to right, #111110 60%, transparent 100%);">
-                <svg class="w-5 h-5 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-
-            <!-- ► Flecha Derecha Tabs -->
-            <button id="tabArrowRight" aria-label="Scroll tabs right" class="tab-arrow tab-arrow-right absolute right-0 top-0 bottom-0 z-20 flex items-center pr-1 pl-3 opacity-0 pointer-events-none transition-opacity duration-300" style="background: linear-gradient(to left, #111110 60%, transparent 100%);">
-                <svg class="w-5 h-5 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
-
             <!-- Scroll container Tabs -->
             <div id="tabsScrollContainer" class="overflow-x-auto hide-scroll scroll-smooth snap-x snap-mandatory">
                 <nav class="tabs-nav flex items-center justify-center gap-2 sm:gap-3 min-w-max pb-0" role="tablist" aria-label="Categorías de servicios">
@@ -84,6 +70,20 @@ import ServiceCard from './ServiceCard.astro';
                     </button>
                 </nav>
             </div>
+
+            <!-- ◄ Flecha Izquierda Tabs -->
+            <button id="tabArrowLeft" aria-label="Scroll tabs left" class="tab-arrow tab-arrow-left absolute left-0 top-0 bottom-0 z-30 flex items-center justify-center w-10 sm:w-12 transition-opacity duration-300" style="background: linear-gradient(to right, #111110 60%, transparent 100%);">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+
+            <!-- ► Flecha Derecha Tabs -->
+            <button id="tabArrowRight" aria-label="Scroll tabs right" class="tab-arrow tab-arrow-right absolute right-0 top-0 bottom-0 z-30 flex items-center justify-center w-10 sm:w-12 transition-opacity duration-300" style="background: linear-gradient(to left, #111110 60%, transparent 100%);">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
         </div>
 
         <!-- ═══════════════════════════════════════
@@ -94,21 +94,6 @@ import ServiceCard from './ServiceCard.astro';
             <!-- Fade en los bordes para efecto de profundidad (Controlados por JS) -->
             <div id="fadeLeft" class="absolute -left-4 sm:-left-2 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-[#111110] to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300"></div>
             <div id="fadeRight" class="absolute -right-4 sm:-right-2 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-[#111110] to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300"></div>
-
-
-            <!-- ◄ Flecha Izquierda Carrusel -->
-            <button id="carouselArrowLeft" aria-label="Scroll cards left" class="carousel-arrow flex absolute -left-2 sm:-left-12 md:-left-16 top-1/2 -translate-y-1/2 z-20 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#111110]/90 border border-[#78716c]/30 text-[#d4af37] opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:bg-[#1c1917] hover:border-[#d4af37]/50">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            
-            <!-- ► Flecha Derecha Carrusel -->
-            <button id="carouselArrowRight" aria-label="Scroll cards right" class="carousel-arrow flex absolute -right-2 sm:-right-12 md:-right-16 top-1/2 -translate-y-1/2 z-20 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#111110]/90 border border-[#78716c]/30 text-[#d4af37] opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:bg-[#1c1917] hover:border-[#d4af37]/50">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
 
             <!-- ═══ PANEL: Peluquería ═══ -->
             <div id="panel-peluqueria" role="tabpanel" aria-labelledby="tab-peluqueria" class="svc-panel" data-panel="peluqueria">
@@ -206,7 +191,8 @@ import ServiceCard from './ServiceCard.astro';
                 <div class="svc-carousel flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scroll items-stretch py-6 -mt-6 -mx-4 px-4 sm:-mx-2 sm:px-2">
                     
                     <!-- Card: Manicure -->
-                    <ServiceCard titulo="Manicure" precio="$180" descripcion="Cuidado completo de manos y cutículas con un esmaltado tradicional impecable." imagen="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600">
+                    <ServiceCard titulo="Manicure" precio="$180" descripcion="Cuidado completo de manos y cutículas con un esmaltado tradicional impecable."
+                    imagen="/images/ejemplos/manicure.jpg">
                         <div slot="icono" class="icon-circle">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
@@ -222,7 +208,8 @@ import ServiceCard from './ServiceCard.astro';
                         </div>
                     </ServiceCard>
                     <!-- Card: Gelish -->
-                    <ServiceCard titulo="Gelish" precio="$130" descripcion="Aplicación de gel semipermanente para un brillo duradero y uñas perfectas por semanas.">
+                    <ServiceCard titulo="Gelish" precio="$130" descripcion="Aplicación de gel semipermanente para un brillo duradero y uñas perfectas por semanas."
+                    imagen="/images/ejemplos/gelish.jpg">>
                         <div slot="icono" class="icon-circle">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
@@ -246,6 +233,20 @@ import ServiceCard from './ServiceCard.astro';
                     </ServiceCard>
                 </div>
             </div>
+
+            <!-- ◄ Flecha Izquierda Carrusel -->
+            <button id="carouselArrowLeft" aria-label="Scroll cards left" class="carousel-arrow flex absolute left-1 sm:-left-12 md:-left-16 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            
+            <!-- ► Flecha Derecha Carrusel -->
+            <button id="carouselArrowRight" aria-label="Scroll cards right" class="carousel-arrow flex absolute right-1 sm:-right-12 md:-right-16 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
 
         </div>
 
@@ -356,10 +357,13 @@ import ServiceCard from './ServiceCard.astro';
         .tab-arrow, .carousel-arrow {
             cursor: pointer;
             outline: none;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-tap-highlight-color: transparent;
         }
         .tab-arrow.is-visible, .carousel-arrow.is-visible {
-            opacity: 1;
-            pointer-events: auto;
+            opacity: 1 !important;
+            pointer-events: auto !important;
         }
         .tab-arrow:hover svg, .carousel-arrow:hover svg {
             filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
