@@ -1,20 +1,23 @@
 <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-36 pb-32 md:pt-48 md:pb-40 overflow-hidden">
     
-    <!-- Video de fondo -->
+    <!-- Video de fondo (Solo se muestra en pantallas md o mayores para evitar lag en móviles) -->
     <video 
         id="hero-video"
         autoplay 
         loop 
         muted 
         playsinline 
-        class="absolute inset-0 w-full h-full object-cover z-0 scale-105"
+        class="absolute inset-0 w-full h-full object-cover z-0 scale-105 hidden md:block"
         poster="/images/fondo_local.jpg"
     >
         <source src="/images/videos/hero_edited.mp4" type="video/mp4" />
     </video>
+    
+    <!-- Imagen estática para móviles en lugar de video pesado -->
+    <div class="absolute inset-0 w-full h-full bg-[url('/images/fondo_local.jpg')] bg-cover bg-center z-0 scale-105 md:hidden"></div>
 
-    <!-- Overlay oscuro elegante con tinte cálido -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/90 via-[#111110]/80 to-[#111110]/95 z-0 pointer-events-none mix-blend-multiply"></div>
+    <!-- Overlay oscuro elegante (Quitamos mix-blend-multiply que causa mucho lag) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/95 via-[#111110]/85 to-[#111110]/95 z-0 pointer-events-none"></div>
 
     <div class="z-10 max-w-3xl flex flex-col items-center" data-aos="fade-up" data-aos-duration="1200">
 

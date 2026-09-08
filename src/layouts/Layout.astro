@@ -116,9 +116,10 @@ import Navbar from '../components/Navbar.astro';
         .glow-orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(130px);
+            /* filter: blur(130px); REMOVIDO: Causa lag extremo en móviles al combinar con video */
             pointer-events: none;
             z-index: 0;
+            will-change: transform; /* Optimización para GPU */
             animation: orbFloat 30s ease-in-out infinite;
         }
 
