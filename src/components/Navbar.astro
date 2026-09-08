@@ -15,9 +15,9 @@
         <!-- Desktop Menu -->
         <div class="hidden md:flex gap-8 items-center">
             <a href="#nosotros" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Nosotros</a>
-            <a href="#equipo" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Equipo</a>
             <a href="#servicios" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Servicios</a>
             <a href="#reservas" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Citas</a>
+            <a href="#equipo" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Equipo</a>
             <a href="#ubicacion" class="nav-link text-sm text-[#a8a29e] hover:text-[#e8d48b] transition-all duration-300 tracking-wide">Ubicación</a>
         </div>
 
@@ -34,9 +34,9 @@
 <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500"
      style="background: rgba(17,17,16,0.98);">
     <a href="#nosotros" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Nosotros</a>
-    <a href="#equipo" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Equipo</a>
     <a href="#servicios" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Servicios</a>
     <a href="#reservas" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Citas</a>
+    <a href="#equipo" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Equipo</a>
     <a href="#ubicacion" class="mobile-link nav-link text-2xl font-light text-[#a8a29e] hover:text-[#d4af37] transition-all tracking-widest">Ubicación</a>
 </div>
 
@@ -76,7 +76,7 @@
         }
     });
 
-    // Lógica para resaltar el enlace activo según el scroll
+    // Lógica robusta para resaltar el enlace activo según el scroll
     document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = Array.from(navLinks).map(link => {
@@ -84,31 +84,32 @@
             return document.getElementById(id);
         }).filter(section => section !== null);
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '-30% 0px -50% 0px',
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('!text-[#e8d48b]', 'font-medium');
-                            link.style.textShadow = '0 0 12px rgba(232, 212, 139, 0.4)';
-                        } else {
-                            link.classList.remove('!text-[#e8d48b]', 'font-medium');
-                            link.style.textShadow = 'none';
-                        }
-                    });
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.scrollY;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150; // Offset para el navbar fijo
+                
+                // Si el scroll ya pasó el inicio de esta sección
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
                 }
             });
-        }, observerOptions);
 
-        sections.forEach(section => {
-            observer.observe(section);
+            // Caso especial: si llegamos al final absoluto de la página
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                current = sections[sections.length - 1].getAttribute('id');
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('!text-[#e8d48b]', 'font-medium');
+                link.style.textShadow = 'none';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('!text-[#e8d48b]', 'font-medium');
+                    link.style.textShadow = '0 0 12px rgba(232, 212, 139, 0.4)';
+                }
+            });
         });
     });
 </script>

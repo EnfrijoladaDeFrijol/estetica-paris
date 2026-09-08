@@ -21,32 +21,28 @@
         100% { opacity: 0; }
     }
 
-    /* 2. Efecto Cristal (Glassmorphism) para legibilidad */
+    /* 2. Efecto Cristal Oscuro Suave para mantener la tonalidad */
     .glass-panel {
-        background: rgba(17, 17, 16, 0.4); /* Fondo más transparente, menos negro */
-        backdrop-filter: blur(16px) saturate(1.4);
-        -webkit-backdrop-filter: blur(16px) saturate(1.4);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Sombra para separar sin oscurecer todo */
+        background: rgba(17, 17, 16, 0.55);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(212, 175, 55, 0.05);
+        border-top: 1px solid rgba(212, 175, 55, 0.15);
+        border-radius: 2rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        transform: translateZ(0);
+        backface-visibility: hidden;
     }
     .glass-panel-strong {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(17, 17, 16, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(212, 175, 55, 0.08);
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transform: translateZ(0);
     }
 
-    /* Móvil: sin crossfade, solo la primera imagen */
-    @media (max-width: 767px) {
-        .fondo-dinamico {
-            animation: none !important;
-            opacity: 0;
-        }
-        .fondo-dinamico:first-child {
-            opacity: 1;
-        }
-    }
 </style>
 
 <section class="relative py-28 md:py-36 px-6 flex items-center justify-center overflow-hidden section-glow-top" id="nosotros">
@@ -67,7 +63,7 @@
         <div id="nosotros-panel" class="glass-panel p-10 md:p-16 flex flex-col items-center text-center transition-all duration-700 relative">
             
             <!-- Ojito discreto esquina superior derecha -->
-            <button id="toggle-blur-btn" class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-20 opacity-50 hover:opacity-100 bg-white/5 border border-white/10 hover:bg-white/10"
+            <button id="toggle-blur-btn" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-20 opacity-50 hover:opacity-100 bg-white/5 border border-white/10 hover:bg-white/10"
                     aria-label="Ver fotos" title="Ver fotos">
                 <svg id="blur-icon" class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -76,7 +72,7 @@
             </button>
             
             <!-- Envolvemos el texto para poder ocultarlo fácil con el botón -->
-            <div id="panel-content" class="transition-all duration-500 w-full flex flex-col items-center">
+            <div id="panel-content" class="transition-all duration-500 w-full flex flex-col items-center mt-6 md:mt-0">
                 <!-- Título -->
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 text-[#e8d48b] tracking-wide">
                     Experiencia que se nota
