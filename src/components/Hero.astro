@@ -61,22 +61,19 @@
 </section>
 
 <style>
-    /* Halo de la torre — desktop: blur grande, móvil: sin blur */
+    /* Halo de la torre optimizado: radial-gradient en lugar de blur() que es muy costoso para la GPU */
     .hero-tower-halo {
-        background: rgba(245, 158, 11, 0.20);
-        filter: blur(70px);
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.05) 40%, transparent 70%);
     }
+    
+    /* Imagen de la torre optimizada: se elimina el drop-shadow dinámico sobre el video */
     .hero-tower-img {
-        filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+        /* filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5)); */
     }
 
     @media (max-width: 767px) {
         .hero-tower-halo {
-            filter: none;
             background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
-        }
-        .hero-tower-img {
-            filter: none;
         }
     }
 </style>
