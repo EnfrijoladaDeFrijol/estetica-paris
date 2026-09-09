@@ -1,3 +1,10 @@
+---
+import { Image } from 'astro:assets';
+import corte1 from '../assets/images/corte1.jpg';
+import silla from '../assets/images/silla.jpg';
+import fondo2 from '../assets/images/fondo2.jpg';
+---
+
 <style>
     /* 1. Animación del fondo cruzado continua optimizada */
     .fondo-dinamico {
@@ -13,6 +20,11 @@
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
     }
+    .fondo-dinamico :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     .fondo-dinamico:nth-child(1) { animation-delay: 0s; }
     .fondo-dinamico:nth-child(2) { animation-delay: 5s; }
     .fondo-dinamico:nth-child(3) { animation-delay: 10s; }
@@ -26,7 +38,7 @@
     }
 
     /* 2. Efecto Cristal Oscuro Suave sin Blur Dinámico (Optimización FPS) */
-    .glass-panel {
+    .nosotros-glass-panel {
         background: rgba(17, 17, 16, 0.85); /* Fondo más sólido en lugar de usar blur costoso */
         border: 1px solid rgba(212, 175, 55, 0.05);
         border-top: 1px solid rgba(212, 175, 55, 0.15);
@@ -41,13 +53,13 @@
     
     /* Sin desenfoque completo para evitar lag al animar fondo */
     @media (min-width: 768px) {
-        .glass-panel {
+        .nosotros-glass-panel {
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
         }
     }
 
-    .glass-panel-strong {
+    .nosotros-glass-panel-strong {
         background: rgba(17, 17, 16, 0.75);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
@@ -56,15 +68,23 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         transform: translate3d(0, 0, 0);
     }
+
+
 </style>
 
 <section class="relative py-28 md:py-36 px-6 flex items-center justify-center overflow-hidden section-glow-top" id="nosotros">
     
     <!-- 1. FOTOS DE FONDO -->
     <div class="absolute inset-0 z-0 bg-[#111110]">
-        <img src="/images/corte1.jpg" alt="Detalle 1" class="fondo-dinamico" loading="lazy">
-        <img src="/images/silla.jpg" alt="Detalle 2" class="fondo-dinamico" loading="lazy">
-        <img src="/images/fondo2.jpg" alt="Detalle 3" class="fondo-dinamico" loading="lazy">
+        <div class="fondo-dinamico">
+            <Image src={corte1} alt="Detalle 1" width={1200} height={800} format="webp" quality={40} loading="lazy" />
+        </div>
+        <div class="fondo-dinamico">
+            <Image src={silla} alt="Detalle 2" width={1200} height={800} format="webp" quality={40} loading="lazy" />
+        </div>
+        <div class="fondo-dinamico">
+            <Image src={fondo2} alt="Detalle 3" width={1200} height={800} format="webp" quality={40} loading="lazy" />
+        </div>
     </div>
 
     <!-- 2. OVERLAY general -->
@@ -73,7 +93,7 @@
     <!-- 3. CONTENIDO PRINCIPAL -->
     <div class="relative z-10 w-full max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
         
-        <div id="nosotros-panel" class="glass-panel p-10 md:p-16 flex flex-col items-center text-center transition-all duration-700 relative">
+        <div id="nosotros-panel" class="nosotros-glass-panel p-10 md:p-16 flex flex-col items-center text-center transition-all duration-700 relative">
             
             <!-- Ojito discreto esquina superior derecha -->
             <button id="toggle-blur-btn" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-20 opacity-50 hover:opacity-100 bg-white/5 border border-white/10 hover:bg-white/10"
@@ -98,19 +118,19 @@
 
                 <!-- Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full">
-                    <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
                         <span class="text-3xl font-bold text-[#e8d48b]">10+</span>
                         <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Años Exp.</span>
                     </div>
-                    <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
                         <span class="text-3xl font-bold text-[#e8d48b]">1k+</span>
                         <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Clientes</span>
                     </div>
-                    <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
                         <span class="text-3xl font-bold text-[#e8d48b]">4.5</span>
                         <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Estrellas</span>
                     </div>
-                    <div class="glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
+                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
                         <span class="text-3xl font-bold text-[#e8d48b]">100%</span>
                         <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Satisfacción</span>
                     </div>

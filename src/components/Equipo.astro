@@ -1,23 +1,29 @@
 ---
+import { Image } from 'astro:assets';
+import fondoLocal from '../assets/images/fondo_local.jpg';
+import aliImg from '../assets/images/equipo/ali.png';
+import noseImg from '../assets/images/equipo/nose.png';
+import oliviaImg from '../assets/images/equipo/olivia.png';
+
 const team = [
     {
         name: "Alison",
-        image: "/images/equipo/ali.png",
+        image: aliImg,
         description: "Especialista en cortes clásicos y arreglo de barba tradicional con navaja."
     },
     {
         name: "Nathaly",
-        image: "/images/equipo/nose.png",
+        image: noseImg,
         description: "Experto en texturas, desvanecidos modernos y diseño capilar."
     },
     {
         name: "Olivia",
-        image: "/images/equipo/olivia.png",
+        image: oliviaImg,
         description: "Maestro en colorimetría, camuflaje de canas y tratamientos capilares."
     },
     {
         name: "Alejandrino",
-        image: "/images/torre.png",
+        image: null,
         description: "Maestro en colorimetría, camuflaje de canas y tratamientos capilares."
     },
 
@@ -28,10 +34,14 @@ const team = [
 
     <!-- Background image with overlay -->
     <div class="absolute inset-0 z-0">
-        <img 
-            src="/images/fondo_local.jpg" 
+        <Image 
+            src={fondoLocal} 
             alt="" 
             class="w-full h-full object-cover opacity-[0.12]"
+            width={1200}
+            height={800}
+            format="webp"
+            quality={30}
             loading="lazy"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-[#111110] via-[#111110]/95 to-[#111110]"></div>
@@ -81,11 +91,26 @@ const team = [
                         
                         <!-- Full Photo Area -->
                         <div class="relative w-full aspect-[3/4] overflow-hidden shrink-0" style="aspect-ratio: 3/4;">
-                            <img 
-                                src={member.image} 
-                                alt={`Foto de ${member.name}`} 
-                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
-                            />
+                            {member.image ? (
+                                <Image 
+                                    src={member.image} 
+                                    alt={`Foto de ${member.name}`} 
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                                    width={400}
+                                    height={533}
+                                    format="webp"
+                                    quality={70}
+                                    loading="lazy"
+                                />
+                            ) : (
+                                <img 
+                                    src="/images/torre.png" 
+                                    alt={`Foto de ${member.name}`} 
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            )}
                             
                             <!-- Photo gradient overlay -->
                             <div class="absolute inset-0 bg-gradient-to-t from-[#111110] via-[#111110]/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
@@ -207,8 +232,9 @@ const team = [
             display: none;
         }
         .team-info-glass {
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            background: rgba(17, 17, 16, 0.88);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
         }
         .team-card:hover {

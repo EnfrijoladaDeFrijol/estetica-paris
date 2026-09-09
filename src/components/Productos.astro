@@ -1,6 +1,22 @@
 ---
 // Productos.astro — Sección "Nuestros Favoritos"
 // Diseño: Liquid Glass High-End con paginación integrada
+import { Image } from 'astro:assets';
+import prod1 from '../assets/images/productos/1.png';
+import prod2 from '../assets/images/productos/2.png';
+import prod3 from '../assets/images/productos/3.png';
+import prod4 from '../assets/images/productos/4.png';
+import prod5 from '../assets/images/productos/5.png';
+import prod6 from '../assets/images/productos/6.png';
+
+const productos = [
+    { src: prod1, alt: "Balsami Presto Treatment", brand: "TEC ITALY", name: "Balsami Presto Treatment", price: "$850" },
+    { src: prod2, alt: "Due Faccetta Massimo", brand: "TEC ITALY", name: "Due Faccetta Massimo", price: "$490" },
+    { src: prod3, alt: "Due Faccetta Pro Treatment", brand: "TEC ITALY", name: "Due Faccetta Pro Treatment", price: "$510" },
+    { src: prod4, alt: "Tonico Shampoo", brand: "TEC ITALY", name: "Tonico Shampoo", price: "$290" },
+    { src: prod5, alt: "Pomegranate Hydration Shampoo", brand: "HAIRLAB", name: "Pomegranate Hydration Shampoo", price: "$780" },
+    { src: prod6, alt: "Hair Mask Wheat Germ", brand: "SALERM COSMETICS", name: "Hair Mask Wheat Germ", price: "$950" },
+];
 ---
 
 <section class="relative py-24 md:py-28 px-4 sm:px-6 overflow-hidden section-glow-top" id="productos">
@@ -51,86 +67,27 @@
 
             <!-- Track scrollable -->
             <div id="prodTrack" class="prod-track">
-
-                <!-- CARD 1 -->
-                <article class="prod-card">
-                    <div class="prod-img-wrap">
-                        <img src="images/productos/1.png"
-                             alt="Balsami Presto Treatment" class="prod-img" loading="lazy">
-                    </div>
-                    <div class="prod-info">
-                        <span class="prod-brand">TEC ITALY</span>
-                        <h3 class="prod-name">Balsami Presto Treatment</h3>
-                        <p class="prod-price">$850</p>
-                    </div>
-                </article>
-
-                <!-- CARD 2 -->
-                <article class="prod-card">
-                    <div class="prod-img-wrap">
-                        <img src="images/productos/2.png"
-                             alt="Due Faccetta Massimo" class="prod-img" loading="lazy">
-                    </div>
-                    <div class="prod-info">
-                        <span class="prod-brand">TEC ITALY</span>
-                        <h3 class="prod-name">Due Faccetta Massimo</h3>
-                        <p class="prod-price">$490</p>
-                    </div>
-                </article>
-
-                <!-- CARD 3 -->
-                <article class="prod-card">
-                    <div class="prod-img-wrap">
-                        <img src="images/productos/3.png"
-                             alt="Due Faccetta Pro Treatment" class="prod-img" loading="lazy">
-                    </div>
-                    <div class="prod-info">
-                        <span class="prod-brand">TEC ITALY</span>
-                        <h3 class="prod-name">Due Faccetta Pro Treatment</h3>
-                        <p class="prod-price">$510</p>
-                    </div>
-                </article>
-
-                <!-- CARD 4 -->
-                <article class="prod-card">
-                    <div class="prod-img-wrap">
-                        <img src="images/productos/4.png"
-                             alt="Tonico Shampoo" class="prod-img" loading="lazy">
-                    </div>
-                    <div class="prod-info">
-                        <span class="prod-brand">TEC ITALY</span>
-                        <h3 class="prod-name">Tonico Shampoo</h3>
-                        <p class="prod-price">$290</p>
-                    </div>
-                </article>
-
-                <!-- CARD 5 -->
-                <article class="prod-card">
-                    <div class="prod-img-wrap">
-                        <img src="images/productos/5.png"
-                             alt="Pomegranate Hydration Shampoo" class="prod-img" loading="lazy">
-                    </div>
-                    <div class="prod-info">
-                        <span class="prod-brand">HAIRLAB</span>
-                        <h3 class="prod-name">Pomegranate Hydration Shampoo</h3>
-                        <p class="prod-price">$780</p>
-                    </div>
-                </article>
-
-                <!-- CARD 6 -->
-                <article class="prod-card">
-                    <div class="prod-img-wrap">
-                        <img src="images/productos/6.png"
-                             alt="Hair Mask Wheat Germ" class="prod-img" loading="lazy">
-                    </div>
-                    <div class="prod-info">
-                        <span class="prod-brand">SALERM COSMETICS</span>
-                        <h3 class="prod-name">Hair Mask Wheat Germ</h3>
-                        <p class="prod-price">$950</p>
-                    </div>
-                </article>
-
-
+                {productos.map((prod) => (
+                    <article class="prod-card">
+                        <div class="prod-img-wrap">
+                            <Image 
+                                src={prod.src} 
+                                alt={prod.alt} 
+                                class="prod-img" 
+                                width={260} 
+                                height={270} 
+                                format="webp" 
+                                quality={75}
+                                loading="lazy" 
+                            />
+                        </div>
+                        <div class="prod-info">
+                            <span class="prod-brand">{prod.brand}</span>
+                            <h3 class="prod-name">{prod.name}</h3>
+                            <p class="prod-price">{prod.price}</p>
+                        </div>
+                    </article>
+                ))}
             </div><!-- /prod-track -->
         </div><!-- /prod-wrapper -->
 
@@ -345,8 +302,15 @@
         .prod-ambient-glow {
             display: none;
         }
+        .prod-card {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            background: rgba(17, 17, 16, 0.92);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
         .prod-card:hover {
             transform: none;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
     }
 </style>

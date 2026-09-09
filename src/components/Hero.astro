@@ -1,6 +1,11 @@
+---
+import { Image } from 'astro:assets';
+import torreHero from '../assets/images/torre_hero.png';
+---
+
 <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-36 pb-32 md:pt-48 md:pb-40 overflow-hidden">
     
-    <!-- Video de fondo — Visible en todas las pantallas con carga inteligente -->
+    <!-- Video de fondo -->
     <video 
         id="hero-video"
         autoplay 
@@ -8,11 +13,12 @@
         muted 
         playsinline 
         preload="metadata"
-        class="absolute inset-0 w-full h-full object-cover z-0 scale-105"
+        class="hero-video absolute inset-0 w-full h-full object-cover z-0 scale-105"
         poster="/images/fondo_local.jpg"
     >
         <source src="/images/videos/hero_comprimi.mp4" type="video/mp4" />
     </video>
+
 
     <!-- Overlay oscuro elegante -->
     <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/95 via-[#111110]/85 to-[#111110]/95 z-0 pointer-events-none"></div>
@@ -30,11 +36,15 @@
             <div class="absolute inset-0 hero-tower-halo rounded-full scale-[1.1]"></div>
             
             <!-- El salto de tamaño: w-48 (Móvil), md:w-56 (Tablet), lg:w-64 (Escritorio) -->
-            <img 
-                src="/images/torre_hero.png" 
+            <Image 
+                src={torreHero} 
                 alt="Logo Estética París" 
                 class="relative z-10 w-48 md:w-56 lg:w-64 object-contain hero-tower-img transition-transform duration-700 hover:scale-105"
-            >
+                width={256}
+                height={256}
+                format="webp"
+                loading="eager"
+            />
         </div>
 
         <!-- Título -->
@@ -71,10 +81,12 @@
         /* filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5)); */
     }
 
+
     @media (max-width: 767px) {
         .hero-tower-halo {
             background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
         }
+
     }
 </style>
 
