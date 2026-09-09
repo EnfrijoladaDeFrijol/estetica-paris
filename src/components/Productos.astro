@@ -1,4 +1,4 @@
-﻿---
+---
 // Productos.astro — Sección "Nuestros Favoritos"
 // Diseño: Liquid Glass High-End con paginación integrada
 ---
@@ -25,14 +25,6 @@
                 <p class="text-[#78716c] text-sm mt-3 max-w-sm leading-relaxed">
                     Marcas de confianza internacional para resultados impecables.
                 </p>
-            </div>
-            <!-- Badge desktop -->
-            <div class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full shrink-0"
-                 style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.14);">
-                <svg class="w-3.5 h-3.5 text-[#d4af37]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span class="text-[10px] font-semibold tracking-widest uppercase text-[#a8a29e]">100% Profesional</span>
             </div>
         </div>
 
@@ -63,7 +55,7 @@
                 <!-- CARD 1 -->
                 <article class="prod-card">
                     <div class="prod-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=500&q=80"
+                        <img src="images/productos/1.png"
                              alt="Balsami Presto Treatment" class="prod-img" loading="lazy">
                     </div>
                     <div class="prod-info">
@@ -76,7 +68,7 @@
                 <!-- CARD 2 -->
                 <article class="prod-card">
                     <div class="prod-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80"
+                        <img src="images/productos/2.png"
                              alt="Due Faccetta Massimo" class="prod-img" loading="lazy">
                     </div>
                     <div class="prod-info">
@@ -89,7 +81,7 @@
                 <!-- CARD 3 -->
                 <article class="prod-card">
                     <div class="prod-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=500&q=80"
+                        <img src="images/productos/3.png"
                              alt="Due Faccetta Pro Treatment" class="prod-img" loading="lazy">
                     </div>
                     <div class="prod-info">
@@ -102,7 +94,7 @@
                 <!-- CARD 4 -->
                 <article class="prod-card">
                     <div class="prod-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80"
+                        <img src="images/productos/4.png"
                              alt="Tonico Shampoo" class="prod-img" loading="lazy">
                     </div>
                     <div class="prod-info">
@@ -115,7 +107,7 @@
                 <!-- CARD 5 -->
                 <article class="prod-card">
                     <div class="prod-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=500&q=80"
+                        <img src="images/productos/5.png"
                              alt="Pomegranate Hydration Shampoo" class="prod-img" loading="lazy">
                     </div>
                     <div class="prod-info">
@@ -128,7 +120,7 @@
                 <!-- CARD 6 -->
                 <article class="prod-card">
                     <div class="prod-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=500&q=80"
+                        <img src="images/productos/6.png"
                              alt="Hair Mask Wheat Germ" class="prod-img" loading="lazy">
                     </div>
                     <div class="prod-info">
@@ -138,18 +130,6 @@
                     </div>
                 </article>
 
-                <!-- CARD 6 -->
-                <article class="prod-card">
-                    <div class="prod-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=500&q=80"
-                             alt="Hair Mask Wheat Germ" class="prod-img" loading="lazy">
-                    </div>
-                    <div class="prod-info">
-                        <span class="prod-brand">SALERM COSMETICS</span>
-                        <h3 class="prod-name">Hair Mask Wheat Germ</h3>
-                        <p class="prod-price">$950</p>
-                    </div>
-                </article>
 
             </div><!-- /prod-track -->
         </div><!-- /prod-wrapper -->
@@ -197,14 +177,11 @@
         flex-shrink: 0;
         scroll-snap-align: start;
         width: 240px;
-    }
-
-    .product-glass-panel {
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(12px) saturate(1.4);
         -webkit-backdrop-filter: blur(12px) saturate(1.4);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
         transform: translateZ(0);
         backface-visibility: hidden;
         overflow: hidden;
@@ -214,6 +191,7 @@
         box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.25),
             inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        cursor: pointer;
     }
 
     @media (min-width: 640px) {

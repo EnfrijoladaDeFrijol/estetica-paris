@@ -12,9 +12,15 @@ const team = [
     },
     {
         name: "Olivia",
-        image: "/images/fotoperfil.png",
+        image: "/images/equipo/olivia.png",
         description: "Maestro en colorimetría, camuflaje de canas y tratamientos capilares."
-    }
+    },
+    {
+        name: "Alejandrino",
+        image: "/images/torre.png",
+        description: "Maestro en colorimetría, camuflaje de canas y tratamientos capilares."
+    },
+
 ];
 ---
 
@@ -41,14 +47,14 @@ const team = [
     <div class="max-w-6xl mx-auto relative z-10">
         
         <!-- Header -->
-        <div class="text-center mb-20" data-aos="fade-up" data-aos-duration="800">
-            <div class="inline-flex items-center gap-3 mb-6" data-aos="fade-down" data-aos-delay="100">
+        <div class="text-center mb-20" data-aos="fade" data-aos-duration="800">
+            <div class="inline-flex items-center gap-3 mb-6" data-aos="fade" data-aos-delay="100">
                 <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#d4af37]/60"></span>
                 <span class="text-[#d4af37] text-xs font-semibold tracking-[0.25em] uppercase">Nuestro Equipo</span>
                 <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#d4af37]/60"></span>
             </div>
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
-                Profesionales en el negocio
+                Conocemos
             </h2>
             <p class="text-[#a8a29e] max-w-2xl mx-auto text-lg font-light leading-relaxed">
                 Cada miembro de nuestro equipo está dedicado a ofrecerte la mejor experiencia y un resultado impecable.
@@ -56,16 +62,16 @@ const team = [
         </div>
 
         <!-- Team Grid: horizontal scroll on mobile, grid on desktop -->
-        <div class="relative team-wrapper" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative team-wrapper" data-aos="fade" data-aos-delay="100">
             <!-- Fade edges (controlled by JS) -->
-            <div id="teamFadeLeft" class="absolute -left-6 top-0 bottom-0 w-12 bg-gradient-to-r from-[#111110] to-transparent z-10 opacity-0 transition-opacity duration-300 md:hidden pointer-events-none"></div>
-            <div id="teamFadeRight" class="absolute -right-6 top-0 bottom-0 w-12 bg-gradient-to-l from-[#111110] to-transparent z-10 opacity-0 transition-opacity duration-300 md:hidden pointer-events-none"></div>
+            <div id="teamFadeLeft" class="absolute -left-6 top-0 bottom-0 w-12 bg-gradient-to-r from-[#111110] to-transparent z-10 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+            <div id="teamFadeRight" class="absolute -right-6 top-0 bottom-0 w-12 bg-gradient-to-l from-[#111110] to-transparent z-10 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
 
-            <div id="teamTrack" class="team-scroll flex md:grid md:grid-cols-3 gap-5 lg:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
+            <div id="teamTrack" class="team-scroll flex gap-5 lg:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 sm:-mx-2 sm:px-2">
             {team.map((member, index) => (
                 <div 
-                    class="team-card group relative rounded-2xl overflow-hidden cursor-pointer snap-center shrink-0 w-[280px] sm:w-[300px] md:w-auto md:shrink flex flex-col h-auto"
-                    data-aos="fade-up" 
+                    class="team-card group relative rounded-2xl overflow-hidden cursor-pointer snap-center shrink-0 w-[280px] sm:w-[300px] flex flex-col h-auto"
+                    data-aos="fade" 
                     data-aos-delay={index * 150}
                 >
                     <!-- Card border glow on hover -->
@@ -111,14 +117,14 @@ const team = [
             </div>
 
             <!-- ◄ Arrow Left -->
-            <button id="teamArrowLeft" aria-label="Scroll left" class="team-arrow absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full text-[#d4af37] transition-all duration-300 md:hidden bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+            <button id="teamArrowLeft" aria-label="Scroll left" class="team-arrow absolute left-1 sm:-left-4 md:-left-12 lg:-left-16 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full text-[#d4af37] transition-all duration-300 bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
 
             <!-- ► Arrow Right -->
-            <button id="teamArrowRight" aria-label="Scroll right" class="team-arrow absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full text-[#d4af37] transition-all duration-300 md:hidden bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
+            <button id="teamArrowRight" aria-label="Scroll right" class="team-arrow absolute right-1 sm:-right-4 md:-right-12 lg:-right-16 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full text-[#d4af37] transition-all duration-300 bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_0_20px_rgba(212,175,55,0.2)]">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -223,15 +229,6 @@ const team = [
     if (!track) return;
 
     function updateTeamArrows() {
-        // Only run logic if track is horizontally scrollable
-        if (window.innerWidth >= 768) {
-            if (arrowLeft) arrowLeft.classList.remove('is-visible');
-            if (arrowRight) arrowRight.classList.remove('is-visible');
-            if (fadeLeft) fadeLeft.style.opacity = '0';
-            if (fadeRight) fadeRight.style.opacity = '0';
-            return;
-        }
-
         var sl = track.scrollLeft;
         var sw = track.scrollWidth;
         var cw = track.clientWidth;
@@ -273,7 +270,6 @@ const team = [
     var scrollLeft;
 
     track.addEventListener('mousedown', function(e) {
-        if (window.innerWidth >= 768) return; // Only on mobile layout
         isDown = true;
         track.style.cursor = 'grabbing';
         startX = e.pageX - track.offsetLeft;

@@ -69,7 +69,8 @@
         </div>
 
         <!-- Panel Liquid Glass Principal -->
-        <div class="relative max-w-[880px] mx-auto" data-aos="zoom-in" data-aos-duration="1200">
+        <!-- CORRECCIÓN 1: Regresamos a w-full para que Setmore tenga espacio de renderizarse sin apretarse -->
+        <div class="relative w-full max-w-[880px] mx-auto" data-aos="zoom-in" data-aos-duration="1200">
 
             <!-- Levitation glow beneath widget -->
             <div class="absolute -bottom-6 left-[10%] right-[10%] h-16 rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(ellipse, rgba(245,158,11,0.12) 0%, transparent 70%);" aria-hidden="true"></div>
@@ -92,7 +93,8 @@
                     <div class="relative p-1 sm:p-1.5">
 
                         <!-- Iframe Container -->
-                        <div class="relative w-full h-[600px] sm:h-[650px] rounded-[1.4rem] overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
+                        <!-- CORRECCIÓN 2: Usamos h-[480px] en móvil. Libera pantalla arriba/abajo para el scroll de la página -->
+                        <div class="relative w-full h-[480px] sm:h-[650px] rounded-[1.4rem] overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
 
                             <iframe
                                 src="https://esteticaparis.setmore.com/926a54c2-88c3-4943-8cda-82c188dd0515"
