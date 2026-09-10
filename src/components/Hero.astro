@@ -91,17 +91,31 @@ import torreHero from '../assets/images/torre_hero.png';
 </style>
 
 <script is:inline>
-    // Video inteligente: play/pause según visibilidad para ahorrar recursos
+    // Video inteligente: play/pause según visibilidad y conexión para ahorrar recursos
     document.addEventListener('DOMContentLoaded', function() {
         var video = document.getElementById('hero-video');
         if (!video) return;
 
-        // En móvil: reducir calidad de reproducción
-        if (window.innerWidth < 768) {
-            video.playbackRate = 1;
+        var isMobile = window.innerWidth < 768;
+        
+        // Detectar si hay conexión lenta o modo ahorro de datos
+        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        var isSlowConnection = connection && (
+            connection.saveData || 
+            connection.effectiveType === 'slow-2g' || 
+            connection.effectiveType === '2g' || 
+            connection.effectiveType === '3g'
+        );
+
+        // Si es móvil y tiene conexión lenta, evitamos reproducir el video
+        if (isMobile && isSlowConnection) {
+            video.pause();
+            video.removeAttribute('autoplay');
+            // Se mostrará el 'poster' estático que ya tiene el video (fondo_local.jpg)
+            return; // Termina la ejecución para no agregar el IntersectionObserver
         }
 
-        // Pausar video cuando no es visible
+        // Pausar video cuando no es visible (solo si superó el filtro anterior)
         if ('IntersectionObserver' in window) {
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
