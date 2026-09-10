@@ -14,10 +14,40 @@ import '@fontsource/inter/latin-500.css';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estética París — Narvarte</title>
-    <!-- Icono. Debe estar en la carpeta public/ -->
+    <!-- SEO Básico -->
+    <title>Estética París | Alta Peluquería y Barbería en Narvarte</title>
+    <meta name="description" content="Estética París: Alta peluquería y barbería local con años de experiencia en la colonia Narvarte. Cortes clásicos, arreglo de barba y atención personalizada.">
+    <meta name="keywords" content="barbería, peluquería, estética, Narvarte, cortes de cabello, barba, Ciudad de México">
+    
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Estética París | Alta Peluquería en Narvarte">
+    <meta property="og:description" content="Alta peluquería y barbería local con años de experiencia. Cortes clásicos y atención personalizada.">
+    <!-- Usamos el póster o logo como imagen al compartir -->
+    <meta property="og:image" content="/images/fondo_local.webp">
+    
+    <!-- Precarga de recursos clave para el First Contentful Paint -->
+    <link rel="preload" as="image" href="/images/fondo_local.webp" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/torre.png" />
-    <meta name="description" content="Estética París: barbería local con años de experiencia. Cortes clásicos, arreglo de barba y atención personalizada en la Ciudad de México.">
+    
+    <!-- JSON-LD para SEO Local (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "name": "Estética París",
+      "image": "/images/torre.png",
+      "telephone": "+522461415946",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      }
+    }
+    </script>
 
 
 
@@ -281,7 +311,7 @@ import '@fontsource/inter/latin-500.css';
     </main>
 
     <!-- WhatsApp — Dark Glass -->
-    <a href="https://wa.me/522461415946?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20cita%20o%20pedir%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" id="whatsapp-btn"
+    <a href="https://wa.me/522461415946?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20cita%20o%20pedir%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" id="whatsapp-btn" aria-label="Contactar por WhatsApp"
        class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full transition-all duration-300 hover:scale-105 group"
        style="background: rgba(34, 197, 94, 0.1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(34, 197, 94, 0.25); box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1); transform: translateZ(0); will-change: transform;">
         <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">

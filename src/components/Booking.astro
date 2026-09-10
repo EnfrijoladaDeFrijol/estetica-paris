@@ -6,7 +6,7 @@ import fondoBooking from '../assets/images/fondo_booking.jpg';
 
     <!-- Imagen de fondo animada y sutil -->
     <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.12]">
-        <Image src={fondoBooking} alt="Fondo Booking" class="w-full h-full object-cover object-center bg-drift" />
+        <Image src={fondoBooking} alt="Fondo Booking" class="w-full h-full object-cover object-center bg-drift" format="webp" quality={60} />
     </div>
     
     <!-- Gradientes de difuminado arriba y abajo para fundirse con las otras secciones sin cortes duros -->
@@ -96,7 +96,7 @@ import fondoBooking from '../assets/images/fondo_booking.jpg';
                 </div>
 
                 <!-- Inner container -->
-                <div class="relative rounded-[1.7rem] overflow-hidden" style="background: rgba(12,10,9,0.85); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.04), inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.3); transform: translateZ(0); will-change: transform, backdrop-filter; backface-visibility: hidden;">
+                <div class="relative rounded-[1.7rem] overflow-hidden booking-inner-glass" style="box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.04), inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.3); transform: translateZ(0); will-change: transform, backdrop-filter; backface-visibility: hidden;">
 
                     <!-- Top edge highlight -->
                     <div class="absolute top-0 left-[15%] right-[15%] h-[1px] z-20 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(245,158,11,0.25), rgba(255,255,255,0.15), rgba(245,158,11,0.25), transparent);"></div>
@@ -187,6 +187,22 @@ import fondoBooking from '../assets/images/fondo_booking.jpg';
                 transform: none;
                 filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
             }
+            .bg-drift {
+                animation: none !important;
+                transform: scale(1.05); /* Fijo en móvil para ahorrar batería y GPU */
+            }
+            .booking-inner-glass {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(12,10,9,0.98) !important; /* Color sólido casi opaco en móvil */
+            }
+        }
+        
+        /* Default para desktop */
+        .booking-inner-glass {
+            background: rgba(12,10,9,0.85);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
         }
     </style>
 
