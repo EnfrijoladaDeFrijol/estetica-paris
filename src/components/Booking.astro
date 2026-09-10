@@ -5,145 +5,150 @@ import fondoBooking from '../assets/images/fondo_booking.jpg';
 <section id="reservas" class="relative py-28 md:py-40 px-4 sm:px-6 overflow-hidden section-glow-top bg-[#111110]">
 
     <!-- Imagen de fondo animada y sutil -->
-    <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.12]">
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.20]">
         <Image src={fondoBooking} alt="Fondo Booking" class="w-full h-full object-cover object-center bg-drift" format="webp" quality={60} />
     </div>
     
-    <!-- Gradientes de difuminado arriba y abajo para fundirse con las otras secciones sin cortes duros -->
+    <!-- Gradientes de difuminado arriba y abajo -->
     <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#111110] via-transparent to-[#111110] pointer-events-none"></div>
 
-    <!-- Ambient golden orb behind widget -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(180,83,9,0.03) 40%, transparent 70%);" aria-hidden="true"></div>
 
-    <!-- Secondary orb for depth -->
-    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 60%);" aria-hidden="true"></div>
 
     <div class="max-w-5xl mx-auto relative z-10">
 
         <!-- Título -->
-        <div data-aos="fade-up" class="text-center mb-6">
-            <span class="inline-block text-[11px] font-bold tracking-[0.35em] uppercase mb-5 text-[#d4af37]">Agenda Online</span>
-            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
+        <div data-aos="fade-up" class="text-center mb-16 md:mb-20">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-tight">
                 <span class="text-gradient-accent">Reserva tu</span>
-                <br class="hidden sm:block" />
                 <span class="text-[#e7e5e4]">Espacio</span>
             </h2>
+            <p class="mt-6 text-[#a8a29e] text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+                Elige la forma más cómoda para agendar tu próxima visita.
+            </p>
         </div>
 
-        <!-- Indicador de Pasos Premium (Dorado Champagne) -->
-        <div data-aos="fade-up" data-aos-delay="150" class="flex flex-wrap justify-center items-center gap-3 sm:gap-0 mb-14 md:mb-16 px-2">
-
-            <!-- Paso 1 -->
-            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0c0a09] border border-[#d4af37]/20 shadow-[0_8px_20px_rgba(0,0,0,0.6)] transition-colors hover:border-[#d4af37]/40">
-                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#e8d48b] border border-[#d4af37]/40 bg-[#d4af37]/5">1</span>
-                <span class="text-[13px] md:text-sm font-medium text-[#e7e5e4] tracking-wide">Servicio</span>
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- TARJETA PRINCIPAL — AGENDA WEB (Hero Card)    -->
+        <!-- ══════════════════════════════════════════════ -->
+        <a href="/reservar" data-aos="fade-up" data-aos-delay="100" class="booking-hero-card group relative block max-w-2xl mx-auto mb-10 md:mb-14 rounded-[1.5rem] overflow-hidden">
+            
+            <!-- Subtle shimmer sweep -->
+            <div class="absolute inset-0 z-20 pointer-events-none overflow-hidden rounded-[1.5rem]">
+                <div class="absolute inset-0 -translate-x-full animate-[bookingCardShimmer_6s_ease-in-out_infinite]" style="background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.02) 47%, rgba(212,175,55,0.08) 50%, rgba(255,255,255,0.02) 53%, transparent 60%);"></div>
             </div>
 
-            <!-- Conector -->
-            <div class="hidden sm:flex items-center mx-1 sm:mx-2 opacity-60">
-                <div class="w-6 md:w-10 h-[1px] bg-[#d4af37]/30"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-[#d4af37]/40 shadow-[0_0_5px_rgba(212,175,55,0.3)]"></div>
-                <div class="w-6 md:w-10 h-[1px] bg-[#d4af37]/30"></div>
-            </div>
+            <!-- Inner content -->
+            <div class="relative z-10 rounded-[1.5rem] booking-hero-inner px-8 py-10 md:px-12 md:py-14">
 
-            <!-- Paso 2 -->
-            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0c0a09] border border-[#d4af37]/20 shadow-[0_8px_20px_rgba(0,0,0,0.6)] transition-colors hover:border-[#d4af37]/40">
-                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#e8d48b] border border-[#d4af37]/40 bg-[#d4af37]/5">2</span>
-                <span class="text-[13px] md:text-sm font-medium text-[#e7e5e4] tracking-wide">Fecha</span>
-            </div>
-
-            <!-- Conector -->
-            <div class="hidden sm:flex items-center mx-1 sm:mx-2 opacity-60">
-                <div class="w-6 md:w-10 h-[1px] bg-[#d4af37]/30"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-[#d4af37]/40 shadow-[0_0_5px_rgba(212,175,55,0.3)]"></div>
-                <div class="w-6 md:w-10 h-[1px] bg-[#d4af37]/30"></div>
-            </div>
-
-            <!-- Paso 3 -->
-            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0c0a09] border border-[#d4af37]/20 shadow-[0_8px_20px_rgba(0,0,0,0.6)] transition-colors hover:border-[#d4af37]/40">
-                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#e8d48b] border border-[#d4af37]/40 bg-[#d4af37]/5">3</span>
-                <span class="text-[13px] md:text-sm font-medium text-[#e7e5e4] tracking-wide">Nombre</span>
-            </div>
-
-            <!-- Conector -->
-            <div class="hidden sm:flex items-center mx-1 sm:mx-2 opacity-60">
-                <div class="w-6 md:w-10 h-[1px] bg-[#d4af37]/30"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-[#d4af37]/40 shadow-[0_0_5px_rgba(212,175,55,0.3)]"></div>
-                <div class="w-6 md:w-10 h-[1px] bg-[#d4af37]/30"></div>
-            </div>
-
-            <!-- Paso ✓ (Destacado en Dorado Claro) -->
-            <div class="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#d4af37]/5 border border-[#d4af37]/30 shadow-[0_0_15px_rgba(212,175,55,0.08)] transition-colors hover:border-[#d4af37]/50">
-                <span class="flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold text-[#e8d48b] border border-[#d4af37]/50 bg-[#d4af37]/10">✓</span>
-                <span class="text-[13px] md:text-sm font-semibold text-[#e8d48b] tracking-wide">Listo</span>
-            </div>
-
-        </div>
-
-        <!-- Panel Liquid Glass Principal -->
-        <!-- CORRECCIÓN 1: Regresamos a w-full para que Setmore tenga espacio de renderizarse sin apretarse -->
-        <div class="relative w-full max-w-[880px] mx-auto" data-aos="zoom-in" data-aos-duration="1200">
-
-            <!-- Levitation glow beneath widget -->
-            <div class="absolute -bottom-6 left-[10%] right-[10%] h-16 rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(ellipse, rgba(245,158,11,0.12) 0%, transparent 70%);" aria-hidden="true"></div>
-
-            <!-- Outer Glass Shell -->
-            <div class="booking-glass-outer relative rounded-[1.75rem] p-[1px] group" style="background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 50%, rgba(245,158,11,0.08) 100%);">
-
-                <!-- Shimmer overlay — continuous liquid motion -->
-                <div class="booking-shimmer absolute inset-0 rounded-[1.75rem] pointer-events-none z-30 overflow-hidden">
-                    <div class="absolute inset-0 -translate-x-full animate-[bookingShimmer_4s_ease-in-out_infinite]" style="background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 45%, rgba(245,158,11,0.06) 50%, rgba(255,255,255,0.04) 55%, transparent 70%);"></div>
-                </div>
-
-                <!-- Inner container -->
-                <div class="relative rounded-[1.7rem] overflow-hidden booking-inner-glass" style="box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.04), inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.3); transform: translateZ(0); will-change: transform, backdrop-filter; backface-visibility: hidden;">
-
-                    <!-- Top edge highlight -->
-                    <div class="absolute top-0 left-[15%] right-[15%] h-[1px] z-20 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(245,158,11,0.25), rgba(255,255,255,0.15), rgba(245,158,11,0.25), transparent);"></div>
-
-                    <!-- Content wrapper with subtle inner glow -->
-                    <div class="relative p-1 sm:p-1.5">
-
-                        <!-- Iframe Container -->
-                        <!-- CORRECCIÓN 2: Usamos h-[480px] en móvil. Libera pantalla arriba/abajo para el scroll de la página -->
-                        <div class="relative w-full h-[480px] sm:h-[650px] rounded-[1.4rem] overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
-
-                            <iframe
-                                src="https://esteticaparis.setmore.com/926a54c2-88c3-4943-8cda-82c188dd0515"
-                                class="absolute inset-0 w-full h-full border-0 bg-transparent rounded-2xl"
-                                scrolling="yes"
-                                loading="lazy">
-                            </iframe>
-
+                <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    
+                    <!-- Icono flotante grande (sin caja) -->
+                    <div class="relative flex-shrink-0">
+                        <div class="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-[#d4af37] group-hover:text-[#e8d48b] transition-all duration-700 group-hover:scale-110">
+                            <svg class="w-14 h-14 md:w-16 md:h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
                         </div>
-
                     </div>
 
-                    <!-- Bottom edge highlight -->
-                    <div class="absolute bottom-0 left-[20%] right-[20%] h-[1px] z-20 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);"></div>
+                    <!-- Contenido -->
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
+                            <h3 class="text-2xl md:text-3xl font-bold text-[#e7e5e4] tracking-wide">Agenda Web</h3>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-[#d4af37] opacity-80 flex items-center gap-1.5">
+                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                Recomendado
+                            </span>
+                        </div>
+                        <p class="text-[#a8a29e] text-sm md:text-base leading-relaxed mb-6 max-w-md">
+                            Reserva tu espacio al instante, 24 horas al día, 7 días a la semana. Sin esperas, sin llamadas.
+                        </p>
+                        
+                        <!-- CTA Button Premium (Elegante y Cristalino) -->
+                        <div class="glass-btn inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-[#d4af37] font-semibold text-sm tracking-widest uppercase transition-all duration-500 group-hover:scale-[1.03]">
+                            <span>Agendar mi cita</span>
+                            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </div>
+                    </div>
 
                 </div>
 
-            </div>
 
+            </div>
+        </a>
+
+        <!-- Divider decorativo -->
+        <div data-aos="fade-up" data-aos-delay="150" class="flex items-center justify-center gap-4 mb-10 md:mb-14 max-w-md mx-auto">
+            <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#d4af37]/20"></div>
+            <span class="text-[11px] tracking-[0.3em] uppercase text-[#78716c] font-medium">o contáctanos</span>
+            <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#d4af37]/20"></div>
         </div>
 
-        <!-- Disclaimer -->
-        <div data-aos="fade-up" data-aos-delay="200" class="mt-10 md:mt-14 text-center max-w-lg mx-auto">
-            <div class="inline-flex items-start gap-3 px-5 py-3.5 rounded-2xl" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); box-shadow: inset 0 1px 1px rgba(255,255,255,0.04);">
-                <svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: rgba(245,158,11,0.5);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
-                </svg>
-                <p class="text-[12px] sm:text-[13px] leading-relaxed text-left" style="color: rgba(231,229,228,0.45);">
-                    La web solo aparta el lugar; el pago es en efectivo o terminal física en la barbería.
-                </p>
-            </div>
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- OPCIONES SECUNDARIAS — WhatsApp + Llamada     -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-2xl mx-auto px-2">
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/522461415946" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="200" class="booking-contact-card group relative flex items-center gap-4 sm:gap-5 p-5 sm:p-6 md:p-7 rounded-2xl transition-all duration-500 hover:-translate-y-1">
+                
+                <!-- Icono flotante -->
+                <div class="relative flex-shrink-0">
+                    <div class="w-12 h-12 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-all duration-500">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Contenido -->
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-lg font-semibold text-[#e7e5e4] mb-0.5 tracking-wide group-hover:text-white transition-colors">WhatsApp</h3>
+                    <p class="text-[#25D366] text-xs sm:text-sm font-medium tracking-wide booking-phone-number whitespace-nowrap">+52 246 141 5946</p>
+                </div>
+
+                <!-- Flecha -->
+                <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-[#25D366]/5 group-hover:bg-[#25D366]/15 transition-all duration-500">
+                    <svg class="w-3.5 h-3.5 text-[#25D366] transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Llamada -->
+            <a href="tel:+525555433875" data-aos="fade-up" data-aos-delay="300" class="booking-contact-card group relative flex items-center gap-4 sm:gap-5 p-5 sm:p-6 md:p-7 rounded-2xl transition-all duration-500 hover:-translate-y-1">
+                
+                <!-- Icono flotante -->
+                <div class="relative flex-shrink-0">
+                    <div class="w-12 h-12 flex items-center justify-center text-[#d4af37] group-hover:text-[#e8d48b] group-hover:scale-110 transition-all duration-500">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .948.684l1.498 4.493a1 1 0 0 1-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516 5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5Z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Contenido -->
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-lg font-semibold text-[#e7e5e4] mb-0.5 tracking-wide group-hover:text-white transition-colors">Llamar</h3>
+                    <p class="text-[#d4af37] text-xs sm:text-sm font-medium tracking-wide booking-phone-number whitespace-nowrap">55 5543 3875</p>
+                </div>
+
+                <!-- Flecha -->
+                <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-[#d4af37]/5 group-hover:bg-[#d4af37]/15 transition-all duration-500">
+                    <svg class="w-3.5 h-3.5 text-[#d4af37] transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </div>
+            </a>
+
         </div>
 
     </div>
 
     <style>
-        /* Animación para el fondo sutil */
+        /* ── Animations ── */
         @keyframes slowDrift {
             0% { transform: scale(1.05) translate(0, 0); }
             50% { transform: scale(1.1) translate(-1%, 1%); }
@@ -153,57 +158,73 @@ import fondoBooking from '../assets/images/fondo_booking.jpg';
             animation: slowDrift 20s ease-in-out infinite;
         }
 
-        @keyframes bookingShimmer {
+        @keyframes bookingCardShimmer {
             0%   { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
 
-        .booking-glass-outer {
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)) drop-shadow(0 0 60px rgba(245,158,11,0.06));
+        /* ── Hero Card (Agenda Web) ── */
+        .booking-hero-inner {
+            background-color: rgba(17, 17, 16, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-left: 1px solid rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 
+                0 30px 60px -10px rgba(0, 0, 0, 0.5),
+                0 15px 30px -15px rgba(0, 0, 0, 0.4),
+                inset 0 1px 10px rgba(255, 255, 255, 0.01);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .booking-glass-outer:hover {
-            filter: drop-shadow(0 28px 55px rgba(0,0,0,0.45)) drop-shadow(0 0 80px rgba(245,158,11,0.1));
-            transform: translateY(-4px);
+        .booking-hero-card:hover .booking-hero-inner {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 35px 70px -10px rgba(0, 0, 0, 0.6),
+                0 20px 40px -15px rgba(0, 0, 0, 0.5),
+                inset 0 1px 10px rgba(255, 255, 255, 0.02);
+            border-color: rgba(212, 175, 55, 0.10);
         }
 
-        /* Ambient orb blurs — solo desktop */
-        .booking-ambient-orb {
-            filter: blur(80px);
+        /* ── Contact Cards (WhatsApp / Llamada) ── */
+        .booking-contact-card {
+            background-color: rgba(17, 17, 16, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-left: 1px solid rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 
+                0 15px 30px -15px rgba(0, 0, 0, 0.4),
+                inset 0 1px 10px rgba(255, 255, 255, 0.01);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .booking-contact-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(212, 175, 55, 0.10);
+            box-shadow: 
+                0 20px 40px -15px rgba(0, 0, 0, 0.5),
+                inset 0 1px 10px rgba(255, 255, 255, 0.02);
+        }
+
+        /* Phone number subtle animation */
+        .booking-phone-number {
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.05em;
         }
 
         @media (max-width: 767px) {
-            .booking-ambient-orb {
-                display: none;
-            }
-            .booking-shimmer {
-                display: none;
-            }
-            .booking-glass-outer {
-                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-            }
-            .booking-glass-outer:hover {
-                transform: none;
-                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-            }
             .bg-drift {
                 animation: none !important;
-                transform: scale(1.05); /* Fijo en móvil para ahorrar batería y GPU */
+                transform: scale(1.05);
             }
-            .booking-inner-glass {
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-                background: rgba(12,10,9,0.98) !important; /* Color sólido casi opaco en móvil */
+            /* Mantenemos la transparencia y el cristal en móviles */
+            .booking-hero-card:hover .booking-hero-inner,
+            .booking-contact-card:hover {
+                transform: none;
             }
-        }
-        
-        /* Default para desktop */
-        .booking-inner-glass {
-            background: rgba(12,10,9,0.85);
-            backdrop-filter: blur(16px) saturate(1.4);
-            -webkit-backdrop-filter: blur(16px) saturate(1.4);
         }
     </style>
-
 </section>

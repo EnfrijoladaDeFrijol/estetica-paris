@@ -81,15 +81,17 @@ import fondo2 from '../assets/images/fondo2.jpg';
 <section class="relative py-28 md:py-36 px-6 flex items-center justify-center overflow-hidden section-glow-top" id="nosotros">
     
     <!-- 1. FOTOS DE FONDO -->
-    <div class="absolute inset-0 z-0 bg-[#111110]">
-        <div class="fondo-dinamico">
-            <Image src={corte1} alt="Detalle 1" width={1200} height={800} format="webp" quality={40} loading="lazy" />
-        </div>
-        <div class="fondo-dinamico">
-            <Image src={silla} alt="Detalle 2" width={1200} height={800} format="webp" quality={40} loading="lazy" />
-        </div>
-        <div class="fondo-dinamico">
-            <Image src={fondo2} alt="Detalle 3" width={1200} height={800} format="webp" quality={40} loading="lazy" />
+    <div class="absolute inset-0 z-0 bg-[#111110] overflow-hidden">
+        <div class="parallax-subtle w-full h-full scale-[1.15]" data-speed="0.15">
+            <div class="fondo-dinamico">
+                <Image src={corte1} alt="Detalle 1" width={1200} height={800} format="webp" quality={40} loading="lazy" />
+            </div>
+            <div class="fondo-dinamico">
+                <Image src={silla} alt="Detalle 2" width={1200} height={800} format="webp" quality={40} loading="lazy" />
+            </div>
+            <div class="fondo-dinamico">
+                <Image src={fondo2} alt="Detalle 3" width={1200} height={800} format="webp" quality={40} loading="lazy" />
+            </div>
         </div>
     </div>
 

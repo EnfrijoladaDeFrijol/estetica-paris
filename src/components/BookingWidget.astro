@@ -1,0 +1,208 @@
+---
+import { Image } from 'astro:assets';
+import fondoBooking from '../assets/images/fondo_booking.jpg';
+---
+<section class="relative py-28 md:py-40 px-4 sm:px-6 overflow-hidden bg-[#111110] min-h-screen flex items-center justify-center">
+
+    <!-- Imagen de fondo animada y sutil -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.12]">
+        <Image src={fondoBooking} alt="Fondo Booking" class="w-full h-full object-cover object-center bg-drift" format="webp" quality={60} />
+    </div>
+    
+    <!-- Gradientes de difuminado arriba y abajo -->
+    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#111110] via-transparent to-[#111110] pointer-events-none"></div>
+
+    <!-- Ambient golden orb behind widget -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(180,83,9,0.03) 40%, transparent 70%);" aria-hidden="true"></div>
+
+    <!-- Secondary orb for depth -->
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 60%);" aria-hidden="true"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10 w-full mt-10">
+
+        <!-- Título -->
+        <div data-aos="fade-up" class="text-center mb-6">
+            <span class="inline-block text-[11px] font-bold tracking-[0.35em] uppercase mb-5 text-[#d4af37]">Agenda Online</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
+                <span class="text-gradient-accent">Reserva tu</span>
+                <span class="text-[#e7e5e4]">Cita</span>
+            </h1>
+        </div>
+
+        <!-- Instrucción -->
+        <div data-aos="fade-up" data-aos-delay="100" class="text-center mb-6">
+            <p class="text-[13px] md:text-sm font-light text-[#a8a29e] tracking-widest uppercase">Sigue estos pasos:</p>
+        </div>
+
+        <!-- Indicador de Pasos Premium (Dorado Champagne) -->
+        <div data-aos="fade-up" data-aos-delay="150" class="flex flex-wrap justify-center items-center gap-4 sm:gap-0 mb-10 md:mb-16 px-2">
+
+            <!-- Paso 1 -->
+            <div class="flex items-center gap-2 sm:gap-3 step-anim step-anim-1">
+                <span class="flex items-center justify-center w-7 h-7 rounded-full text-[11px] font-bold text-[#e8d48b] border border-[#d4af37]/30 bg-[#d4af37]/5 relative before:absolute before:inset-0 before:rounded-full before:bg-[#d4af37]/10 before:blur-sm">1</span>
+                <span class="text-[12px] md:text-sm font-light text-[#e7e5e4] tracking-widest uppercase opacity-90">Servicio</span>
+            </div>
+
+            <!-- Conector -->
+            <div class="hidden sm:flex items-center mx-3 md:mx-5 opacity-50">
+                <div class="w-8 md:w-12 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="flex items-center gap-2 sm:gap-3 step-anim step-anim-2">
+                <span class="flex items-center justify-center w-7 h-7 rounded-full text-[11px] font-bold text-[#e8d48b] border border-[#d4af37]/30 bg-[#d4af37]/5 relative before:absolute before:inset-0 before:rounded-full before:bg-[#d4af37]/10 before:blur-sm">2</span>
+                <span class="text-[12px] md:text-sm font-light text-[#e7e5e4] tracking-widest uppercase opacity-90">Fecha</span>
+            </div>
+
+            <!-- Conector -->
+            <div class="hidden sm:flex items-center mx-3 md:mx-5 opacity-50">
+                <div class="w-8 md:w-12 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="flex items-center gap-2 sm:gap-3 step-anim step-anim-3">
+                <span class="flex items-center justify-center w-7 h-7 rounded-full text-[11px] font-bold text-[#e8d48b] border border-[#d4af37]/30 bg-[#d4af37]/5 relative before:absolute before:inset-0 before:rounded-full before:bg-[#d4af37]/10 before:blur-sm">3</span>
+                <span class="text-[12px] md:text-sm font-light text-[#e7e5e4] tracking-widest uppercase opacity-90">Nombre</span>
+            </div>
+
+            <!-- Conector -->
+            <div class="hidden sm:flex items-center mx-3 md:mx-5 opacity-50">
+                <div class="w-8 md:w-12 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
+            </div>
+
+            <!-- Paso ✓ -->
+            <div class="flex items-center gap-2 sm:gap-3 step-anim step-anim-4">
+                <span class="flex items-center justify-center w-7 h-7 rounded-full text-[12px] font-bold text-[#111110] bg-gradient-to-br from-[#e8d48b] to-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.3)]">✓</span>
+                <span class="text-[12px] md:text-sm font-medium text-[#d4af37] tracking-widest uppercase">Listo</span>
+            </div>
+
+        </div>
+
+        <!-- Botón para regresar -->
+        <div data-aos="fade-up" data-aos-delay="200" class="flex justify-center mb-10">
+            <a href="/#reservas" class="glass-btn group">
+                <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Volver a inicio
+            </a>
+        </div>
+
+        <!-- Panel Liquid Glass Principal -->
+        <div class="relative w-full max-w-[880px] mx-auto" data-aos="zoom-in" data-aos-duration="1200">
+
+            <!-- Levitation glow beneath widget -->
+            <div class="absolute -bottom-6 left-[10%] right-[10%] h-16 rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(ellipse, rgba(245,158,11,0.12) 0%, transparent 70%);" aria-hidden="true"></div>
+
+            <!-- Outer Glass Shell -->
+            <div class="booking-glass-outer relative rounded-[1.75rem] p-[1px] group" style="background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 50%, rgba(245,158,11,0.08) 100%);">
+
+                <!-- Shimmer overlay -->
+                <div class="booking-shimmer absolute inset-0 rounded-[1.75rem] pointer-events-none z-30 overflow-hidden">
+                    <div class="absolute inset-0 -translate-x-full animate-[bookingShimmer_4s_ease-in-out_infinite]" style="background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 45%, rgba(245,158,11,0.06) 50%, rgba(255,255,255,0.04) 55%, transparent 70%);"></div>
+                </div>
+
+                <!-- Inner container -->
+                <div class="relative rounded-[1.7rem] overflow-hidden booking-inner-glass" style="box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.04), inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.3); transform: translateZ(0); will-change: transform, backdrop-filter; backface-visibility: hidden;">
+
+                    <!-- Top edge highlight -->
+                    <div class="absolute top-0 left-[15%] right-[15%] h-[1px] z-20 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(245,158,11,0.25), rgba(255,255,255,0.15), rgba(245,158,11,0.25), transparent);"></div>
+
+                    <!-- Content wrapper with subtle inner glow -->
+                    <div class="relative p-1 sm:p-1.5">
+
+                        <!-- Iframe Container -->
+                        <div class="relative w-full h-[600px] sm:h-[650px] rounded-[1.4rem] overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
+                            <iframe
+                                src="https://esteticaparis.setmore.com/926a54c2-88c3-4943-8cda-82c188dd0515"
+                                class="absolute inset-0 w-full h-full border-0 bg-transparent rounded-2xl"
+                                scrolling="yes"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom edge highlight -->
+                    <div class="absolute bottom-0 left-[20%] right-[20%] h-[1px] z-20 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div data-aos="fade-up" data-aos-delay="200" class="mt-10 md:mt-14 text-center max-w-lg mx-auto">
+            <div class="inline-flex items-start gap-3 px-5 py-3.5 rounded-2xl" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); box-shadow: inset 0 1px 1px rgba(255,255,255,0.04);">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: rgba(245,158,11,0.5);" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                </svg>
+                <p class="text-[12px] sm:text-[13px] leading-relaxed text-left" style="color: rgba(231,229,228,0.45);">
+                    La web solo aparta el lugar; el pago es en efectivo o terminal física en la barbería.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        @keyframes slowDrift {
+            0% { transform: scale(1.05) translate(0, 0); }
+            50% { transform: scale(1.1) translate(-1%, 1%); }
+            100% { transform: scale(1.05) translate(0, 0); }
+        }
+        .bg-drift {
+            animation: slowDrift 20s ease-in-out infinite;
+        }
+        @keyframes bookingShimmer {
+            0%   { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .booking-glass-outer {
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)) drop-shadow(0 0 60px rgba(245,158,11,0.06));
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .booking-glass-outer:hover {
+            filter: drop-shadow(0 28px 55px rgba(0,0,0,0.45)) drop-shadow(0 0 80px rgba(245,158,11,0.1));
+            transform: translateY(-4px);
+        }
+        .booking-ambient-orb {
+            filter: blur(80px);
+        }
+        @media (max-width: 767px) {
+            .booking-ambient-orb { display: none; }
+            .booking-shimmer { display: none; }
+            .booking-glass-outer { filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+            .booking-glass-outer:hover {
+                transform: none;
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            }
+            .bg-drift {
+                animation: none !important;
+                transform: scale(1.05);
+            }
+            .booking-inner-glass {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(12,10,9,0.98) !important;
+            }
+        }
+        .booking-inner-glass {
+            background: rgba(12,10,9,0.85);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+        }
+
+        /* Animación Secuencial de Pasos */
+        @keyframes stepIlluminate {
+            0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 0px transparent); transform: scale(1); }
+            10%, 25% { opacity: 1; filter: drop-shadow(0 0 12px rgba(212,175,55,0.6)); transform: scale(1.05); }
+            40% { opacity: 0.5; filter: drop-shadow(0 0 0px transparent); transform: scale(1); }
+        }
+        .step-anim {
+            animation: stepIlluminate 5s infinite ease-in-out;
+        }
+        .step-anim-1 { animation-delay: 0s; }
+        .step-anim-2 { animation-delay: 1.25s; }
+        .step-anim-3 { animation-delay: 2.5s; }
+        .step-anim-4 { animation-delay: 3.75s; }
+    </style>
+</section>

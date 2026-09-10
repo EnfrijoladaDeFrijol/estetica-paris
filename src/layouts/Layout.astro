@@ -293,6 +293,14 @@ import '@fontsource/inter/latin-500.css';
             opacity: 0.04;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
+
+        /* ── Parallax Sutil ──────────────────────── */
+        @media (min-width: 768px) {
+            .parallax-subtle {
+                transform: translateY(var(--parallax-y, 0));
+                will-change: transform;
+            }
+        }
     </style>
 </head>
 <body>
@@ -340,6 +348,32 @@ import '@fontsource/inter/latin-500.css';
                     el.style.opacity = '1';
                     el.style.transform = 'none';
                 });
+            }
+
+            // Efecto Parallax Sutil (Profundidad)
+            const parallaxElements = document.querySelectorAll('.parallax-subtle');
+            if (parallaxElements.length > 0 && window.innerWidth >= 768) {
+                window.addEventListener('scroll', () => {
+                    requestAnimationFrame(() => {
+                        parallaxElements.forEach(el => {
+                            const speed = parseFloat(el.getAttribute('data-speed')) || 0.15;
+                            let yPos;
+                            
+                            // Si es absoluto, se mueve en base al scroll global (ideal para hero/top)
+                            if (el.hasAttribute('data-parallax-absolute')) {
+                                yPos = window.scrollY * speed;
+                            } else {
+                                // Relativo al centro del viewport (ideal para secciones intermedias)
+                                const rect = el.getBoundingClientRect();
+                                const viewportCenter = window.innerHeight / 2;
+                                const elementCenter = rect.top + (rect.height / 2);
+                                yPos = (elementCenter - viewportCenter) * speed;
+                            }
+                            
+                            el.style.setProperty('--parallax-y', `${yPos}px`);
+                        });
+                    });
+                }, { passive: true });
             }
         });
     </script>
