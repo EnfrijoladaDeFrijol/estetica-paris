@@ -30,46 +30,50 @@ import fondo2 from '../assets/images/fondo2.jpg';
     .fondo-dinamico:nth-child(3) { animation-delay: 10s; }
     
     @keyframes crossfade {
-        0% { opacity: 0; }
-        15% { opacity: 1; }
-        33% { opacity: 1; }
-        48% { opacity: 0; }
-        100% { opacity: 0; }
+        0%, 100% { opacity: 0; transform: scale(1); }
+        10%, 33% { opacity: 1; transform: scale(1.03); }
+        43% { opacity: 0; transform: scale(1.06); }
     }
 
-    /* 2. Efecto Cristal Oscuro Suave sin Blur Dinámico (Optimización FPS) */
+    /* 2. Efecto Panel Translúcido (Súper Ligero, Sin Blur para Móviles) */
     .nosotros-glass-panel {
-        background: rgba(17, 17, 16, 0.85); /* Fondo más sólido en lugar de usar blur costoso */
+        /* Usamos background-color en lugar de linear-gradient para una transición suave perfecta */
+        background-color: rgba(22, 22, 20, 0.75);
         border: 1px solid rgba(212, 175, 55, 0.05);
-        border-top: 1px solid rgba(212, 175, 55, 0.15);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        border-left: 1px solid rgba(255, 255, 255, 0.03);
         border-radius: 2rem;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        box-shadow: 
+            0 20px 50px rgba(0, 0, 0, 0.4),
+            inset 0 1px 15px rgba(255, 255, 255, 0.01);
         
-        /* OPTIMIZACIÓN CLAVE: Eliminar el backdrop-filter sobre una animación de fondo */
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        transform: translate3d(0, 0, 0); 
-    }
-    
-    /* Sin desenfoque completo para evitar lag al animar fondo */
-    @media (min-width: 768px) {
-        .nosotros-glass-panel {
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-        }
+        /* Transición suave para el botón de ojito */
+        transition: background-color 1s ease-in-out, box-shadow 1s ease-in-out, border 1s ease-in-out;
     }
 
-    .nosotros-glass-panel-strong {
-        background: rgba(17, 17, 16, 0.75);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+    /* Overlay: transición gradual y suave */
+    #nosotros-overlay {
+        transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Estado cuando se activa el ojito: solo se aclara un poco para ver el fondo */
+    .nosotros-glass-panel.glass-hidden {
+        background-color: rgba(17, 17, 16, 0.25);
         border: 1px solid rgba(212, 175, 55, 0.08);
-        border-radius: 1rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        transform: translate3d(0, 0, 0);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 
+            0 20px 50px rgba(0, 0, 0, 0.2),
+            inset 0 1px 15px rgba(255, 255, 255, 0.01);
+        /* Blur eliminado para mayor limpieza visual y ver mejor las fotos */
     }
 
-
+    /* Proteger legibilidad del texto cuando el panel está en modo "peek" */
+    .nosotros-glass-panel.glass-hidden h2,
+    .nosotros-glass-panel.glass-hidden p,
+    .nosotros-glass-panel.glass-hidden span {
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+    }
 </style>
 
 <section class="relative py-28 md:py-36 px-6 flex items-center justify-center overflow-hidden section-glow-top" id="nosotros">
@@ -112,29 +116,9 @@ import fondo2 from '../assets/images/fondo2.jpg';
                 </h2>
                 
                 <!-- Texto (Aclarado a gray-300 para mayor contraste) -->
-                <p class="text-gray-300 leading-relaxed text-lg max-w-3xl font-light mb-14">
+                <p class="text-gray-300 leading-relaxed text-lg max-w-3xl font-light">
                     Con años de experiencia perfeccionando su oficio, nuestro maestro barbero garantiza un trabajo impecable. Aquí no hay cortes genéricos, solo profesionalismo, tradición y atención absoluta al detalle.
                 </p>
-
-                <!-- Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full">
-                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
-                        <span class="text-3xl font-bold text-[#e8d48b]">10+</span>
-                        <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Años Exp.</span>
-                    </div>
-                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
-                        <span class="text-3xl font-bold text-[#e8d48b]">1k+</span>
-                        <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Clientes</span>
-                    </div>
-                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
-                        <span class="text-3xl font-bold text-[#e8d48b]">4.5</span>
-                        <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Estrellas</span>
-                    </div>
-                    <div class="nosotros-glass-panel-strong p-5 rounded-xl flex flex-col items-center justify-center">
-                        <span class="text-3xl font-bold text-[#e8d48b]">100%</span>
-                        <span class="text-[10px] text-gray-400 uppercase tracking-[0.15em] mt-1 font-semibold">Satisfacción</span>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -155,21 +139,17 @@ import fondo2 from '../assets/images/fondo2.jpg';
                 textVisible = !textVisible;
                 
                 if (!textVisible) {
-                    // Modo "Ver Fotos": Oscurecemos menos sin ocultar el texto
-                    panel.style.background = 'rgba(17,17,16,0.3)';
-                    panel.style.backdropFilter = 'none';
-                    panel.style.webkitBackdropFilter = 'none';
-                    overlay.style.opacity = '0.15';
+                    // Modo "Ver Fotos": Transición suave usando CSS class
+                    panel.classList.add('glass-hidden');
+                    overlay.style.opacity = '0.35'; // Más transparente para ver el fondo
                     
                     btn.title = 'Restaurar panel';
                     btn.style.opacity = '0.8';
                     // Cambia a icono de "Ojo cerrado"
                     icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.59 6.59m7.532 7.532l3.29 3.29M3 3l18 18"></path>';
                 } else {
-                    // Modo "Leer Texto": Regresa a la normalidad
-                    panel.style.background = '';
-                    panel.style.backdropFilter = 'none';
-                    panel.style.webkitBackdropFilter = 'none';
+                    // Modo "Leer Texto": Regresa a la normalidad usando la clase CSS
+                    panel.classList.remove('glass-hidden');
                     overlay.style.opacity = '1';
                     
                     btn.title = 'Ver fotos';

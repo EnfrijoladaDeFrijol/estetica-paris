@@ -1,9 +1,8 @@
 ---
-import { Image } from 'astro:assets';
-import torreHero from '../assets/images/torre_hero.png';
+// src/components/Hero.astro — Minimalist High-End Spa Look
 ---
 
-<section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-36 pb-32 md:pt-48 md:pb-40 overflow-hidden">
+<section class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
     
     <!-- Video de fondo -->
     <video 
@@ -14,56 +13,45 @@ import torreHero from '../assets/images/torre_hero.png';
         playsinline 
         preload="metadata"
         class="hero-video absolute inset-0 w-full h-full object-cover z-0 scale-105"
-        poster="/images/fondo_local.jpg"
+        poster="/images/fondo_local.webp"
     >
         <source src="/images/videos/hero_comprimi.mp4" type="video/mp4" />
     </video>
 
+    <!-- Overlay oscuro elegante — más fuerte para look clínico -->
+    <div class="absolute inset-0 z-0 pointer-events-none hero-overlay"></div>
 
-    <!-- Overlay oscuro elegante -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#111110]/95 via-[#111110]/85 to-[#111110]/95 z-0 pointer-events-none"></div>
-
+    <!-- Content -->
     <div class="z-10 max-w-3xl flex flex-col items-center" data-aos="fade-up" data-aos-duration="1200">
 
+
         <!-- Badge glass -->
-        <div class="mb-6 px-5 py-2 rounded-full glass-panel flex items-center gap-2" data-aos="fade-down" data-aos-delay="300">
-            <span class="text-[#d4af37] text-xs font-semibold tracking-widest uppercase">Estética Paris</span>
+        <div class="mb-8 hero-badge flex items-center gap-3" data-aos="fade-down" data-aos-delay="300">
+            <span class="hero-badge-line"></span>
+            <span class="text-xs tracking-[0.25em] uppercase hero-badge-text" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.2em;">Líderes en Belleza</span>
+            <span class="hero-badge-line"></span>
         </div>
 
-        <!-- Torre Eiffel -->
-        <div class="relative mb-10 flex justify-center items-center" data-aos="zoom-in" data-aos-delay="200">
-            <!-- Halo de luz — versión ligera en móvil -->
-            <div class="absolute inset-0 hero-tower-halo rounded-full scale-[1.1]"></div>
-            
-            <!-- El salto de tamaño: w-48 (Móvil), md:w-56 (Tablet), lg:w-64 (Escritorio) -->
-            <Image 
-                src={torreHero} 
-                alt="Logo Estética París" 
-                class="relative z-10 w-48 md:w-56 lg:w-64 object-contain hero-tower-img transition-transform duration-700 hover:scale-105"
-                width={256}
-                height={256}
-                format="webp"
-                loading="eager"
-            />
-        </div>
-
-        <!-- Título -->
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight text-gradient">
-            Alta Peluquería y Estética.
+        <!-- Título principal -->
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight text-gradient" data-aos="fade-up" data-aos-delay="400">
+            Alta Peluquería<br class="hidden sm:block"> y Estética.
         </h1>
         
-        <!-- Subtítulo -->
-        <p class="text-lg md:text-xl mb-12 text-[#a8a29e] font-light max-w-xl leading-relaxed">
-            Líderes profesionales en la Belleza. Realizamos cortes clásicos. 
+        <!-- Subtítulo descriptivo -->
+        <p class="text-lg md:text-xl mb-12 text-[#e8e6e3] font-light max-w-xl leading-loose" data-aos="fade-up" data-aos-delay="500">
+            Un espacio diseñado para tu bienestar.<br class="hidden md:block"> Cortes clásicos y tratamientos de belleza premium.
         </p>
 
         <!-- CTA -->
-        <a href="#reservas" class="glass-btn group ">
+        <a href="#reservas" class="glass-btn group" data-aos="fade-up" data-aos-delay="600">
             Agendar Cita
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
         </a>
+
+        <!-- Decorative line bottom -->
+        <div class="hero-line mt-10" data-aos="fade-up" data-aos-delay="700"></div>
     </div>
 
     <!-- Bottom fade -->
@@ -71,22 +59,48 @@ import torreHero from '../assets/images/torre_hero.png';
 </section>
 
 <style>
-    /* Halo de la torre optimizado: radial-gradient en lugar de blur() que es muy costoso para la GPU */
-    .hero-tower-halo {
-        background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.05) 40%, transparent 70%);
-    }
-    
-    /* Imagen de la torre optimizada: se elimina el drop-shadow dinámico sobre el video */
-    .hero-tower-img {
-        /* filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5)); */
+    /* ── Overlay: deep dark with subtle warm tint ── */
+    .hero-overlay {
+        background:
+            linear-gradient(180deg,
+                rgba(17,17,16,0.92) 0%,
+                rgba(17,17,16,0.78) 40%,
+                rgba(17,17,16,0.82) 70%,
+                rgba(17,17,16,0.95) 100%
+            );
     }
 
+    /* ── Decorative thin line ── */
+    .hero-line {
+        width: 3rem;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
+    }
 
+    /* ── Badge / Slogan ── */
+    .hero-badge {
+        /* No background or border — clean label */
+    }
+
+    .hero-badge-line {
+        display: block;
+        width: 2rem;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+    }
+
+    .hero-badge-text {
+        background: linear-gradient(135deg, #d4af37 0%, #e8d48b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* ── Mobile ── */
     @media (max-width: 767px) {
-        .hero-tower-halo {
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+        .hero-video {
+            transform: none !important;
         }
-
     }
 </style>
 
@@ -107,12 +121,12 @@ import torreHero from '../assets/images/torre_hero.png';
             connection.effectiveType === '3g'
         );
 
-        // Si es móvil y tiene conexión lenta, evitamos reproducir el video
-        if (isMobile && isSlowConnection) {
+        // En móvil, desactivar video para evitar lag en gama baja/media
+        if (isMobile) {
             video.pause();
             video.removeAttribute('autoplay');
-            // Se mostrará el 'poster' estático que ya tiene el video (fondo_local.jpg)
-            return; // Termina la ejecución para no agregar el IntersectionObserver
+            // Se mostrará el 'poster' estático que ya tiene el video
+            return;
         }
 
         // Pausar video cuando no es visible (solo si superó el filtro anterior)
