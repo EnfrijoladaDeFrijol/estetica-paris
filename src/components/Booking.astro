@@ -1,4 +1,16 @@
-<section id="reservas" class="relative py-28 md:py-40 px-4 sm:px-6 overflow-hidden section-glow-top" style="background: linear-gradient(180deg, transparent 0%, rgba(12,10,9,0.6) 20%, rgba(12,10,9,0.6) 80%, transparent 100%);">
+---
+import { Image } from 'astro:assets';
+import fondoBooking from '../assets/images/fondo_booking.jpg';
+---
+<section id="reservas" class="relative py-28 md:py-40 px-4 sm:px-6 overflow-hidden section-glow-top bg-[#111110]">
+
+    <!-- Imagen de fondo animada y sutil -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.12]">
+        <Image src={fondoBooking} alt="Fondo Booking" class="w-full h-full object-cover object-center bg-drift" />
+    </div>
+    
+    <!-- Gradientes de difuminado arriba y abajo para fundirse con las otras secciones sin cortes duros -->
+    <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#111110] via-transparent to-[#111110] pointer-events-none"></div>
 
     <!-- Ambient golden orb behind widget -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none booking-ambient-orb" style="background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(180,83,9,0.03) 40%, transparent 70%);" aria-hidden="true"></div>
@@ -131,6 +143,16 @@
     </div>
 
     <style>
+        /* Animación para el fondo sutil */
+        @keyframes slowDrift {
+            0% { transform: scale(1.05) translate(0, 0); }
+            50% { transform: scale(1.1) translate(-1%, 1%); }
+            100% { transform: scale(1.05) translate(0, 0); }
+        }
+        .bg-drift {
+            animation: slowDrift 20s ease-in-out infinite;
+        }
+
         @keyframes bookingShimmer {
             0%   { transform: translateX(-100%); }
             100% { transform: translateX(100%); }

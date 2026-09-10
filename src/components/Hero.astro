@@ -121,8 +121,8 @@
             connection.effectiveType === '3g'
         );
 
-        // En móvil, desactivar video para evitar lag en gama baja/media
-        if (isMobile) {
+        // Pausar el video en conexiones lentas o con ahorro de datos
+        if (isSlowConnection) {
             video.pause();
             video.removeAttribute('autoplay');
             // Se mostrará el 'poster' estático que ya tiene el video
