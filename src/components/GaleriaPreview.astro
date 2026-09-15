@@ -1,0 +1,301 @@
+---
+/* GaleriaPreview — Sección de portafolio para index.astro */
+---
+
+<section class="relative py-28 md:py-36 md:px-6 section-glow-top overflow-hidden" id="galeria">
+
+    <!-- Título de sección -->
+    <div class="px-6 md:px-0 max-w-6xl mx-auto text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl text-gradient leading-tight mb-5">
+            Nuestro Trabajo
+        </h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-base md:text-lg font-light leading-relaxed">
+            Cada corte es una pieza única. Descubre el nivel de detalle y precisión que nos distingue.
+        </p>
+    </div>
+
+    <!-- Grid de imágenes (Slider en móvil, Grid en PC) -->
+    <div class="w-full max-w-[90rem] md:px-8 mx-auto relative group" data-aos="fade-up" data-aos-delay="200">
+        
+        <!-- Fade bordes (controlados por JS, solo móvil) -->
+        <div id="galeriaFadeLeft" class="absolute left-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-r from-[#111110] to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300 md:hidden"></div>
+        <div id="galeriaFadeRight" class="absolute right-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-l from-[#111110] to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300 md:hidden"></div>
+
+        <!-- Flechas (Solo móvil) -->
+        <button id="galeriaLeft" aria-label="Anterior" class="galeria-arrow flex md:hidden absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+        </button>
+
+        <button id="galeriaRight" aria-label="Siguiente" class="galeria-arrow flex md:hidden absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.03] backdrop-blur-[24px] backdrop-saturate-[1.4] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] text-[#d4af37] transition-all duration-300 hover:bg-white/[0.05] hover:border-[#d4af37]/40 hover:scale-105">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+        </button>
+
+        <div id="galeriaTrack" class="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory px-[8vw] sm:px-[calc((100vw-340px)/2)] md:px-0 pb-6 md:pb-0 hide-scrollbar" style="scroll-behavior: smooth;">
+            {[
+                { src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=750&fit=crop&q=80", titulo: "Fade Clásico" },
+                { src: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&h=750&fit=crop&q=80", titulo: "Corte Texturizado" },
+                { src: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&h=750&fit=crop&q=80", titulo: "Barba Esculpida" },
+                { src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=750&fit=crop&q=80", titulo: "Estilo Ejecutivo" },
+                { src: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=750&fit=crop&q=80", titulo: "Degradado Bajo" },
+                { src: "https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=600&h=750&fit=crop&q=80", titulo: "Acabado Premium" },
+                { src: "https://images.unsplash.com/photo-1596728325395-481c60a33ccc?w=600&h=750&fit=crop&q=80", titulo: "Barba Perfilada" },
+                { src: "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&h=850&fit=crop&q=80", titulo: "Mechas Sutiles" },
+            ].map((item) => (
+                <div class="galeria-item flex-none w-[84vw] sm:w-[340px] md:w-auto snap-center md:snap-align-none group relative rounded-2xl overflow-hidden cursor-pointer aspect-[4/5]" style="user-select: none;">
+                    <img
+                        src={item.src}
+                        alt={item.titulo}
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover pointer-events-none"
+                    />
+                </div>
+            ))}
+        </div>
+
+        <!-- Paginación móvil -->
+        <div class="flex md:hidden justify-center items-center gap-3 mt-6" id="galeriaDots"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="px-6 md:px-0 text-center mt-14" data-aos="fade-up" data-aos-delay="400">
+        <a href="/galeria" class="glass-btn">
+            <span>Ver Trabajo Completo</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+        </a>
+    </div>
+
+</section>
+
+<style>
+    .galeria-item {
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .galeria-item:hover {
+        border-color: rgba(212, 175, 55, 0.2);
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(212, 175, 55, 0.06);
+    }
+
+    .glass-panel-overlay {
+        background: rgba(17, 17, 16, 0.65);
+        backdrop-filter: blur(12px) saturate(1.3);
+        -webkit-backdrop-filter: blur(12px) saturate(1.3);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Ocultar scrollbar para el slider horizontal en móvil */
+    .hide-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        .glass-panel-overlay {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            background: rgba(17, 17, 16, 0.85);
+        }
+        /* En móvil siempre visible el overlay */
+        .galeria-item .absolute.inset-x-0 {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* ══════════════════════════════════════
+       FLECHAS DE NAVEGACIÓN
+       ══════════════════════════════════════ */
+    .galeria-arrow {
+        cursor: pointer;
+        outline: none;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .galeria-arrow.visible {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .galeria-arrow:hover svg {
+        filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+    }
+
+    /* ══════════════════════════════════════
+       DOTS (Paginación)
+       ══════════════════════════════════════ */
+    .galeria-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.15);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .galeria-dot.active {
+        width: 24px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .galeria-dot.active::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 100%;
+        background: #d4af37;
+        border-radius: 9999px;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    }
+</style>
+
+<script is:inline>
+(function() {
+    var track = document.getElementById('galeriaTrack');
+    var dotsContainer = document.getElementById('galeriaDots');
+    var btnL = document.getElementById('galeriaLeft');
+    var btnR = document.getElementById('galeriaRight');
+    var fadeL = document.getElementById('galeriaFadeLeft');
+    var fadeR = document.getElementById('galeriaFadeRight');
+    
+    if (!track) return;
+    
+    var items = track.querySelectorAll('.galeria-item');
+    var dots = [];
+    var currentCardWidth = 280; // valor inicial
+
+    function updateCardWidth() {
+        if (items.length > 0) {
+            var style = window.getComputedStyle(track);
+            var gap = parseFloat(style.gap) || 20; // 20px es el gap-5 por defecto
+            currentCardWidth = items[0].offsetWidth + gap;
+        }
+    }
+
+    if (dotsContainer && items.length > 0) {
+        updateCardWidth();
+        items.forEach(function(_, i) {
+            var dot = document.createElement('div');
+            dot.className = 'galeria-dot';
+            if (i === 0) dot.classList.add('active');
+            
+            dot.addEventListener('click', function() {
+                var scrollTarget = i * currentCardWidth;
+                if (i === items.length - 1) {
+                    scrollTarget = track.scrollWidth;
+                }
+                track.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+            });
+            dotsContainer.appendChild(dot);
+            dots.push(dot);
+        });
+    }
+
+    function updateUI() {
+        if (window.innerWidth >= 768) {
+            if (btnL) btnL.classList.remove('visible');
+            if (btnR) btnR.classList.remove('visible');
+            return;
+        }
+
+        var sl = track.scrollLeft;
+        var sw = track.scrollWidth;
+        var cw = track.clientWidth;
+        var thr = 12;
+        
+        var canLeft = sl > thr;
+        var canRight = sl + cw < sw - thr;
+        
+        if (btnL) btnL.classList.toggle('visible', canLeft);
+        if (btnR) btnR.classList.toggle('visible', canRight);
+
+        if (fadeL) fadeL.style.opacity = canLeft ? '1' : '0';
+        if (fadeR) fadeR.style.opacity = canRight ? '1' : '0';
+        
+        if (dots.length > 0) {
+            var activeIndex = Math.round(sl / currentCardWidth);
+            if (activeIndex >= dots.length) activeIndex = dots.length - 1;
+            dots.forEach(function(dot, i) {
+                dot.classList.toggle('active', i === activeIndex);
+            });
+        }
+    }
+
+    track.addEventListener('scroll', updateUI, { passive: true });
+    window.addEventListener('resize', function() {
+        updateCardWidth();
+        updateUI();
+    });
+    updateUI();
+    setTimeout(updateUI, 150);
+
+    if (btnL) btnL.addEventListener('click', function() { track.scrollBy({ left: -currentCardWidth, behavior: 'smooth' }); });
+    if (btnR) btnR.addEventListener('click', function() { track.scrollBy({ left: currentCardWidth, behavior: 'smooth' }); });
+
+    // --- Drag to Scroll ---
+    var isDown = false, startX, scrollLeft;
+    
+    track.addEventListener('mousedown', function(e) {
+        if (window.innerWidth >= 768) return; 
+        isDown = true;
+        track.style.cursor = 'grabbing';
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    });
+    track.addEventListener('mouseleave', function() {
+        isDown = false;
+        track.style.cursor = '';
+    });
+    track.addEventListener('mouseup', function() {
+        isDown = false;
+        track.style.cursor = '';
+    });
+    track.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - track.offsetLeft;
+        var walk = (x - startX) * 1.5;
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+    // --- Auto Scroll ---
+    var autoScrollTimer;
+    function startAutoScroll() {
+        if (window.innerWidth >= 768) return; 
+        autoScrollTimer = setInterval(function() {
+            if (!isDown) {
+                var maxScroll = track.scrollWidth - track.clientWidth;
+                if (track.scrollLeft >= maxScroll - 10) {
+                    track.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    track.scrollBy({ left: currentCardWidth, behavior: 'smooth' });
+                }
+            }
+        }, 3500);
+    }
+    function stopAutoScroll() {
+        clearInterval(autoScrollTimer);
+    }
+
+    startAutoScroll();
+    track.addEventListener('mouseenter', stopAutoScroll);
+    track.addEventListener('mouseleave', startAutoScroll);
+    track.addEventListener('touchstart', stopAutoScroll, { passive: true });
+    track.addEventListener('touchend', startAutoScroll, { passive: true });
+})();
+</script>

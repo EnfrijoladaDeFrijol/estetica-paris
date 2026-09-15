@@ -37,21 +37,13 @@ const {
 
         <!-- Content -->
         <div class="relative z-20 p-5 flex flex-col flex-1">
-            <!-- Icon + Price Row -->
-            <div class="flex items-start justify-between mb-6">
+            <!-- Icon Row -->
+            <div class="flex items-start mb-5">
                 <!-- Icon -->
                 <div class="relative">
                     <slot name="icono" />
                     <!-- Subtle glow behind icon on hover -->
                     <div class="absolute inset-0 rounded-xl bg-[#d4af37]/0 group-hover:bg-[#d4af37]/10 blur-xl transition-all duration-500 -z-10 scale-150"></div>
-                </div>
-                
-                <!-- Price badge -->
-                <div class="text-right relative">
-                    {etiqueta && (
-                        <span class="text-[10px] text-[#78716c] uppercase tracking-[0.15em] font-semibold block mb-0.5">{etiqueta}</span>
-                    )}
-                    <span class="block text-2xl font-bold text-[#e8d48b] group-hover:text-[#f0e0a0] transition-colors duration-300 tabular-nums drop-shadow-md">{precio}</span>
                 </div>
             </div>
             

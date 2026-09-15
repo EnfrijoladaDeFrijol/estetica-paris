@@ -2,6 +2,8 @@
 // Productos.astro — Sección "Nuestros Favoritos"
 // Diseño: Liquid Glass High-End con paginación integrada
 import { Image } from 'astro:assets';
+import prod7 from '../assets/images/productos/7.png';
+import prod8 from '../assets/images/productos/8.png';
 import prod1 from '../assets/images/productos/1.png';
 import prod2 from '../assets/images/productos/2.png';
 import prod3 from '../assets/images/productos/3.png';
@@ -10,6 +12,8 @@ import prod5 from '../assets/images/productos/5.png';
 import prod6 from '../assets/images/productos/6.png';
 
 const productos = [
+    { src: prod7, alt: "Salerm 21 Leave-in Conditioner", brand: "Salerm Cosmetics", name: "Salerm 21 Leave-in Conditioner", price: "$990"},
+    { src: prod8, alt: "21 Shampoo", brand: "Salerm Cosmetics", name: "21 Shampoo by Salerm", price: "$1,150" },
     { src: prod1, alt: "Balsami Presto Treatment", brand: "TEC ITALY", name: "Balsami Presto Treatment", price: "$850" },
     { src: prod2, alt: "Due Faccetta Massimo", brand: "TEC ITALY", name: "Due Faccetta Massimo", price: "$490" },
     { src: prod3, alt: "Due Faccetta Pro Treatment", brand: "TEC ITALY", name: "Due Faccetta Pro Treatment", price: "$510" },
@@ -84,7 +88,6 @@ const productos = [
                         <div class="prod-info">
                             <span class="prod-brand">{prod.brand}</span>
                             <h3 class="prod-name">{prod.name}</h3>
-                            <p class="prod-price">{prod.price}</p>
                         </div>
                     </article>
                 ))}
@@ -233,14 +236,7 @@ const productos = [
         color: #e8e6e3;
         line-height: 1.4;
         margin-top: 0.1rem;
-    }
-
-    .prod-price {
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        color: #e8d48b;
-        margin-top: 0.4rem;
+        margin-bottom: 0.5rem;
     }
 
     /* ══════════════════════════════════════
@@ -407,5 +403,31 @@ const productos = [
         var walk = (x - startX) * 1.6;
         track.scrollLeft = scrollLeft - walk;
     });
+
+    // Auto-scroll logic
+    var autoScrollTimer;
+    function startAutoScroll() {
+        autoScrollTimer = setInterval(function() {
+            if (!isDown) {
+                var maxScroll = track.scrollWidth - track.clientWidth;
+                if (track.scrollLeft >= maxScroll - 10) {
+                    track.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    track.scrollBy({ left: STEP, behavior: 'smooth' });
+                }
+            }
+        }, 3000);
+    }
+    
+    function stopAutoScroll() {
+        clearInterval(autoScrollTimer);
+    }
+
+    startAutoScroll();
+    
+    track.addEventListener('mouseenter', stopAutoScroll);
+    track.addEventListener('mouseleave', startAutoScroll);
+    track.addEventListener('touchstart', stopAutoScroll, { passive: true });
+    track.addEventListener('touchend', startAutoScroll, { passive: true });
 })();
 </script>
