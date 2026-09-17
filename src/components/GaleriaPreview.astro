@@ -105,6 +105,7 @@ const fila2 = galeriaItems.slice(mitad);
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        pointer-events: none; /* Deshabilita clicks e interacciones */
     }
 
     .carousel-row {
@@ -131,11 +132,6 @@ const fila2 = galeriaItems.slice(mitad);
         animation: scrollRight 50s linear infinite;
     }
 
-    /* Pause on hover */
-    .carousel-mosaic:hover .carousel-track {
-        animation-play-state: paused;
-    }
-
     @keyframes scrollLeft {
         0% { transform: translateX(0); }
         100% { transform: translateX(-33.333%); }
@@ -158,16 +154,6 @@ const fila2 = galeriaItems.slice(mitad);
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.06);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-        transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
-    }
-
-    .carousel-tile:hover {
-        border-color: rgba(212, 175, 55, 0.35);
-        box-shadow:
-            0 12px 40px rgba(0, 0, 0, 0.5),
-            0 0 30px rgba(212, 175, 55, 0.1);
-        transform: scale(1.04);
-        z-index: 5;
     }
 
     /* Variantes de tamaño para efecto mosaico */
@@ -184,11 +170,6 @@ const fila2 = galeriaItems.slice(mitad);
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .carousel-tile:hover .carousel-tile-img {
-        transform: scale(1.08);
     }
 
     /* Glow sutil en cada tile */
@@ -202,16 +183,6 @@ const fila2 = galeriaItems.slice(mitad);
         );
         pointer-events: none;
         border-radius: inherit;
-        transition: opacity 0.4s ease;
-    }
-
-    .carousel-tile:hover .carousel-tile-glow {
-        background: linear-gradient(
-            to top,
-            rgba(212, 175, 55, 0.12) 0%,
-            rgba(0, 0, 0, 0.15) 30%,
-            transparent 60%
-        );
     }
 
     /* ══════════════════════════════════════
