@@ -406,9 +406,12 @@ const productos = [
 
     // Auto-scroll logic
     var autoScrollTimer;
+    var isSectionVisible = false;
+
     function startAutoScroll() {
+        if (autoScrollTimer) clearInterval(autoScrollTimer);
         autoScrollTimer = setInterval(function() {
-            if (!isDown) {
+            if (!isDown && isSectionVisible) {
                 var maxScroll = track.scrollWidth - track.clientWidth;
                 if (track.scrollLeft >= maxScroll - 10) {
                     track.scrollTo({ left: 0, behavior: 'smooth' });
@@ -423,11 +426,31 @@ const productos = [
         clearInterval(autoScrollTimer);
     }
 
-    startAutoScroll();
+    var section = document.getElementById('productos');
+    if (section && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                isSectionVisible = entry.isIntersecting;
+                if (isSectionVisible) {
+                    startAutoScroll();
+                } else {
+                    stopAutoScroll();
+                }
+            });
+        }, { threshold: 0.15 });
+        observer.observe(section);
+    } else {
+        isSectionVisible = true;
+        startAutoScroll();
+    }
     
     track.addEventListener('mouseenter', stopAutoScroll);
-    track.addEventListener('mouseleave', startAutoScroll);
+    track.addEventListener('mouseleave', function() {
+        if (isSectionVisible) startAutoScroll();
+    });
     track.addEventListener('touchstart', stopAutoScroll, { passive: true });
-    track.addEventListener('touchend', startAutoScroll, { passive: true });
+    track.addEventListener('touchend', function() {
+        if (isSectionVisible) startAutoScroll();
+    }, { passive: true });
 })();
 </script>

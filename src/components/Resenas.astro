@@ -220,6 +220,15 @@ const resenas = [
         }
     }
 
+    /* Optimización: Sin efecto blur en el carrusel en movimiento porque consume muchos recursos */
+    .carousel-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(255, 255, 255, 0.03) !important; 
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        border-radius: 1rem;
+    }
+
     /* No hover effect en tarjetas del carrusel (evita saltos) */
     .carousel-card:hover {
         transform: none !important;
