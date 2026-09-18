@@ -1,0 +1,193 @@
+---
+---
+
+<section class="marcas-section relative py-4 md:py-6 overflow-hidden bg-[#111110]">
+    <!-- Línea divisora superior -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 md:w-1/2 h-[1px] bg-gradient-to-r from-transparent via-[#e8d48b]/20 to-transparent"></div>
+
+    <!-- Marquee Container -->
+    <div class="marquee-wrapper relative">
+        <!-- Fade edges -->
+        <div class="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10 bg-gradient-to-r from-[#111110] to-transparent pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10 bg-gradient-to-l from-[#111110] to-transparent pointer-events-none"></div>
+
+        <!-- Track -->
+        <div class="marquee-track">
+            <!-- Set 1 -->
+            <div class="marquee-content" aria-hidden="false">
+                <span class="brand-logo brand-tecitaly">TEC ITALY</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-hairlab">HAIRLAB</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-salerm">Salerm Cosmetics</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-ingrid">Ingrid Paris</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-hidra">HIDRA</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-xiomara">Xiomara</span>
+                <span class="brand-separator">✦</span>
+            </div>
+            <!-- Set 2 (duplicate for seamless loop) -->
+            <div class="marquee-content" aria-hidden="true">
+                <span class="brand-logo brand-tecitaly">TEC ITALY</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-hairlab">HAIRLAB</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-salerm">Salerm Cosmetics</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-ingrid">Ingrid Paris</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-hidra">HIDRA</span>
+                <span class="brand-separator">✦</span>
+                <span class="brand-logo brand-xiomara">Xiomara</span>
+                <span class="brand-separator">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Línea divisora inferior -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 md:w-1/2 h-[1px] bg-gradient-to-r from-transparent via-[#e8d48b]/20 to-transparent"></div>
+</section>
+
+<style>
+    /* ── Marquee wrapper ── */
+    .marquee-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee-scroll 28s linear infinite;
+    }
+
+
+    .marquee-content {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex-shrink: 0;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes marquee-scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* ── Brand logos (typographic) ── */
+    .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.6rem 1.8rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: default;
+        position: relative;
+    }
+
+    .brand-logo:hover {
+        transform: scale(1.05);
+    }
+
+    @media (min-width: 768px) {
+        .brand-logo {
+            padding: 0.8rem 2.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+        }
+    }
+
+    /* ── Individual brand styles ── */
+    .brand-tecitaly {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        color: rgba(232, 212, 139, 0.7);
+    }
+    .brand-tecitaly:hover {
+        color: rgba(232, 212, 139, 1);
+        text-shadow: 0 0 20px rgba(232, 212, 139, 0.3);
+    }
+
+    .brand-hairlab {
+        font-family: 'Inter', sans-serif;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.45);
+        letter-spacing: 0.4em;
+    }
+    .brand-hairlab:hover {
+        color: rgba(255, 255, 255, 0.85);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .brand-salerm {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 600;
+        font-style: italic;
+        color: rgba(232, 212, 139, 0.55);
+        letter-spacing: 0.15em;
+        text-transform: none;
+    }
+    .brand-salerm:hover {
+        color: rgba(232, 212, 139, 0.95);
+        text-shadow: 0 0 20px rgba(232, 212, 139, 0.25);
+    }
+
+    .brand-ingrid {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.35em;
+    }
+    .brand-ingrid:hover {
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .brand-hidra {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        color: rgba(232, 212, 139, 0.6);
+        letter-spacing: 0.5em;
+    }
+    .brand-hidra:hover {
+        color: rgba(232, 212, 139, 1);
+        text-shadow: 0 0 20px rgba(232, 212, 139, 0.3);
+    }
+
+    .brand-xiomara {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 0.3em;
+        font-style: italic;
+    }
+    .brand-xiomara:hover {
+        color: rgba(255, 255, 255, 0.85);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    /* ── Separator ── */
+    .brand-separator {
+        color: rgba(232, 212, 139, 0.2);
+        font-size: 0.6rem;
+        padding: 0 1rem;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .brand-separator {
+            padding: 0 1.5rem;
+            font-size: 0.7rem;
+        }
+    }
+</style>
